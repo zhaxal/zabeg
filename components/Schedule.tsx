@@ -1,3 +1,4 @@
+import { handleScrollToElement } from "@/utils/scroll";
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import { FC } from "react";
 
@@ -50,8 +51,8 @@ const TableRow: FC<TableRowProps> = ({ time, description }) => {
 const Schedule: FC = () => {
   return (
     <Box
+      id="schedule"
       sx={{
-        backgroundColor: "#F89C43",
         backgroundImage: "url(/images/schedule.svg)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -123,6 +124,7 @@ const Schedule: FC = () => {
           }}
         >
           <Typography
+            onClick={handleScrollToElement("park")}
             sx={{
               fontFamily: "Gotham Pro Bold",
               fontSize: "18px",

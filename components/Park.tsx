@@ -22,9 +22,9 @@ const Park: FC = () => {
 
   return (
     <Box
+      id="park"
       sx={{
         pt: "68px",
-        backgroundColor: "#60D0FF",
         backgroundImage: "url(/images/park.svg)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",

@@ -59,8 +59,8 @@ const TableRow: FC<TableRowProps> = ({
 const Distance: FC = () => {
   return (
     <Box
+      id="distance"
       sx={{
-        backgroundColor: "#88D8FC",
         backgroundImage: "url(/images/distance.svg)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",

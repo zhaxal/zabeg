@@ -94,8 +94,8 @@ const GuideRow: FC<GuideRowProps> = ({ title, text, icon, position, step }) => {
 const Guide: FC = () => {
   return (
     <Box
+      id="guide"
       sx={{
-        backgroundColor: "#0461B5",
         backgroundImage: "url(/images/guide.svg)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -154,7 +154,7 @@ const Guide: FC = () => {
                 допускающую к соревнованиям. Без нее вам организаторы не
                 разрешат участвовать в забеге.
               </Typography>
-              
+
               <Link
                 component="p"
                 href="https://mos.ru/mayor/themes/1040/"

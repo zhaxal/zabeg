@@ -1,11 +1,12 @@
+import { handleScrollToElement } from "@/utils/scroll";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { FC } from "react";
 
 const Description: FC = () => {
   return (
     <Box
+      id="description"
       sx={{
-        backgroundColor: "#0098D7",
         backgroundImage: "url(/images/description.svg)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -51,6 +52,7 @@ const Description: FC = () => {
           </Typography>
           <Box px="75px">
             <Button
+              onClick={handleScrollToElement("park")}
               sx={{
                 position: "relative",
                 background: "linear-gradient(90deg, #FFD324 0%, #FF8900 100%)",
@@ -69,7 +71,7 @@ const Description: FC = () => {
             >
               ЗАРЕГИСТРИРОВАТЬСЯ
               <Box
-                sx={{ position: "absolute", top: "67px" }}
+                sx={{ position: "absolute", top: "100%" }}
                 component="img"
                 src="/images/medal.svg"
               />

@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { FC } from "react";
 
 const Description: FC = () => {
@@ -35,6 +35,7 @@ const Description: FC = () => {
           </Typography>
           <Typography
             sx={{
+              mb: "64px",
               textIndent: "32px",
               maxWidth: "400px",
               fontFamily: "Gotham Pro Regular",
@@ -48,6 +49,32 @@ const Description: FC = () => {
             массовом состязании, так и любителям, которые хотят подготовиться к
             марафонам. Все на старт!
           </Typography>
+          <Box px="75px">
+            <Button
+              sx={{
+                position: "relative",
+                background: "linear-gradient(90deg, #FFD324 0%, #FF8900 100%)",
+                boxShadow: "0px 4px 0px rgba(0, 0, 0, 0.16)",
+                borderRadius: "8px",
+                fontFamily: "Gotham Pro Bold",
+                fontSize: "18px",
+                lineHeight: "152%",
+                color: "#31313E",
+                px: "40px",
+                py: "20px",
+                "& .MuiTouchRipple-root": {
+                  color: "#FFFFFF", // Change this to the desired ripple color
+                },
+              }}
+            >
+              ЗАРЕГИСТРИРОВАТЬСЯ
+              <Box
+                sx={{ position: "absolute", top: "67px" }}
+                component="img"
+                src="/images/medal.svg"
+              />
+            </Button>
+          </Box>
         </Box>
       </Stack>
       <Box pt="130px" px="110px">

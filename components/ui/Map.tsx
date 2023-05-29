@@ -10,8 +10,8 @@ const Map: FC<MapProps> = ({ mapLink }) => {
       component="iframe"
       border="none"
       src={mapLink}
-      width="508px"
-      height="508px"
+      width="100%"
+      minHeight="508px"
     />
   );
 };

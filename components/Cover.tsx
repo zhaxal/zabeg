@@ -12,6 +12,7 @@ const Cover: FC = () => {
       ></Box>
       <Box
         sx={{
+          backgroundColor: "#0F2572",
           backgroundImage: "url(/images/mobile/cover.svg)",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",

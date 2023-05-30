@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import Park from "@/components/Park";
 import Photo from "@/components/Photo";
 import Schedule from "@/components/Schedule";
-import { Box, Container, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Container, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
 
 export default function Preview() {
   const theme = useTheme();
@@ -15,6 +15,7 @@ export default function Preview() {
 
   return (
     <>
+      <CssBaseline />
       <Navbar />
       {matches && (
         <Container maxWidth="lg">
@@ -38,7 +39,9 @@ export default function Preview() {
         </Container>
       )}
       {!matches && (
-        <>
+        <Box sx={{
+          borderCollapse: "collapse",
+        }}>
           <Cover />
           <Description />
           <Distance />
@@ -71,7 +74,7 @@ export default function Preview() {
           }}
         />
         <Footer /> */}
-        </>
+        </Box>
       )}
     </>
   );

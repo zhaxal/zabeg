@@ -75,74 +75,78 @@ const Distance: FC = () => {
 
   return (
     <Box
-      id="distance"
       sx={{
-        backgroundImage: matches
-          ? "url(/images/distance.svg)"
-          : "url(/images/mobile/distance.svg)",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "bottom",
-        backgroundSize: "cover",
-        backgroundColor: "#88D8FC",
-        aspectRatio: matches ? "1170/1027" : sm ? "480/600" : "480/827",
+        backgroundImage: "linear-gradient(to bottom, #88D8FC, #F89C43)",
       }}
     >
-      <Typography
+      <Box
+        id="distance"
         sx={{
-          textAlign: "center",
-          fontFamily: "Mossport",
-          color: "#FFFFFF",
-          fontSize: medium ? "128px" : "96px",
-          lineHeight: medium ? "128px" : "96px",
+          backgroundImage: "url(/images/distance.svg)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "bottom",
+          backgroundSize: "cover",
+  
+          aspectRatio: matches ? "1170/1027" : sm ? "480/600" : "480/827",
         }}
       >
-        ДИСТАНЦИИ
-      </Typography>
-
-      <Stack mt="46px">
-        <Stack
-          px={matches ? (medium ? "13.5rem" : "10px") : "10px"}
-          spacing="40px"
+        <Typography
+          sx={{
+            textAlign: "center",
+            fontFamily: "Mossport",
+            color: "#FFFFFF",
+            fontSize: medium ? "128px" : "96px",
+            lineHeight: medium ? "128px" : "96px",
+          }}
         >
-          <Typography
-            sx={{
-              fontFamily: "Gotham Pro Bold",
-              fontSize: matches ? "24px" : "20px",
-              lineHeight: matches ? "23px" : "19px",
-              color: "#000000",
-              textAlign: "center",
-            }}
+          ДИСТАНЦИИ
+        </Typography>
+
+        <Stack mt="46px">
+          <Stack
+            px={matches ? (medium ? "13.5rem" : "10px") : "10px"}
+            spacing="40px"
           >
-            ДЕТИ
-          </Typography>
-          <TableRow
-            age="6-8 лет"
-            distance="500 м"
-            icon="/images/icons/kid6-8.svg"
-          />
-          <TableRow
-            age="9-14 лет"
-            distance="1000 м"
-            icon="/images/icons/kid9-14.svg"
-          />
-          <Typography
-            sx={{
-              fontFamily: "Gotham Pro Bold",
-              fontSize: matches ? "24px" : "20px",
-              lineHeight: matches ? "23px" : "19px",
-              color: "#000000",
-              textAlign: "center",
-            }}
-          >
-            ВЗРОСЛЫЕ
-          </Typography>
-          <TableRow
-            age="15 лет"
-            distance="5 км"
-            icon="/images/icons/kid15.svg"
-          />
+            <Typography
+              sx={{
+                fontFamily: "Gotham Pro Bold",
+                fontSize: matches ? "24px" : "20px",
+                lineHeight: matches ? "23px" : "19px",
+                color: "#000000",
+                textAlign: "center",
+              }}
+            >
+              ДЕТИ
+            </Typography>
+            <TableRow
+              age="6-8 лет"
+              distance="500 м"
+              icon="/images/icons/kid6-8.svg"
+            />
+            <TableRow
+              age="9-14 лет"
+              distance="1000 м"
+              icon="/images/icons/kid9-14.svg"
+            />
+            <Typography
+              sx={{
+                fontFamily: "Gotham Pro Bold",
+                fontSize: matches ? "24px" : "20px",
+                lineHeight: matches ? "23px" : "19px",
+                color: "#000000",
+                textAlign: "center",
+              }}
+            >
+              ВЗРОСЛЫЕ
+            </Typography>
+            <TableRow
+              age="15 лет"
+              distance="5 км"
+              icon="/images/icons/kid15.svg"
+            />
+          </Stack>
         </Stack>
-      </Stack>
+      </Box>
     </Box>
   );
 };

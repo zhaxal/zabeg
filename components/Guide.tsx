@@ -98,7 +98,14 @@ const GuideRow: FC<GuideRowProps> = ({ title, text, icon, position, step }) => {
         alignItems="center"
         justifyContent="center"
       >
-        <Box width="100%" height="auto" component="img" src={icon} />
+        <Box
+          sx={{
+            backgroundColor: "#0461B5",
+          }}
+          height="auto"
+          component="img"
+          src={icon}
+        />
       </Grid>
     );
   };
@@ -129,111 +136,102 @@ const Guide: FC = () => {
 
   return (
     <Box
-      id="guide"
       sx={{
-        backgroundImage: "url(/images/guide.svg)",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        aspectRatio: `1170/${lg ? 2550 : 2800}`,
+        backgroundImage: "linear-gradient(to bottom, #0461B5, #60D0FF)",
       }}
     >
-      <Typography
+      <Box
+        id="guide"
         sx={{
-          mb: "72px",
-          textAlign: "center",
-          fontFamily: "Mossport",
-          color: "#FFFFFF",
-          fontSize: sm ? (md ? "128px" : "96px") : "48px",
-          lineHeight: sm ? (md ? "128px" : "96px") : "48px",
+          backgroundImage: "url(/images/guide.svg)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          aspectRatio: `1170/${lg ? 2550 : 2800}`,
         }}
       >
-        КАК ПРИНЯТЬ УЧАСТИЕ
-      </Typography>
+        <Typography
+          sx={{
+            mb: "72px",
+            textAlign: "center",
+            fontFamily: "Mossport",
+            color: "#FFFFFF",
+            fontSize: sm ? (md ? "128px" : "96px") : "48px",
+            lineHeight: sm ? (md ? "128px" : "96px") : "48px",
+          }}
+        >
+          КАК ПРИНЯТЬ УЧАСТИЕ
+        </Typography>
 
-      <Grid
-        rowSpacing="42px"
-        columnSpacing={sm ? "32px" : "16px"}
-        px={md ? (lg ? "205px" : "100px") : "10px"}
-        container
-      >
-        <GuideRow
-          step={1}
-          title="Регистрация на сайте"
-          text={
-            <Typography
-              sx={{
-                fontFamily: "Gotham Pro Regular",
-                fontSize: "20px",
-                lineHeight: "120%",
-                color: "#FFFFFF",
-              }}
-            >
-              Выберите один из пяти парков, где вы хотите пробежать, перейдите
-              на страницу регистрации и заполните анкету.
-            </Typography>
-          }
-          icon="/images/icons/guide_icon1.svg"
-          position="left"
-        />
-        <GuideRow
-          step={2}
-          title="Медицинский допуск"
-          text={
-            <>
+        <Grid
+          rowSpacing="42px"
+          columnSpacing={sm ? "32px" : "16px"}
+          px={md ? (lg ? "205px" : "100px") : "10px"}
+          container
+        >
+          <GuideRow
+            step={1}
+            title="Регистрация на сайте"
+            text={
               <Typography
-                component="p"
                 sx={{
                   fontFamily: "Gotham Pro Regular",
-                  fontSize: sm ? "20px" : "16px",
+                  fontSize: "20px",
                   lineHeight: "120%",
                   color: "#FFFFFF",
                 }}
               >
-                До даты начала соревнований получите у врача справку,
-                допускающую к соревнованиям. Без нее вам организаторы не
-                разрешат участвовать в забеге.
+                Выберите один из пяти парков, где вы хотите пробежать, перейдите
+                на страницу регистрации и заполните анкету.
               </Typography>
-
-              <Link
-                component="p"
-                href="https://mos.ru/mayor/themes/1040/"
-                sx={{
-                  fontFamily: "Gotham Pro Regular",
-                  fontSize: sm ? "20px" : "16px",
-                  lineHeight: "120%",
-                  color: "#FFFFFF",
-                  textDecoration: "underline",
-                }}
-              >
-                Подробнее о форме справки.
-              </Link>
-            </>
-          }
-          icon="/images/icons/guide_icon2.png"
-          position="right"
-        />
-        <GuideRow
-          step={3}
-          title="Регистрация и получение стартового пакета"
-          text={
-            <>
-              <Typography
-                component="p"
-                sx={{
-                  fontFamily: "Gotham Pro Regular",
-                  fontSize: sm ? "20px" : "14px",
-                  lineHeight: "120%",
-                  color: "#FFFFFF",
-                }}
-              >
-                В день забега в зоне регистрации предъявите оригиналы
-                документов:&nbsp;
-              </Typography>
-
-              <ul>
+            }
+            icon="/images/icons/guide_icon1.svg"
+            position="left"
+          />
+          <GuideRow
+            step={2}
+            title="Медицинский допуск"
+            text={
+              <>
                 <Typography
-                  component="li"
+                  component="p"
+                  sx={{
+                    fontFamily: "Gotham Pro Regular",
+                    fontSize: sm ? "20px" : "16px",
+                    lineHeight: "120%",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  До даты начала соревнований получите у врача справку,
+                  допускающую к соревнованиям. Без нее вам организаторы не
+                  разрешат участвовать в забеге.
+                </Typography>
+
+                <Link
+                  component="p"
+                  href="https://mos.ru/mayor/themes/1040/"
+                  sx={{
+                    fontFamily: "Gotham Pro Regular",
+                    fontSize: sm ? "20px" : "16px",
+                    lineHeight: "120%",
+                    color: "#FFFFFF",
+                    textDecoration: "underline",
+                  }}
+                >
+                  Подробнее о форме справки.
+                </Link>
+              </>
+            }
+            icon="/images/icons/guide_icon2.png"
+            position="right"
+          />
+          <GuideRow
+            step={3}
+            title="Регистрация и получение стартового пакета"
+            text={
+              <>
+                <Typography
+                  component="p"
                   sx={{
                     fontFamily: "Gotham Pro Regular",
                     fontSize: sm ? "20px" : "14px",
@@ -241,175 +239,191 @@ const Guide: FC = () => {
                     color: "#FFFFFF",
                   }}
                 >
-                  документ, удостоверяющий личность (паспорт РФ/ свидетельство о
-                  рождении);
+                  В день забега в зоне регистрации предъявите оригиналы
+                  документов:&nbsp;
                 </Typography>
-                <Typography
-                  component="li"
-                  sx={{
-                    fontFamily: "Gotham Pro Regular",
-                    fontSize: sm ? "20px" : "14px",
-                    lineHeight: "120%",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  индивидуальный или коллективный медицинский допуск;
-                </Typography>
-                <Typography
-                  component="li"
-                  sx={{
-                    fontFamily: "Gotham Pro Regular",
-                    fontSize: sm ? "20px" : "14px",
-                    lineHeight: "120%",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  полис ОМС или ДМС.
-                </Typography>
-              </ul>
 
+                <ul>
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: sm ? "20px" : "14px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    документ, удостоверяющий личность (паспорт РФ/ свидетельство
+                    о рождении);
+                  </Typography>
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: sm ? "20px" : "14px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    индивидуальный или коллективный медицинский допуск;
+                  </Typography>
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: sm ? "20px" : "14px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    полис ОМС или ДМС.
+                  </Typography>
+                </ul>
+
+                <Typography
+                  component="p"
+                  sx={{
+                    fontFamily: "Gotham Pro Regular",
+                    fontSize: sm ? "20px" : "14px",
+                    lineHeight: "120%",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  Также вы получите стартовый пакет участника.
+                </Typography>
+              </>
+            }
+            icon="/images/icons/guide_icon3.svg"
+            position="left"
+          />
+          <GuideRow
+            step={4}
+            title="Забег"
+            text={
               <Typography
-                component="p"
                 sx={{
-                  fontFamily: "Gotham Pro Regular",
-                  fontSize: sm ? "20px" : "14px",
+                  fontFamily: "Gotham Pro Medium",
+                  fontSize: md ? "32px" : "24px",
                   lineHeight: "120%",
                   color: "#FFFFFF",
                 }}
               >
-                Также вы получите стартовый пакет участника.
+                Стартуйте на дистанции для вашего возраста. Желаем удачи!
               </Typography>
-            </>
-          }
-          icon="/images/icons/guide_icon3.svg"
-          position="left"
-        />
-        <GuideRow
-          step={4}
-          title="Забег"
-          text={
-            <Typography
-              sx={{
-                fontFamily: "Gotham Pro Medium",
-                fontSize: md ? "32px" : "24px",
-                lineHeight: "120%",
-                color: "#FFFFFF",
-              }}
-            >
-              Стартуйте на дистанции для вашего возраста. Желаем удачи!
-            </Typography>
-          }
-          icon="/images/icons/guide_icon4.svg"
-          position="right"
-        />
+            }
+            icon="/images/icons/guide_icon4.svg"
+            position="right"
+          />
 
-        <Grid mb={!md ? "120px" : "0px"} item xs={12}>
-          <Stack spacing="10px">
-            <Typography
-              sx={{
-                fontFamily: "Gotham Pro Bold",
-                fontSize: "32px",
-                color: "#FFFFFF",
-                lineHeight: "31px",
-                textAlign: "center",
-              }}
-            >
-              Общая информация
-            </Typography>
+          <Grid mb={!md ? "120px" : "0px"} item xs={12}>
+            <Stack spacing="10px">
+              <Typography
+                sx={{
+                  fontFamily: "Gotham Pro Bold",
+                  fontSize: "32px",
+                  color: "#FFFFFF",
+                  lineHeight: "31px",
+                  textAlign: "center",
+                }}
+              >
+                Общая информация
+              </Typography>
 
-            <Box
-              sx={{
-                p: "32px",
-                border: "3px solid #FFFFFF",
-                borderRadius: "20px",
-              }}
-            >
-              <ul>
-                <Typography
-                  component="li"
-                  sx={{
-                    fontFamily: "Gotham Pro Regular",
-                    fontSize: "20px",
-                    lineHeight: "120%",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Возле стартовых площадок есть раздевалки. Каждому участнику
-                  необходимо прийти на старт в спортивной форме по погоде и в
-                  обуви, предназначенной для бега. По возможности возьмите с
-                  собой воду.
-                </Typography>
+              <Box
+                sx={{
+                  p: "32px",
+                  border: "3px solid #FFFFFF",
+                  borderRadius: "20px",
+                }}
+              >
+                <ul>
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Возле стартовых площадок есть раздевалки. Каждому участнику
+                    необходимо прийти на старт в спортивной форме по погоде и в
+                    обуви, предназначенной для бега. По возможности возьмите с
+                    собой воду.
+                  </Typography>
 
-                <Typography
-                  component="li"
-                  sx={{
-                    fontFamily: "Gotham Pro Regular",
-                    fontSize: "20px",
-                    lineHeight: "120%",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Дети до 18 лет допускаются до участия только в присутствии
-                  законных представителей.&nbsp;
-                </Typography>
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Дети до 18 лет допускаются до участия только в присутствии
+                    законных представителей.&nbsp;
+                  </Typography>
 
-                <Typography
-                  component="li"
-                  sx={{
-                    fontFamily: "Gotham Pro Regular",
-                    fontSize: "20px",
-                    lineHeight: "120%",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  При отсутствии оригиналов документов участник не допускается
-                  до соревнований.&nbsp;
-                </Typography>
-                <Typography
-                  component="li"
-                  sx={{
-                    fontFamily: "Gotham Pro Regular",
-                    fontSize: "20px",
-                    lineHeight: "120%",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Победители и призеры мероприятия определяются по лучшему
-                  результату прохождения дистанции, отдельно среди мальчиков и
-                  девочек, мужчин и женщин в каждой возрастной категории.&nbsp;
-                </Typography>
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    При отсутствии оригиналов документов участник не допускается
+                    до соревнований.&nbsp;
+                  </Typography>
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Победители и призеры мероприятия определяются по лучшему
+                    результату прохождения дистанции, отдельно среди мальчиков и
+                    девочек, мужчин и женщин в каждой возрастной
+                    категории.&nbsp;
+                  </Typography>
 
-                <Typography
-                  component="li"
-                  sx={{
-                    fontFamily: "Gotham Pro Regular",
-                    fontSize: "20px",
-                    lineHeight: "120%",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Результаты забега определяются по gun-time при помощи системы
-                  электронного хронометража. Для этого каждый участник получает
-                  стартовый номер с индивидуальным электронным чипом.
-                </Typography>
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Результаты забега определяются по gun-time при помощи
+                    системы электронного хронометража. Для этого каждый участник
+                    получает стартовый номер с индивидуальным электронным чипом.
+                  </Typography>
 
-                <Typography
-                  component="li"
-                  sx={{
-                    fontFamily: "Gotham Pro Regular",
-                    fontSize: "20px",
-                    lineHeight: "120%",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  Все участники получат памятную медаль, а победителям и
-                  призерам будут вручены дипломы и поощрительные призы.
-                </Typography>
-              </ul>
-            </Box>
-          </Stack>
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Все участники получат памятную медаль, а победителям и
+                    призерам будут вручены дипломы и поощрительные призы.
+                  </Typography>
+                </ul>
+              </Box>
+            </Stack>
+          </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </Box>
   );
 };

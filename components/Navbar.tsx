@@ -8,6 +8,8 @@ import {
   Container,
   Stack,
   Button,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { FC } from "react";
 
@@ -36,7 +38,10 @@ function HideOnScroll(props: Props) {
   );
 }
 
-const Navbar: FC = () => {
+const DesktopNavbar: FC = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("lg"));
+
   return (
     <HideOnScroll>
       <AppBar sx={{ background: "none", boxShadow: "none" }}>
@@ -45,10 +50,10 @@ const Navbar: FC = () => {
             <Stack
               width="100%"
               alignItems="center"
-              spacing="48px"
+              spacing={matches ? "48px" : "24px"}
               direction="row"
               justifyContent="flex-end"
-              mx="60px"
+              mx={matches ? "60px" : "30px"}
             >
               <Typography
                 onClick={handleScrollToElement("distance")}
@@ -128,6 +133,13 @@ const Navbar: FC = () => {
       </AppBar>
     </HideOnScroll>
   );
+};
+
+const Navbar: FC = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
+  return <>{matches && <DesktopNavbar />}</>;
 };
 
 export default Navbar;

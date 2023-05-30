@@ -1,7 +1,19 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { FC } from "react";
 
 const Footer: FC = () => {
+  const theme = useTheme();
+  const lg = useMediaQuery(theme.breakpoints.up("xs"));
+  const md = useMediaQuery("(min-width:1100px)");
+  const sm = useMediaQuery("(min-width:480px)");
+
   return (
     <Box
       id="footer"
@@ -9,9 +21,17 @@ const Footer: FC = () => {
         backgroundColor: "#0461B5",
       }}
     >
-      <Grid px="64px" pb="36px" pt="220px" container>
-        <Grid position="relative" item xs={4}>
+      <Grid
+        spacing={sm ? "0px" : "12px"}
+        px={sm ? "64px" : "20px"}
+        pb="36px"
+        pt={sm ? "220px" : "260px"}
+        container
+      >
+        <Grid position="relative" item xs={sm ? 4 : 12}>
           <Box
+            width={sm ? "100%" : "75%"}
+            height="auto"
             component="img"
             sx={{
               position: "absolute",
@@ -20,30 +40,35 @@ const Footer: FC = () => {
             src="/images/icons/logo_text.svg"
           ></Box>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={sm ? 8 : 12}>
           <Stack spacing="16px">
             <Typography
               sx={{
+                maxWidth: sm ? undefined : "340px",
                 fontFamily: "Gotham Pro Bold",
-                fontSize: "32px",
+                fontSize: sm ? "32px" : "24px",
                 color: "#FFFFFF",
-                lineHeight: "31px",
+                lineHeight: sm ? "31px" : "23px",
               }}
             >
               Легкоатлетический забег «На старт»
             </Typography>
 
             <Stack spacing="16px">
-              <Stack alignItems="center" spacing="20px" direction="row">
+              <Stack
+                component="a"
+                alignItems="center"
+                spacing="20px"
+                direction="row"
+                href="mailto:pr@mosgorsport.ru"
+              >
                 <Box component="img" src="/images/icons/mail.svg" />
                 <Typography
-                  component="a"
-                  href="mailto:pr@mosgorsport.ru"
                   sx={{
                     fontFamily: "Gotham Pro Medium",
-                    fontSize: "24px",
+                    fontSize: sm ? "24px" : "20px",
                     color: "#FFFFFF",
-                    lineHeight: "23px",
+                    lineHeight: sm ? "23px" : "19px",
                     textDecoration: "underline",
                   }}
                 >
@@ -64,13 +89,13 @@ const Footer: FC = () => {
         </Grid>
       </Grid>
 
-      <Box pb="12px" px="64px">
+      <Box pb="12px" px={sm ? "64px" : "10px"}>
         <Typography
           sx={{
             fontFamily: "Gotham Pro Light",
-            fontSize: "24px",
+            fontSize: sm ? "24px" : "16px",
             color: "#FFFFFF",
-            lineHeight: "23px",
+            lineHeight: sm ? "23px" : "15px",
             textAlign: "justify",
           }}
         >

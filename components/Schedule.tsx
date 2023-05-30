@@ -1,5 +1,13 @@
 import { handleScrollToElement } from "@/utils/scroll";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { FC } from "react";
 
 interface TableRowProps {
@@ -8,6 +16,9 @@ interface TableRowProps {
 }
 
 const TableRow: FC<TableRowProps> = ({ time, description }) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <Box
       sx={{
@@ -18,7 +29,7 @@ const TableRow: FC<TableRowProps> = ({ time, description }) => {
       }}
     >
       <Grid container>
-        <Grid item xs={3}>
+        <Grid item md={3} xs={12}>
           <Typography
             sx={{
               fontFamily: "Gotham Pro Regular",
@@ -31,12 +42,13 @@ const TableRow: FC<TableRowProps> = ({ time, description }) => {
             {time}
           </Typography>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item md={9} xs={12}>
           <Typography
             sx={{
               fontFamily: "Gotham Pro Regular",
               fontSize: "20px",
               lineHeight: "120%",
+              textAlign: matches ? "left" : "center",
               color: "#FFFFFF",
             }}
           >
@@ -49,15 +61,20 @@ const TableRow: FC<TableRowProps> = ({ time, description }) => {
 };
 
 const Schedule: FC = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const medium = useMediaQuery("(min-width:1100px)");
+  const sm = useMediaQuery("(min-width:480px)");
+
   return (
     <Box
       id="schedule"
       sx={{
         backgroundImage: "url(/images/schedule.svg)",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+        backgroundPosition: matches ? "center" : "bottom",
         backgroundSize: "cover",
-        minHeight: 866,
+        aspectRatio: matches ? "1170/866" : sm ? "480/600" : "480/1257",
       }}
     >
       <Typography
@@ -66,14 +83,18 @@ const Schedule: FC = () => {
           textAlign: "center",
           fontFamily: "Mossport",
           color: "#2E2E2E",
-          fontSize: "128px",
-          lineHeight: "128px",
+          fontSize: medium ? "128px" : "96px",
+          lineHeight: medium ? "128px" : "96px",
         }}
       >
         ПРОГРАММА
       </Typography>
 
-      <Stack mb="40px" px="210px" spacing="8px">
+      <Stack
+        mb="40px"
+        px={matches ? (medium ? "210px" : "20px") : "20px"}
+        spacing="8px"
+      >
         <TableRow
           time="8.00 – 8.45"
           description="Выдача стартовых номеров для участников 6-8 лет"
@@ -109,10 +130,15 @@ const Schedule: FC = () => {
         <TableRow time="13.00" description="Окончание мероприятия" />
       </Stack>
 
-      <Stack justifyContent="flex-end" px="210px" direction="row">
+      <Stack
+        pb={medium ? "0px" : "80px"}
+        justifyContent={matches ? "flex-end" : "center"}
+        px={matches ? "210px" : "0px"}
+        direction="row"
+      >
         <Button
           sx={{
-            mx: "56px",
+            mx: matches ? "56px" : "0px",
             background:
               "linear-gradient(301.38deg, #B81D1D -7.89%, #E7352E 151.15%)",
             borderRadius: "8px",

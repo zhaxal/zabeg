@@ -1,10 +1,15 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { PublicResourcesResponse } from "@/models/yandex-disk";
 
 import axios from "axios";
 
 const Photo: FC = () => {
+  const theme = useTheme();
+  const lg = useMediaQuery(theme.breakpoints.up("xs"));
+  const md = useMediaQuery("(min-width:1100px)");
+  const sm = useMediaQuery("(min-width:480px)");
+  
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
@@ -39,7 +44,7 @@ const Photo: FC = () => {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
-        minHeight: 1125,
+        aspectRatio: md ? "1170/1125" : "480/600",
       }}
     >
       <Typography
@@ -48,8 +53,8 @@ const Photo: FC = () => {
           textAlign: "center",
           fontFamily: "Mossport",
           color: "#0461B5",
-          fontSize: "128px",
-          lineHeight: "128px",
+          fontSize: md ? "128px" : "96px",
+          lineHeight: md ? "128px" : "96px",
         }}
       >
         ФОТО
@@ -62,7 +67,7 @@ const Photo: FC = () => {
               <Box
                 component="img"
                 src={image}
-                width="235px"
+                width="100%"
                 height="100%"
                 sx={{
                   objectfit: "cover",
@@ -71,7 +76,7 @@ const Photo: FC = () => {
               />
             </Grid>
           ))
-          .slice(0, 12)}
+          .slice(0, md ? 12 : sm ? 6 : 1)}
       </Grid>
     </Box>
   );

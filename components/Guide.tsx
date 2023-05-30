@@ -1,4 +1,12 @@
-import { Box, Grid, Stack, Typography, Link } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Stack,
+  Typography,
+  Link,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 import { FC, ReactNode } from "react";
 
@@ -11,6 +19,11 @@ interface GuideRowProps {
 }
 
 const GuideRow: FC<GuideRowProps> = ({ title, text, icon, position, step }) => {
+  const theme = useTheme();
+  const lg = useMediaQuery(theme.breakpoints.up("lg"));
+  const md = useMediaQuery("(min-width:1100px)");
+  const sm = useMediaQuery("(min-width:480px)");
+
   const TextBox: FC = () => {
     return (
       <Grid item xs={9}>
@@ -18,9 +31,9 @@ const GuideRow: FC<GuideRowProps> = ({ title, text, icon, position, step }) => {
           <Typography
             sx={{
               fontFamily: "Gotham Pro Bold",
-              fontSize: "32px",
+              fontSize: md ? "32px" : "24px",
               color: "#FFFFFF",
-              lineHeight: "31px",
+              lineHeight: md ? "31px" : "23px",
               textAlign: "center",
             }}
           >
@@ -29,16 +42,32 @@ const GuideRow: FC<GuideRowProps> = ({ title, text, icon, position, step }) => {
 
           <Box
             sx={{
+              overflow: "hidden",
               border: "3px solid #FFFFFF",
               borderRadius: "20px",
             }}
           >
-            <Stack direction="row" spacing="10px">
+            <Stack position="relative" direction="row">
               <Typography
                 sx={{
+                  opacity: 0,
                   fontFamily: "Gotham Pro Bold",
-                  fontSize: "293px",
-                  lineHeight: "280px",
+                  fontSize: md ? "293px" : "170px",
+                  lineHeight: md ? "280px" : "105%",
+                  textAlign: "center",
+                  color: "rgba(255, 255, 255, 0.34)",
+                }}
+              >
+                {step}
+              </Typography>
+              <Typography
+                sx={{
+                  left: sm ? "-6%" : "-10%",
+                  position: "absolute",
+                  fontWeight: 700,
+                  fontFamily: "Gotham Pro Bold",
+                  fontSize: md ? "293px" : "215px",
+                  lineHeight: md ? "280px" : "105%",
                   textAlign: "center",
                   color: "rgba(255, 255, 255, 0.34)",
                 }}
@@ -69,7 +98,7 @@ const GuideRow: FC<GuideRowProps> = ({ title, text, icon, position, step }) => {
         alignItems="center"
         justifyContent="center"
       >
-        <Box component="img" src={icon} />
+        <Box width="100%" height="auto" component="img" src={icon} />
       </Grid>
     );
   };
@@ -92,6 +121,12 @@ const GuideRow: FC<GuideRowProps> = ({ title, text, icon, position, step }) => {
 };
 
 const Guide: FC = () => {
+  const theme = useTheme();
+
+  const lg = useMediaQuery(theme.breakpoints.up("lg"));
+  const md = useMediaQuery("(min-width:1100px)");
+  const sm = useMediaQuery("(min-width:480px)");
+
   return (
     <Box
       id="guide"
@@ -100,7 +135,7 @@ const Guide: FC = () => {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
-        minHeight: 2550,
+        aspectRatio: `1170/${lg ? 2550 : 2800}`,
       }}
     >
       <Typography
@@ -109,14 +144,19 @@ const Guide: FC = () => {
           textAlign: "center",
           fontFamily: "Mossport",
           color: "#FFFFFF",
-          fontSize: "128px",
-          lineHeight: "128px",
+          fontSize: sm ? (md ? "128px" : "96px") : "48px",
+          lineHeight: sm ? (md ? "128px" : "96px") : "48px",
         }}
       >
         КАК ПРИНЯТЬ УЧАСТИЕ
       </Typography>
 
-      <Grid rowSpacing="42px" columnSpacing="32px" px="205px" container>
+      <Grid
+        rowSpacing="42px"
+        columnSpacing={sm ? "32px" : "16px"}
+        px={md ? (lg ? "205px" : "100px") : "10px"}
+        container
+      >
         <GuideRow
           step={1}
           title="Регистрация на сайте"
@@ -145,7 +185,7 @@ const Guide: FC = () => {
                 component="p"
                 sx={{
                   fontFamily: "Gotham Pro Regular",
-                  fontSize: "20px",
+                  fontSize: sm ? "20px" : "16px",
                   lineHeight: "120%",
                   color: "#FFFFFF",
                 }}
@@ -160,7 +200,7 @@ const Guide: FC = () => {
                 href="https://mos.ru/mayor/themes/1040/"
                 sx={{
                   fontFamily: "Gotham Pro Regular",
-                  fontSize: "20px",
+                  fontSize: sm ? "20px" : "16px",
                   lineHeight: "120%",
                   color: "#FFFFFF",
                   textDecoration: "underline",
@@ -170,7 +210,7 @@ const Guide: FC = () => {
               </Link>
             </>
           }
-          icon="/images/icons/guide_icon2.svg"
+          icon="/images/icons/guide_icon2.png"
           position="right"
         />
         <GuideRow
@@ -182,7 +222,7 @@ const Guide: FC = () => {
                 component="p"
                 sx={{
                   fontFamily: "Gotham Pro Regular",
-                  fontSize: "20px",
+                  fontSize: sm ? "20px" : "14px",
                   lineHeight: "120%",
                   color: "#FFFFFF",
                 }}
@@ -196,7 +236,7 @@ const Guide: FC = () => {
                   component="li"
                   sx={{
                     fontFamily: "Gotham Pro Regular",
-                    fontSize: "20px",
+                    fontSize: sm ? "20px" : "14px",
                     lineHeight: "120%",
                     color: "#FFFFFF",
                   }}
@@ -208,7 +248,7 @@ const Guide: FC = () => {
                   component="li"
                   sx={{
                     fontFamily: "Gotham Pro Regular",
-                    fontSize: "20px",
+                    fontSize: sm ? "20px" : "14px",
                     lineHeight: "120%",
                     color: "#FFFFFF",
                   }}
@@ -219,7 +259,7 @@ const Guide: FC = () => {
                   component="li"
                   sx={{
                     fontFamily: "Gotham Pro Regular",
-                    fontSize: "20px",
+                    fontSize: sm ? "20px" : "14px",
                     lineHeight: "120%",
                     color: "#FFFFFF",
                   }}
@@ -232,7 +272,7 @@ const Guide: FC = () => {
                 component="p"
                 sx={{
                   fontFamily: "Gotham Pro Regular",
-                  fontSize: "20px",
+                  fontSize: sm ? "20px" : "14px",
                   lineHeight: "120%",
                   color: "#FFFFFF",
                 }}
@@ -251,7 +291,7 @@ const Guide: FC = () => {
             <Typography
               sx={{
                 fontFamily: "Gotham Pro Medium",
-                fontSize: "32px",
+                fontSize: md ? "32px" : "24px",
                 lineHeight: "120%",
                 color: "#FFFFFF",
               }}
@@ -263,7 +303,7 @@ const Guide: FC = () => {
           position="right"
         />
 
-        <Grid item xs={12}>
+        <Grid mb={!md ? "120px" : "0px"} item xs={12}>
           <Stack spacing="10px">
             <Typography
               sx={{

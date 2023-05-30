@@ -1,4 +1,11 @@
-import { Box, Stack, Typography, StackProps } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  StackProps,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { FC } from "react";
 
 interface TableRowProps extends StackProps {
@@ -13,6 +20,9 @@ const TableRow: FC<TableRowProps> = ({
   icon,
   ...stackProps
 }) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <Stack width="100%" direction="row" {...stackProps}>
       <Box
@@ -21,9 +31,9 @@ const TableRow: FC<TableRowProps> = ({
           backgroundColor: "#F2F2F2",
           width: "27%",
           fontFamily: "Gotham Pro Bold",
-          fontSize: "24px",
+          fontSize: matches ? "24px" : "20px",
           color: "#1F1F1F",
-          lineHeight: "23px",
+          lineHeight: matches ? "24px" : "19px",
           textAlign: "center",
         }}
       >
@@ -34,15 +44,16 @@ const TableRow: FC<TableRowProps> = ({
           width: "73%",
           borderBottom: "5px solid #F2F2F2",
           fontFamily: "Gotham Pro Regular",
-          fontSize: "24px",
+          fontSize: matches ? "24px" : "20px",
           color: "#1F1F1F",
-          lineHeight: "23px",
+          lineHeight: matches ? "23px" : "19px",
           textAlign: "center",
           position: "relative",
         }}
       >
         <Box
           sx={{
+            width: matches ? null : "10%",
             position: "absolute",
             left: "13px",
             bottom: "0px",
@@ -57,15 +68,23 @@ const TableRow: FC<TableRowProps> = ({
 };
 
 const Distance: FC = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const medium = useMediaQuery("(min-width:1100px)");
+  const sm = useMediaQuery("(min-width:600px)");
+
   return (
     <Box
       id="distance"
       sx={{
-        backgroundImage: "url(/images/distance.svg)",
+        backgroundImage: matches
+          ? "url(/images/distance.svg)"
+          : "url(/images/mobile/distance.svg)",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+        backgroundPosition: "bottom",
         backgroundSize: "cover",
-        minHeight: 1053,
+        backgroundColor: "#88D8FC",
+        aspectRatio: matches ? "1170/1027" : sm ? "480/600" : "480/827",
       }}
     >
       <Typography
@@ -73,20 +92,23 @@ const Distance: FC = () => {
           textAlign: "center",
           fontFamily: "Mossport",
           color: "#FFFFFF",
-          fontSize: "128px",
-          lineHeight: "128px",
+          fontSize: medium ? "128px" : "96px",
+          lineHeight: medium ? "128px" : "96px",
         }}
       >
         ДИСТАНЦИИ
       </Typography>
 
       <Stack mt="46px">
-        <Stack px="13.5rem" spacing="40px">
+        <Stack
+          px={matches ? (medium ? "13.5rem" : "10px") : "10px"}
+          spacing="40px"
+        >
           <Typography
             sx={{
               fontFamily: "Gotham Pro Bold",
-              fontSize: "24px",
-              lineHeight: "23px",
+              fontSize: matches ? "24px" : "20px",
+              lineHeight: matches ? "23px" : "19px",
               color: "#000000",
               textAlign: "center",
             }}
@@ -106,8 +128,8 @@ const Distance: FC = () => {
           <Typography
             sx={{
               fontFamily: "Gotham Pro Bold",
-              fontSize: "24px",
-              lineHeight: "23px",
+              fontSize: matches ? "24px" : "20px",
+              lineHeight: matches ? "23px" : "19px",
               color: "#000000",
               textAlign: "center",
             }}

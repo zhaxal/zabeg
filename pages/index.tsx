@@ -7,12 +7,84 @@ import Navbar from "@/components/Navbar";
 import Park from "@/components/Park";
 import Photo from "@/components/Photo";
 import Schedule from "@/components/Schedule";
-import { Alert, Box, Container } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Container,
+  CssBaseline,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 export default function Home() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <>
-      <Alert severity="warning">Сайт в разработке</Alert>
+
+      <Navbar />
+      {matches && (
+        <Container maxWidth="lg">
+          <Cover />
+          <Description />
+          <Distance />
+          <Schedule />
+          <Guide />
+          <Park />
+          <Photo />
+          <Box
+            sx={{
+              backgroundImage: "url(/images/block.svg)",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              minHeight: 297,
+            }}
+          />
+          <Footer />
+        </Container>
+      )}
+      {!matches && (
+        <Box
+          sx={{
+            borderCollapse: "collapse",
+          }}
+        >
+          <Cover />
+          <Description />
+          <Distance />
+          <Schedule />
+          <Guide />
+          <Park />
+          <Photo />
+          <Box
+            sx={{
+              backgroundImage: "url(/images/block.svg)",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              minHeight: 297,
+            }}
+          />
+          <Footer />
+          {/* 
+        
+      
+  
+     
+        <Box
+          sx={{
+            backgroundImage: "url(/images/block.svg)",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            minHeight: 297,
+          }}
+        />
+        <Footer /> */}
+        </Box>
+      )}
     </>
   );
 }

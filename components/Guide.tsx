@@ -102,6 +102,7 @@ const GuideRow: FC<GuideRowProps> = ({ title, text, icon, position, step }) => {
           sx={{
             backgroundColor: "#0461B5",
           }}
+          width="100%"
           height="auto"
           component="img"
           src={icon}
@@ -208,8 +209,9 @@ const Guide: FC = () => {
                 </Typography>
 
                 <Link
-                  component="p"
-                  href="https://mos.ru/mayor/themes/1040/"
+                  mt={1}
+                  target="_blank"
+                  href="https://drive.google.com/file/d/12hkCvpqXpFh3i3WzE4mJyAQkuuRc-o6Q/view?usp=sharing"
                   sx={{
                     fontFamily: "Gotham Pro Regular",
                     fontSize: sm ? "20px" : "16px",
@@ -227,7 +229,7 @@ const Guide: FC = () => {
           />
           <GuideRow
             step={3}
-            title="Регистрация и получение стартового пакета"
+            title="Регистрация и получение стартового номера"
             text={
               <>
                 <Typography
@@ -289,7 +291,7 @@ const Guide: FC = () => {
                     color: "#FFFFFF",
                   }}
                 >
-                  Также вы получите стартовый пакет участника.
+                  Также вы получите стартовый номер участника.
                 </Typography>
               </>
             }

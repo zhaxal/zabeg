@@ -1,7 +1,12 @@
-import { Box } from "@mui/material";
+import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import { FC } from "react";
 
 const Cover: FC = () => {
+  const theme = useTheme();
+  const large = useMediaQuery(theme.breakpoints.up("lg"));
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const small = useMediaQuery(theme.breakpoints.up("sm"));
+
   return (
     <>
       <Box
@@ -20,6 +25,36 @@ const Cover: FC = () => {
           aspectRatio: "480/320",
         }}
       ></Box>
+      <Stack
+        px={large ? "130px" : "16px"}
+        pt="16px"
+        bgcolor="#0098D7"
+        spacing="30px"
+        justifyContent={matches ? "normal" : "center"}
+        direction="row-reverse"
+      >
+        <a target="_blank" href="https://mosgorsport.ru/">
+          <Box
+            height={matches ? "65px" : small ? "45px" : "25px"}
+            component="img"
+            src="/images/icons/mgs.svg"
+          />
+        </a>
+        <a target="_blank" href="https://100.moscow.sport/">
+          <Box
+            height={matches ? "65px" : small ? "45px" : "25px"}
+            component="img"
+            src="/images/icons/lms.svg"
+          />
+        </a>
+        <a target="_blank" href="https://www.mos.ru/moskomsport/">
+          <Box
+            height={matches ? "65px" : small ? "45px" : "25px"}
+            component="img"
+            src="/images/icons/dsgm.svg"
+          />
+        </a>
+      </Stack>
     </>
   );
 };

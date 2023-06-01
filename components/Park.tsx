@@ -127,7 +127,7 @@ const Park: FC = () => {
                     "https://yandex.com/map-widget/v1/?um=constructor%3Abc6eb4edc79f4d2ca8d7ea9182583fe7b85f1c34455acd2dd02bc8b77bf0f2e8&amp;source=constructor"
                   )}
                   title1="ЮЗАО:"
-                  title2="Центр спорта и образования Самбо-70 Москомспорта, отделение Битца"
+                  title2="Центр спорта и образования «Самбо-70» Москомспорта, отделение «Битца»"
                   borderColor="#B51FFF"
                   link="https://orgeo.ru/event/29042"
                 />

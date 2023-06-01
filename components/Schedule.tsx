@@ -139,7 +139,7 @@ const Schedule: FC = () => {
           px={matches ? "210px" : "0px"}
           alignItems="center"
           direction={matches ? "row" : "column-reverse"}
-          spacing={matches ? "0px" : "10px"}
+          spacing={matches ? "10px" : "10px"}
         >
           <Link
             target="_blank"

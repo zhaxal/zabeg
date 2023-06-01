@@ -42,6 +42,34 @@ const Footer: FC = () => {
         </Grid>
         <Grid item xs={sm ? 8 : 12}>
           <Stack spacing="16px">
+            <Stack
+         
+              spacing="30px"
+              justifyContent={md ? "normal" : "center"}
+              direction="row"
+            >
+              <a target="_blank" href="https://www.mos.ru/moskomsport/">
+                <Box
+                  height={md ? "55px" : sm ? "45px" : "25px"}
+                  component="img"
+                  src="/images/icons/dsgm.svg"
+                />
+              </a>
+              <a target="_blank" href="https://100.moscow.sport/">
+                <Box
+                  height={md ? "55px" : sm ? "45px" : "25px"}
+                  component="img"
+                  src="/images/icons/lms.svg"
+                />
+              </a>
+              <a target="_blank" href="https://mosgorsport.ru/">
+                <Box
+                  height={md ? "55px" : sm ? "45px" : "25px"}
+                  component="img"
+                  src="/images/icons/mgs.svg"
+                />
+              </a>
+            </Stack>
             <Typography
               sx={{
                 maxWidth: sm ? undefined : "340px",

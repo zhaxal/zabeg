@@ -140,7 +140,7 @@ const Distance: FC = () => {
               ВЗРОСЛЫЕ
             </Typography>
             <TableRow
-              age="15 лет"
+              age="от 15 лет"
               distance="5 км"
               icon="/images/icons/kid15.svg"
             />

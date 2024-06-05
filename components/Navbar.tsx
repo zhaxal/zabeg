@@ -110,18 +110,7 @@ const DesktopNavbar: FC = () => {
                 >
                   ДИСТАНЦИИ
                 </Typography>
-                <Typography
-                  onClick={handleScrollToElement("schedule")}
-                  sx={{
-                    fontFamily: "Mossport",
-                    fontSize: "32px",
-                    color: "#FFFFFF",
-                    lineHeight: "32px",
-                    cursor: "pointer",
-                  }}
-                >
-                  ПРОГРАММА
-                </Typography>
+
                 <Typography
                   onClick={handleScrollToElement("guide")}
                   sx={{
@@ -195,9 +184,7 @@ const DesktopNavbar: FC = () => {
               <CustomMenuItem onClick={handleClose("distance")}>
                 ДИСТАНЦИИ
               </CustomMenuItem>
-              <CustomMenuItem onClick={handleClose("schedule")}>
-                ПРОГРАММА
-              </CustomMenuItem>
+
               <CustomMenuItem onClick={handleClose("guide")}>
                 УСЛОВИЯ
               </CustomMenuItem>

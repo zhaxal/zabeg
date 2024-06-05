@@ -11,19 +11,24 @@ const Photo: FC = () => {
   const sm = useMediaQuery("(min-width:480px)");
 
   const [images, setImages] = useState<string[]>([
-    "https://i.ibb.co/N2JWLrS/IMG-7281.jpg",
-    "https://i.ibb.co/r5z6Tf2/IMG-7315.jpg",
-    "https://i.ibb.co/1znBmkT/IMG-7437.jpg",
-    "https://i.ibb.co/6WD0FbM/PIC-1096.jpg",
-    "https://i.ibb.co/wgkGbB3/PIC-1122.jpg",
-    "https://i.ibb.co/GcWknH5/PIC-1131.jpg",
-    "https://i.ibb.co/DC1Qq5h/IMG-0545.jpg",
-    "https://i.ibb.co/grZmWcM/IMG-1285.jpg",
-    "https://i.ibb.co/ZKdm9mH/IMG-6921.jpg",
-    "https://i.ibb.co/ZGT2p0P/IMG-6938.jpg",
-    "https://i.ibb.co/6Z58DWw/B00I1276.jpg",
-    "https://i.ibb.co/cbsv4fq/B00I2147.jpg",
-    "https://i.ibb.co/nCM2HYD/PIC-1331.jpg",
+    "https://i.ibb.co/b3cJcFb/0-ZI-CJh-ITQ0.jpg",
+    "https://i.ibb.co/0mGd2ND/5-Iff-E-P3-Vu-I.jpg",
+    "https://i.ibb.co/kHsNVkM/a8w-5e-Xyq-Yw.jpg",
+    "https://i.ibb.co/Z2FgRJ9/EKR4-yau-Auk.jpg",
+    "https://i.ibb.co/x5Z41Zf/e-OCPCh-Ugz-Hs.jpg",
+    "https://i.ibb.co/y6Vggy6/FGG7-OYe-Nr-JA.jpg",
+    "https://i.ibb.co/HrL41hT/GVXMJGAUcrc.jpg",
+    "https://i.ibb.co/TvBwLgF/I50-Uhg0aaps.jpg",
+    "https://i.ibb.co/5cm6VHc/qu-Tkof-Zilyc.jpg",
+    "https://i.ibb.co/25FgWPh/ra-Opu-KVn-WMg.jpg",
+    "https://i.ibb.co/NjsSDMx/s-NRI6-H-4uv-E.jpg",
+    "https://i.ibb.co/WPzLGNW/vk-YG0-Ma-U7qs.jpg",
+    "https://i.ibb.co/P4xd6D2/c-Lb-L35gn-ks.jpg",
+    "https://i.ibb.co/M9n4nhg/7-Ixn-ZF-4q-DU.jpg",
+    "https://i.ibb.co/c1mTNYL/fp2-YKB6-WHWQ.jpg",
+    "https://i.ibb.co/rcd0fnn/nm-BAs-Oy-SSPU.jpg",
+    "https://i.ibb.co/fnsYjNr/Wl-T3-GOi15-Y8.jpg",
+    "https://i.ibb.co/qkwvXM1/g-Ka-Asq0rw-Zk.jpg",
   ]);
 
   return (
@@ -65,7 +70,8 @@ const Photo: FC = () => {
                   width="100%"
                   height="100%"
                   sx={{
-                    objectfit: "cover",
+                    objectFit: "cover",
+                    aspectRatio: "235/167",
                   }}
                   alt=""
                 />

@@ -16,7 +16,7 @@ const DescriptionDesktop: FC = () => {
   return (
     <Box
       sx={{
-        backgroundImage: "linear-gradient(to bottom, #0098D7, #88D8FC)",
+        backgroundImage: "#E3F2FF",
       }}
     >
       <Box
@@ -26,47 +26,38 @@ const DescriptionDesktop: FC = () => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
-          aspectRatio: "1170/1403",
+          aspectRatio: "1170/1595",
         }}
       >
-        <Stack pt="70px" direction="row">
+        <Stack
+          pt="188px"
+          px={large ? "167px" : "40px"}
+          direction="row"
+          justifyContent="flex-end"
+        >
           <Box>
-            <Box
-              width="100%"
-              component="img"
-              src="/images/description_logo.svg"
-            />
-          </Box>
-
-          <Box px="30px">
-            <Typography
-              mb={large ? "0px" : "10px"}
-              sx={{
-                fontFamily: "Mossport",
-                color: "#FFFFFF",
-                fontSize: large ? "128px" : "96px",
-                lineHeight: large ? "128px" : "96px",
-              }}
-            >
-              ЗАБЕГ
-            </Typography>
             <Typography
               sx={{
                 mb: "64px",
                 textIndent: "32px",
                 maxWidth: "400px",
-                fontFamily: "Gotham Pro Regular",
+                fontFamily: "Gotham Pro Medium",
                 fontSize: large ? "24px" : "18px",
-                color: "#F8F8F8",
+                color: "#0F2572",
                 lineHeight: "120%",
+                fontWeight: 400,
               }}
             >
-              10 июня в 5 парках столицы пройдет забег для детей и взрослых
-              на дистанциях 500 м, 1 км и 5 км. Подойдет как новичкам, которые
-              хотят поучаствовать в массовом состязании, так и любителям,
-              которые хотят подготовиться к марафонам. Все на старт!
+              15 июня в 5 парках столицы пройдет забег для детей и взрослых
+              на дистанциях 500 м, 1 км, 3 км, 5 км. Подойдет как новичкам,
+              которые хотят поучаствовать в массовом состязании, так
+              и любителям, которые хотят подготовиться к марафонам. Для самых
+              уверенных в себе будет доступна дистанция в 10 км на флагманской
+              площадке в Измайловском парке. <br />
+              <br />
+              Все на старт!
             </Typography>
-            <Box px="75px">
+            <Stack px="50px" justifyContent="center">
               <Button
                 onClick={handleScrollToElement("park")}
                 sx={{
@@ -95,21 +86,21 @@ const DescriptionDesktop: FC = () => {
                   src="/images/medal.svg"
                 />
               </Button>
-            </Box>
+            </Stack>
           </Box>
         </Stack>
-        <Box pt={large ? "130px" : "80px"} px={large ? "110px" : "40px"}>
+        <Box pt={large ? "180px" : "80px"} px={large ? "110px" : "40px"}>
           <Typography
             sx={{
-              maxWidth: large ? "488px" : "350px",
+              maxWidth: large ? "473px" : "350px",
               fontFamily: "Gotham Pro Bold",
-              fontSize: large ? "36px" : "24px",
-              color: "#FFFFFF",
-              lineHeight: large ? "34px" : "28px",
+              fontSize: large ? "32px" : "24px",
+              color: "#0F2572",
+              lineHeight: large ? "32px" : "28px",
             }}
           >
-            Все участники получат памятную медаль, а победители и призеры —
-            дипломы и поощрительные призы
+            Все финишеры получат памятную медаль, а победители и призеры —
+            медаль и поощрительные призы
           </Typography>
         </Box>
       </Box>
@@ -148,32 +139,26 @@ const DescriptionMobile: FC = () => {
             />
           </Box>
 
-          <Box px="30px">
-            <Typography
-              sx={{
-                fontFamily: "Mossport",
-                color: "#FFFFFF",
-                fontSize: "96px",
-                lineHeight: "96px",
-              }}
-            >
-              ЗАБЕГ
-            </Typography>
+          <Box px="10px">
             <Typography
               sx={{
                 mb: "16px",
                 textIndent: "32px",
-                maxWidth: "400px",
+                maxWidth: "234px",
                 fontFamily: "Gotham Pro Regular",
                 fontSize: "16px",
-                color: "#F8F8F8",
+                color: "#0F2572",
                 lineHeight: "120%",
               }}
             >
-              10 июня в 5 парках столицы пройдет забег для детей и взрослых
-              на дистанциях 500 м, 1 км и 5 км. Подойдет как новичкам, которые
-              хотят поучаствовать в массовом состязании, так и любителям,
-              которые хотят подготовиться к марафонам. Все на старт!
+              15 июня в 5 парках столицы пройдет забег для детей и взрослых
+              на дистанциях 500 м, 1 км, 3 км, 5 км. Подойдет как новичкам,
+              которые хотят поучаствовать в массовом состязании, так
+              и любителям, которые хотят подготовиться к марафонам. Для самых
+              уверенных в себе будет доступна дистанция в 10 км на флагманской
+              площадке в Измайловском парке. <br />
+              <br />
+              Все на старт!
             </Typography>
           </Box>
         </Stack>
@@ -205,13 +190,13 @@ const DescriptionMobile: FC = () => {
               maxWidth: "350px",
               fontFamily: "Gotham Pro Bold",
               fontSize: "24px",
-              color: "#FFFFFF",
+              color: "#0F2572",
               lineHeight: "23px",
               textAlign: "center",
             }}
           >
-            Все участники получат памятную медаль, а победители и призеры —
-            дипломы и поощрительные призы
+            Все финишеры получат памятную медаль, а победители и призеры —
+            медаль и поощрительные призы
           </Typography>
         </Stack>
         <Stack px="64px" pt="42px" alignItems="center">

@@ -43,7 +43,6 @@ const Footer: FC = () => {
         <Grid item xs={sm ? 8 : 12}>
           <Stack spacing="16px">
             <Stack
-         
               spacing="30px"
               justifyContent={md ? "normal" : "center"}
               direction="row"
@@ -52,21 +51,21 @@ const Footer: FC = () => {
                 <Box
                   height={md ? "55px" : sm ? "45px" : "25px"}
                   component="img"
-                  src="/images/icons/dsgm.svg"
+                  src="/images/icons/dsgm_white.svg"
                 />
               </a>
-              <a target="_blank" href="https://100.moscow.sport/">
+              <a target="_blank" href="https://sport.moscow/">
                 <Box
                   height={md ? "55px" : sm ? "45px" : "25px"}
                   component="img"
-                  src="/images/icons/lms.svg"
+                  src="/images/icons/ms_white.svg"
                 />
               </a>
               <a target="_blank" href="https://mosgorsport.ru/">
                 <Box
                   height={md ? "55px" : sm ? "45px" : "25px"}
                   component="img"
-                  src="/images/icons/mgs.svg"
+                  src="/images/icons/mgs_white.svg"
                 />
               </a>
             </Stack>

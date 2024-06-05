@@ -99,15 +99,37 @@ const Park: FC = () => {
 
               <Stack spacing="16px">
                 <RegistrationAccordion
-                  expanded={expanded === "panel1"}
+                  expanded={expanded === "panel5"}
                   onChange={handleChange(
-                    "panel1",
+                    "panel5",
                     "https://yandex.com/map-widget/v1/?um=constructor%3A142c7a8b8b37146d15c4903cb4ea25e5c25ac0ff5fe105bbf7bdae7e5f95e6e8&amp;source=constructor"
                   )}
-                  title1="СЗАО:"
-                  title2="Парк «Северное Тушино»"
+                  title1="ВАО:"
+                  title2="Измайловский парк"
                   borderColor="#1AAD02"
-                  link="https://orgeo.ru/event/29043"
+                  link="https://reg.place/events/nastart-vao"
+                />
+                <RegistrationAccordion
+                  expanded={expanded === "panel4"}
+                  title1="ЗАО:"
+                  title2="Парк Олимпийской деревни"
+                  onChange={handleChange(
+                    "panel4",
+                    "https://yandex.com/map-widget/v1/?um=constructor%3A66e306f35b5541b984d21df388a7862045f7d363ad6bca5c9294958b2e5c85a7&amp;source=constructor"
+                  )}
+                  borderColor="#ED4543"
+                  link="https://reg.place/events/nastart-zao"
+                />
+                <RegistrationAccordion
+                  expanded={expanded === "panel3"}
+                  onChange={handleChange(
+                    "panel3",
+                    "https://yandex.com/map-widget/v1/?um=constructor%3Abc6eb4edc79f4d2ca8d7ea9182583fe7b85f1c34455acd2dd02bc8b77bf0f2e8&amp;source=constructor"
+                  )}
+                  title1="ЮАО:"
+                  title2="Парк им. Ю.М. Лужкова"
+                  borderColor="#B51FFF"
+                  link="https://reg.place/events/nastart-yuao"
                 />
                 <RegistrationAccordion
                   expanded={expanded === "panel2"}
@@ -117,41 +139,20 @@ const Park: FC = () => {
                   )}
                   title1="ЮВАО:"
                   title2="Парк 850-летия Москвы"
-                  borderColor="#ED4543"
-                  link="https://orgeo.ru/event/29041"
-                />
-                <RegistrationAccordion
-                  expanded={expanded === "panel3"}
-                  onChange={handleChange(
-                    "panel3",
-                    "https://yandex.com/map-widget/v1/?um=constructor%3Abc6eb4edc79f4d2ca8d7ea9182583fe7b85f1c34455acd2dd02bc8b77bf0f2e8&amp;source=constructor"
-                  )}
-                  title1="ЮЗАО:"
-                  title2="Центр спорта и образования «Самбо-70» Москомспорта, отделение «Битца»"
-                  borderColor="#B51FFF"
-                  link="https://orgeo.ru/event/29042"
-                />
-                <RegistrationAccordion
-                  expanded={expanded === "panel4"}
-                  onChange={handleChange(
-                    "panel4",
-                    "https://yandex.com/map-widget/v1/?um=constructor%3A66e306f35b5541b984d21df388a7862045f7d363ad6bca5c9294958b2e5c85a7&amp;source=constructor"
-                  )}
-                  title1="ЗАО:"
-                  title2="Парк 50-летия Октября"
                   borderColor="#FFD321"
-                  link="https://orgeo.ru/event/29044"
+                  link="https://reg.place/events/nastart-yuvao"
                 />
+
                 <RegistrationAccordion
-                  expanded={expanded === "panel5"}
+                  expanded={expanded === "panel1"}
                   onChange={handleChange(
-                    "panel5",
-                    "https://yandex.com/map-widget/v1/?um=constructor%3Addc7d2ea0ae6845662e704ab457c08e11da942a43fe2760aee42fa04a9c9985d&amp;source=constructor"
+                    "panel1",
+                    "https://yandex.com/map-widget/v1/?um=constructor%3Aa99158c3578f0a7895cb58c611952bdfd48a1876d8068eb4ee074196b556c61a&amp;source=constructor"
                   )}
-                  title1="ЦАО:"
-                  title2="ПКиО «Красная Пресня»"
+                  title1="СЗАО:"
+                  title2="Парк «Северное Тушино»"
                   borderColor="#1E98FF"
-                  link="https://orgeo.ru/event/29036"
+                  link="https://reg.place/events/nastart-szao"
                 />
               </Stack>
             </Stack>

@@ -82,12 +82,14 @@ const Distance: FC = () => {
       <Box
         id="distance"
         sx={{
-          backgroundImage: "url(/images/distance.svg)",
+          backgroundImage: matches
+            ? "url(/images/distance.svg)"
+            : "url(/images/mobile/distance.svg)",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "bottom",
           backgroundSize: "cover",
-  
-          aspectRatio: matches ? "1170/1027" : sm ? "480/600" : "480/827",
+
+          aspectRatio: matches ? "1170/1168" : "480/1169",
         }}
       >
         <Typography
@@ -116,16 +118,34 @@ const Distance: FC = () => {
                 textAlign: "center",
               }}
             >
+              СЕМЕЙНЫЙ ЗАБЕГ:
+              <br />
+              МАМА, ПАПА+РЕБЕНОК
+            </Typography>
+            <TableRow
+              age="4-7 ЛЕТ"
+              distance="500 м"
+              icon="/images/icons/mpr.svg"
+            />
+            <Typography
+              sx={{
+                fontFamily: "Gotham Pro Bold",
+                fontSize: matches ? "24px" : "20px",
+                lineHeight: matches ? "23px" : "19px",
+                color: "#000000",
+                textAlign: "center",
+              }}
+            >
               ДЕТИ
             </Typography>
             <TableRow
-              age="6-8 лет"
-              distance="500 м"
+              age="8-11 лет"
+              distance="1000 м"
               icon="/images/icons/kid6-8.svg"
             />
             <TableRow
-              age="9-14 лет"
-              distance="1000 м"
+              age="12-17 лет"
+              distance="3000 м"
               icon="/images/icons/kid9-14.svg"
             />
             <Typography
@@ -140,11 +160,42 @@ const Distance: FC = () => {
               ВЗРОСЛЫЕ
             </Typography>
             <TableRow
-              age="от 15 лет"
-              distance="5 км"
+              age="от 18 лет"
+              distance="3 км, 5 км, 10 км*"
               icon="/images/icons/kid15.svg"
             />
           </Stack>
+
+          <Typography
+            sx={{
+              fontFamily: "Gotham Pro Regular",
+              fontSize: matches ? "24px" : "20px",
+              lineHeight: matches ? "23px" : "19px",
+              color: "#1F1F1F",
+              textAlign: "center",
+              mt: "40px",
+              px: matches ? (medium ? "13.5rem" : "10px") : "10px",
+            }}
+          >
+            *только в Измайловском парке
+          </Typography>
+
+          <a target="_blank" href="https://disk.yandex.ru/d/EUsuP6SyRp2DNw">
+            <Typography
+              sx={{
+                fontFamily: "Gotham Pro Medium",
+                fontSize: matches ? "24px" : "20px",
+                lineHeight: matches ? "23px" : "19px",
+                color: "#1F1F1F",
+                textAlign: "center",
+                mt: "40px",
+                px: matches ? (medium ? "13.5rem" : "10px") : "10px",
+                textDecoration: "underline",
+              }}
+            >
+              Посмотреть маршруты
+            </Typography>
+          </a>
         </Stack>
       </Box>
     </Box>

@@ -7,14 +7,17 @@ import Navbar from "@/components/Navbar";
 import Park from "@/components/Park";
 import Photo from "@/components/Photo";
 import Schedule from "@/components/Schedule";
+import Video from "@/components/Video";
 import {
   Alert,
   Box,
   Container,
   CssBaseline,
+  Snackbar,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import React from "react";
 
 export default function Home() {
   const theme = useTheme();
@@ -22,14 +25,13 @@ export default function Home() {
 
   return (
     <>
-
       <Navbar />
       {matches && (
         <Container maxWidth="lg">
           <Cover />
           <Description />
           <Distance />
-          <Schedule />
+          <Video />
           <Guide />
           <Park />
           <Photo />
@@ -54,7 +56,7 @@ export default function Home() {
           <Cover />
           <Description />
           <Distance />
-          <Schedule />
+          <Video />
           <Guide />
           <Park />
           <Photo />

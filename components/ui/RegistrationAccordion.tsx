@@ -73,25 +73,27 @@ const RegistrationAccordion: FC<RegistrationAccordionProps> = ({
       </AccordionSummary>
       <AccordionDetails>
         <Stack direction="row" justifyContent="center">
-          <Button
-            target="_blank"
-            href={link}
-            sx={{
-              background: "linear-gradient(90deg, #FFD324 0%, #FF8900 100%)",
-              boxShadow: "0px 4px 0px rgba(0, 0, 0, 0.16)",
-              borderRadius: "8px",
-              fontFamily: "Gotham Pro Bold",
-              fontSize: "18px",
-              lineHeight: "152%",
-              color: "#31313E",
-              padding: "20px 40px",
-              "& .MuiTouchRipple-root": {
-                color: "#FFFFFF", // Change this to the desired ripple color
-              },
-            }}
-          >
-            ЗАРЕГИСТРИРОВАТЬСЯ
-          </Button>
+          {title2 !== "Площадка уточняется" && (
+            <Button
+              target="_blank"
+              href={link}
+              sx={{
+                background: "linear-gradient(90deg, #FFD324 0%, #FF8900 100%)",
+                boxShadow: "0px 4px 0px rgba(0, 0, 0, 0.16)",
+                borderRadius: "8px",
+                fontFamily: "Gotham Pro Bold",
+                fontSize: "18px",
+                lineHeight: "152%",
+                color: "#31313E",
+                padding: "20px 40px",
+                "& .MuiTouchRipple-root": {
+                  color: "#FFFFFF", // Change this to the desired ripple color
+                },
+              }}
+            >
+              ЗАРЕГИСТРИРОВАТЬСЯ
+            </Button>
+          )}
         </Stack>
       </AccordionDetails>
     </Accordion>

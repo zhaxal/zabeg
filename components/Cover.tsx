@@ -28,7 +28,6 @@ const Cover: FC = () => {
       <Stack
         px={large ? "130px" : "16px"}
         pt="16px"
-        bgcolor="#0098D7"
         spacing="30px"
         justifyContent={matches ? "normal" : "center"}
         direction="row-reverse"
@@ -40,13 +39,15 @@ const Cover: FC = () => {
             src="/images/icons/mgs.svg"
           />
         </a>
-        <a target="_blank" href="https://100.moscow.sport/">
+
+        <a target="_blank" href="https://sport.moscow">
           <Box
             height={matches ? "65px" : small ? "45px" : "25px"}
             component="img"
-            src="/images/icons/lms.svg"
+            src="/images/icons/ms.svg"
           />
         </a>
+
         <a target="_blank" href="https://www.mos.ru/moskomsport/">
           <Box
             height={matches ? "65px" : small ? "45px" : "25px"}

@@ -23,69 +23,71 @@ export default function Home() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
-  return (
-    <>
-      <Navbar />
-      {matches && (
-        <Container maxWidth="lg">
-          <Cover />
-          <Description />
-          <Distance />
-          <Schedule />
-          <Video />
-          <Guide />
-          <Park />
-          <Photo />
-          <Box
-            sx={{
-              backgroundImage: "url(/images/block.svg)",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              minHeight: 297,
-            }}
-          />
-          <Footer />
-        </Container>
-      )}
-      {!matches && (
-        <Box
-          sx={{
-            borderCollapse: "collapse",
-          }}
-        >
-          <Cover />
-          <Description />
-          <Distance />
-          <Schedule />
-          <Video />
-          <Guide />
-          <Park />
-          <Photo />
-          <Box
-            sx={{
-              backgroundImage: "url(/images/block.svg)",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              minHeight: 297,
-            }}
-          />
-          <Footer />
-          {/* 
-     
-        <Box
-          sx={{
-            backgroundImage: "url(/images/block.svg)",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            minHeight: 297,
-          }}
-        />
-        <Footer /> */}
-        </Box>
-      )}
-    </>
-  );
+  return <Alert severity="warning">Сайт в разработке</Alert>;
+
+  // return (
+  //   <>
+  //     <Navbar />
+  //     {matches && (
+  //       <Container maxWidth="lg">
+  //         <Cover />
+  //         <Description />
+  //         <Distance />
+  //         <Schedule />
+  //         <Video />
+  //         <Guide />
+  //         <Park />
+  //         <Photo />
+  //         <Box
+  //           sx={{
+  //             backgroundImage: "url(/images/block.svg)",
+  //             backgroundRepeat: "no-repeat",
+  //             backgroundPosition: "center",
+  //             backgroundSize: "cover",
+  //             minHeight: 297,
+  //           }}
+  //         />
+  //         <Footer />
+  //       </Container>
+  //     )}
+  //     {!matches && (
+  //       <Box
+  //         sx={{
+  //           borderCollapse: "collapse",
+  //         }}
+  //       >
+  //         <Cover />
+  //         <Description />
+  //         <Distance />
+  //         <Schedule />
+  //         <Video />
+  //         <Guide />
+  //         <Park />
+  //         <Photo />
+  //         <Box
+  //           sx={{
+  //             backgroundImage: "url(/images/block.svg)",
+  //             backgroundRepeat: "no-repeat",
+  //             backgroundPosition: "center",
+  //             backgroundSize: "cover",
+  //             minHeight: 297,
+  //           }}
+  //         />
+  //         <Footer />
+  //         {/*
+
+  //       <Box
+  //         sx={{
+  //           backgroundImage: "url(/images/block.svg)",
+  //           backgroundRepeat: "no-repeat",
+  //           backgroundPosition: "center",
+  //           backgroundSize: "cover",
+  //           minHeight: 297,
+  //         }}
+  //       />
+  //       <Footer /> */}
+  //       </Box>
+  //     )}
+  //   </>
+  // );
 }

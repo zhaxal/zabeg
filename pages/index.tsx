@@ -31,6 +31,7 @@ export default function Home() {
           <Cover />
           <Description />
           <Distance />
+          <Schedule />
           <Video />
           <Guide />
           <Park />
@@ -56,6 +57,7 @@ export default function Home() {
           <Cover />
           <Description />
           <Distance />
+          <Schedule />
           <Video />
           <Guide />
           <Park />
@@ -71,9 +73,6 @@ export default function Home() {
           />
           <Footer />
           {/* 
-        
-      
-  
      
         <Box
           sx={{

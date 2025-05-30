@@ -70,17 +70,16 @@ const Schedule: FC = () => {
   return (
     <Box
       sx={{
-        backgroundImage: "linear-gradient(to bottom, #F89C43, #0461B5)",
+        backgroundImage: "linear-gradient(to bottom, #F89C43, #F89C43)",
       }}
     >
       <Box
         id="schedule"
         sx={{
-          backgroundImage: "url(/images/schedule.svg)",
           backgroundRepeat: "no-repeat",
           backgroundPosition: matches ? "center" : "bottom",
           backgroundSize: "cover",
-          aspectRatio: matches ? "1170/866" : sm ? "480/600" : "480/1257",
+          aspectRatio: matches ? "1070/866" : sm ? "480/600" : "480/1257",
         }}
       >
         <Typography
@@ -101,39 +100,36 @@ const Schedule: FC = () => {
           px={matches ? (medium ? "210px" : "20px") : "20px"}
           spacing="8px"
         >
-          <TableRow time="8.00" description="Открытие стартового городка" />
           <TableRow
-            time="8.00 – 11.15"
-            description="Выдача стартовых номеров"
+            time="09:00"
+            description="Начало выдачи стартовых номеров (до 11:45)"
           />
           <TableRow
-            time="9.00"
-            description="Старт забега на дистанцию 500 м для участников 6-8 лет"
+            time="10:30"
+            description="Торжественное открытие соревнований"
+          />
+          <TableRow time="10:45" description="Разминка" />
+          <TableRow time="11:00" description="Старт на дистанцию 5000 метров" />
+          <TableRow time="11:15" description="Старт на дистанцию 3000 метров" />
+          <TableRow time="11:30" description="Старт на дистанцию 1000 метров" />
+          <TableRow time="11:45" description="Старт на дистанцию 500 метров" />
+          <TableRow
+            time="12:15"
+            description="Награждение победителей и призеров дистанции 5000 м."
           />
           <TableRow
-            time="9.35 – 9.45"
-            description="Награждение победителей дистанции 500 м"
+            time="12:30"
+            description="Награждение победителей и призеров дистанции 3000 м."
           />
           <TableRow
-            time="10.00"
-            description="Старт забега на дистанцию 1000 м для участников 9-14 лет"
+            time="12:45"
+            description="Награждение победителей и призеров дистанции 1000 м."
           />
-          <TableRow
-            time="10.50 – 11.00"
-            description="Награждение победителей дистанции 1000 м"
-          />
-          <TableRow
-            time="11.30"
-            description="Старт забега на дистанцию 5 км для участников от 15 лет и старше"
-          />
-          <TableRow
-            time="12.30 – 12.45"
-            description="Награждение победителей дистанции 5 км"
-          />
-          <TableRow time="13.00" description="Окончание мероприятия" />
+          <TableRow time="13:00" description="Церемония закрытия мероприятия" />
+          <TableRow time="13:30 – 14:00" description="Окончание мероприятия" />
         </Stack>
 
-        <Stack
+        {/* <Stack
           pb={medium ? "0px" : "80px"}
           justifyContent={matches ? "flex-end" : "center"}
           px={matches ? "210px" : "0px"}
@@ -179,7 +175,7 @@ const Schedule: FC = () => {
               ЗАРЕГИСТРИРОВАТЬСЯ
             </Typography>
           </Button>
-        </Stack>
+        </Stack> */}
       </Box>
     </Box>
   );

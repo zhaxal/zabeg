@@ -242,9 +242,8 @@ const Guide: FC = () => {
                   }}
                 >
                   В день забега в зоне регистрации предъявите оригиналы
-                  документов:&nbsp;
+                  документов:
                 </Typography>
-
                 <ul>
                   <Typography
                     component="li"
@@ -253,10 +252,11 @@ const Guide: FC = () => {
                       fontSize: sm ? "20px" : "14px",
                       lineHeight: "120%",
                       color: "#FFFFFF",
+                      marginBottom: "8px",
                     }}
                   >
-                    документ, удостоверяющий личность (паспорт РФ/ свидетельство
-                    о рождении);
+                    Документ, удостоверяющий личность (паспорт РФ/ свидетельство
+                    о рождении)
                   </Typography>
                   <Typography
                     component="li"
@@ -265,9 +265,10 @@ const Guide: FC = () => {
                       fontSize: sm ? "20px" : "14px",
                       lineHeight: "120%",
                       color: "#FFFFFF",
+                      marginBottom: "8px",
                     }}
                   >
-                    индивидуальный или коллективный медицинский допуск;
+                    Индивидуальный или коллективный медицинский допуск
                   </Typography>
                   <Typography
                     component="li"
@@ -276,9 +277,10 @@ const Guide: FC = () => {
                       fontSize: sm ? "20px" : "14px",
                       lineHeight: "120%",
                       color: "#FFFFFF",
+                      marginBottom: "8px",
                     }}
                   >
-                    медицинский допуск (справка) необходим всем участникам.
+                    Медицинский допуск (справка) необходим всем участникам
                   </Typography>
                   <Typography
                     component="li"
@@ -287,12 +289,12 @@ const Guide: FC = () => {
                       fontSize: sm ? "20px" : "14px",
                       lineHeight: "120%",
                       color: "#FFFFFF",
+                      marginBottom: "8px",
                     }}
                   >
-                    полис ОМС или ДМС.
+                    Полис ОМС или ДМС
                   </Typography>
                 </ul>
-
                 <Typography
                   component="p"
                   sx={{
@@ -300,6 +302,7 @@ const Guide: FC = () => {
                     fontSize: sm ? "20px" : "14px",
                     lineHeight: "120%",
                     color: "#FFFFFF",
+                    marginTop: "12px",
                   }}
                 >
                   Также вы получите стартовый пакет участника.

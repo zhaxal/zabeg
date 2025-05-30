@@ -76,6 +76,7 @@ const RegistrationAccordion: FC<RegistrationAccordionProps> = ({
           {title2 !== "Площадка уточняется" && (
             <Button
               target="_blank"
+              disabled
               href={link}
               sx={{
                 background: "linear-gradient(90deg, #FFD324 0%, #FF8900 100%)",

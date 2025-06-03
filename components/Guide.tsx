@@ -391,7 +391,7 @@ const Guide: FC = () => {
                     }}
                   >
                     При отсутствии оригиналов документов участник не допускается
-                    до соревнований. 
+                    до соревнований.
                   </Typography>
                   <Typography
                     component="li"
@@ -430,9 +430,24 @@ const Guide: FC = () => {
                       color: "#FFFFFF",
                     }}
                   >
-                    Все финишеры получат памятную медаль, а победители и призеры
-                    — медаль и поощрительные призы.
+                    Все финишировавшие участники получат диплом и медаль
+                    финишера, а победители и призеры - медали соответствующих
+                    степеней и призы.
                   </Typography>
+
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Старт участников соревнований в каждой возрастной категории
+                    проводится по системе Массовый старт.
+                  </Typography>
+
                   <Typography
                     component="li"
                     sx={{
@@ -445,11 +460,80 @@ const Guide: FC = () => {
                     Медицинская справка необходима для всех категорий
                     участников.
                   </Typography>
+
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Во избежание случаев травматизма количество участников
+                    мероприятия ограничено.
+                  </Typography>
+
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Организатор Мероприятия оставляет за собой право о досрочном
+                    закрытии регистрации по достижению максимального лимита
+                    участников
+                  </Typography>
+
+                  <Typography
+                    component="li"
+                    sx={{
+                      fontFamily: "Gotham Pro Regular",
+                      fontSize: "20px",
+                      lineHeight: "120%",
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    Регистрация в день проведения мероприятия на площадке не
+                    проводится.
+                  </Typography>
                 </ul>
               </Box>
             </Stack>
           </Grid>
         </Grid>
+
+        <Stack
+          pt={!md ? "16px" : "42px"}
+          px={md ? (lg ? "205px" : "100px") : "10px"}
+          alignItems="center"
+        >
+          <Typography
+            sx={{
+              fontFamily: "Gotham Pro Bold",
+              fontSize: "32px",
+              color: "#FFFFFF",
+              lineHeight: "31px",
+              textAlign: "center",
+            }}
+          >
+            Стартовый пакет
+          </Typography>
+
+          <Box
+            component="img"
+            src="/images/packet.png"
+            sx={{
+              width: "100%",
+              height: "auto",
+              mt: "16px",
+              mb: "172px",
+            }}
+          />
+        </Stack>
       </Box>
     </Box>
   );

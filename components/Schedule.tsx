@@ -71,6 +71,7 @@ const Schedule: FC = () => {
     <Box
       sx={{
         backgroundImage: "linear-gradient(to bottom, #F89C43, #F89C43)",
+        pb: "80px",
       }}
     >
       <Box
@@ -93,6 +94,74 @@ const Schedule: FC = () => {
           }}
         >
           ПРОГРАММА
+        </Typography>
+
+        <Typography
+          sx={{
+            mb: "40px",
+            textAlign: "center",
+            fontFamily: "Gotham Pro Bold",
+            fontSize: matches ? "32px" : "28px",
+            color: "#1F1F1F",
+            lineHeight: matches ? "31px" : "27px",
+          }}
+        >
+          Стадион «Авангард»
+        </Typography>
+
+        <Stack
+          mb="40px"
+          px={matches ? (medium ? "210px" : "20px") : "20px"}
+          spacing="8px"
+        >
+          <TableRow
+            time="08:00"
+            description="Начало выдачи стартовых номеров (до 12:00)"
+          />
+          <TableRow time="08:50" description="Разминка" />
+          <TableRow time="09:00" description="Старт на дистанцию 10км" />
+          <TableRow
+            time="10:00"
+            description="Торжественное открытие соревнований"
+          />
+          <TableRow
+            time="10:10"
+            description="Церемония награждения участников дистанции 10 километров"
+          />
+          <TableRow time="10:20" description="Разминка" />
+          <TableRow time="10:30" description="Старт на дистанцию 500 метров" />
+          <TableRow time="10:50" description="Разминка" />
+          <TableRow time="11:00" description="Старт на дистанцию 1 километр" />
+          <TableRow
+            time="11:20"
+            description="Церемония награждения участников дистанции 1 километр"
+          />
+          <TableRow time="11:30" description="Разминка" />
+          <TableRow time="11:40" description="Старт на дистанцию 3 километра" />
+          <TableRow
+            time="12:10"
+            description="Церемония награждения участников дистанции 3 километра"
+          />
+          <TableRow time="12:20" description="Разминка" />
+          <TableRow time="12:30" description="Старт на дистанцию 5 километра" />
+          <TableRow
+            time="13:10"
+            description="Церемония награждения участников дистанции 5 километров"
+          />
+          <TableRow time="13:30" description="Закрытие мероприятия" />
+        </Stack>
+
+        <Typography
+          sx={{
+            mb: "40px",
+            textAlign: "center",
+            fontFamily: "Gotham Pro Bold",
+            fontSize: matches ? "32px" : "28px",
+            color: "#1F1F1F",
+            lineHeight: matches ? "31px" : "27px",
+          }}
+        >
+          Остальные площадки
         </Typography>
 
         <Stack

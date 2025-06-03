@@ -177,10 +177,10 @@ const Distance: FC = () => {
               px: matches ? (medium ? "13.5rem" : "10px") : "10px",
             }}
           >
-            *только в Измайловском парке
+            *только на флагманской площадке - стадион «Авангард»
           </Typography>
 
-          <a target="_blank" href="https://disk.yandex.ru/d/EUsuP6SyRp2DNw">
+          {/* <a target="_blank" href="https://disk.yandex.ru/d/EUsuP6SyRp2DNw">
             <Typography
               sx={{
                 fontFamily: "Gotham Pro Medium",
@@ -195,7 +195,7 @@ const Distance: FC = () => {
             >
               Посмотреть маршруты
             </Typography>
-          </a>
+          </a> */}
         </Stack>
       </Box>
     </Box>

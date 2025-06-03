@@ -107,7 +107,7 @@ const Park: FC = () => {
                   title1="ЮЗАО:"
                   title2="Центр проката «Поляны Бутово»"
                   borderColor="#1AAD02"
-                  link="https://reg.place/events/nastart-uzao"
+                  link="https://reg.place/events/nastart-yuzao-2025"
                 />
                 <RegistrationAccordion
                   expanded={expanded === "panel2"}
@@ -118,7 +118,7 @@ const Park: FC = () => {
                   title1="ЮВАО:"
                   title2="Парк 850-летия Москвы"
                   borderColor="#ED4543"
-                  link="https://reg.place/events/nastart-yuvao"
+                  link="https://reg.place/events/nastart-yuvao-2025"
                 />
                 <RegistrationAccordion
                   expanded={expanded === "panel3"}
@@ -129,7 +129,7 @@ const Park: FC = () => {
                   title1="СЗАО:"
                   title2="Парк «Северное Тушино»"
                   borderColor="#B51FFF"
-                  link="https://reg.place/events/nastart-szao"
+                  link="https://reg.place/events/nastart-szao-2025"
                 />
                 <RegistrationAccordion
                   expanded={expanded === "panel4"}
@@ -140,7 +140,7 @@ const Park: FC = () => {
                     "https://yandex.com/map-widget/v1/?um=constructor%3A66e306f35b5541b984d21df388a7862045f7d363ad6bca5c9294958b2e5c85a7&amp;source=constructor"
                   )}
                   borderColor="#FFD321"
-                  link="https://reg.place/events/nastart-zao"
+                  link="https://reg.place/events/nastart-zao-2025"
                 />
                 <RegistrationAccordion
                   expanded={expanded === "panel5"}
@@ -151,7 +151,7 @@ const Park: FC = () => {
                   title1="ВАО:"
                   title2="Стадион «Авангард»"
                   borderColor="#1E98FF"
-                  link="https://reg.place/events/nastart-vao"
+                  link="https://reg.place/events/nastart-vao-2025"
                 />
               </Stack>
             </Stack>

@@ -270,18 +270,7 @@ const Guide: FC = () => {
                   >
                     Индивидуальный или коллективный медицинский допуск
                   </Typography>
-                  <Typography
-                    component="li"
-                    sx={{
-                      fontFamily: "Gotham Pro Regular",
-                      fontSize: sm ? "20px" : "14px",
-                      lineHeight: "120%",
-                      color: "#FFFFFF",
-                      marginBottom: "8px",
-                    }}
-                  >
-                    Медицинский допуск (справка) необходим всем участникам
-                  </Typography>
+
                   <Typography
                     component="li"
                     sx={{
@@ -302,10 +291,24 @@ const Guide: FC = () => {
                     fontSize: sm ? "20px" : "14px",
                     lineHeight: "120%",
                     color: "#FFFFFF",
-                    marginTop: "12px",
                   }}
                 >
                   Также вы получите стартовый пакет участника.
+                </Typography>
+
+                <Typography
+                  component="p"
+                  sx={{
+                    mt: "16px",
+                    fontFamily: "Gotham Pro Regular",
+                    fontSize: sm ? "20px" : "14px",
+                    fontStyle: "italic",
+                    lineHeight: "120%",
+                    color: "#FFFFFF",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Медицинский допуск (справка) необходим всем участникам
                 </Typography>
               </>
             }
@@ -485,7 +488,7 @@ const Guide: FC = () => {
                   >
                     Организатор Мероприятия оставляет за собой право о досрочном
                     закрытии регистрации по достижению максимального лимита
-                    участников
+                    участников.
                   </Typography>
 
                   <Typography

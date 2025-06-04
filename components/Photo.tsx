@@ -12,12 +12,12 @@ const Photo: FC = () => {
 
   const [images, setImages] = useState<string[]>([
     "https://i.ibb.co/b3cJcFb/0-ZI-CJh-ITQ0.jpg",
-    "https://i.ibb.co/0mGd2ND/5-Iff-E-P3-Vu-I.jpg",
+    "https://i.ibb.co/9kwGpcBT/24-06-15-12-21-18-ME1-8150.jpg",
     "https://i.ibb.co/kHsNVkM/a8w-5e-Xyq-Yw.jpg",
-    "https://i.ibb.co/Z2FgRJ9/EKR4-yau-Auk.jpg",
+    "https://i.ibb.co/wrhDTQBC/24-06-15-12-37-41-ME1-8403.jpg",
     "https://i.ibb.co/x5Z41Zf/e-OCPCh-Ugz-Hs.jpg",
-    "https://i.ibb.co/y6Vggy6/FGG7-OYe-Nr-JA.jpg",
-    "https://i.ibb.co/HrL41hT/GVXMJGAUcrc.jpg",
+    "https://i.ibb.co/rcd0fnn/nm-BAs-Oy-SSPU.jpg",
+    "https://i.ibb.co/fnsYjNr/Wl-T3-GOi15-Y8.jpg",
     "https://i.ibb.co/TvBwLgF/I50-Uhg0aaps.jpg",
     "https://i.ibb.co/5cm6VHc/qu-Tkof-Zilyc.jpg",
     "https://i.ibb.co/25FgWPh/ra-Opu-KVn-WMg.jpg",

@@ -140,12 +140,12 @@ const Distance: FC = () => {
             </Typography>
             <TableRow
               age="8-12 лет"
-              distance="1000 м"
+              distance="1 км"
               icon="/images/icons/kid6-8.svg"
             />
             <TableRow
               age="13-17 лет"
-              distance="3000 м"
+              distance="3 км"
               icon="/images/icons/kid9-14.svg"
             />
             <Typography

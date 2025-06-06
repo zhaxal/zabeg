@@ -174,33 +174,38 @@ const Schedule: FC = () => {
             description="Начало выдачи стартовых номеров (до 11:45)"
           />
           <TableRow
-            time="10:30"
+            time="10:00"
             description="Торжественное открытие соревнований"
           />
-          <TableRow time="10:45" description="Разминка" />
-          <TableRow time="11:00" description="Старт на дистанцию 5000 метров" />
-          <TableRow time="11:15" description="Старт на дистанцию 3000 метров" />
-          <TableRow time="11:30" description="Старт на дистанцию 1000 метров" />
-          <TableRow time="11:45" description="Старт на дистанцию 500 метров" />
+          <TableRow time="10:20" description="Разминка" />
+          <TableRow time="10:30" description="Старт на дистанцию 500 метров" />
+          <TableRow time="10:50" description="Разминка" />
+          <TableRow time="11:00" description="Старт на дистанцию 1 километр" />
           <TableRow
-            time="12:15"
-            description="Награждение победителей и призеров дистанции 5000 м."
+            time="11:20"
+            description="Церемония награждения участников дистанции 1 километр"
           />
+          <TableRow time="11:30" description="Разминка" />
+          <TableRow time="11:40" description="Старт на дистанцию 3 километра" />
+          <TableRow
+            time="12:10"
+            description="Церемония награждения участников дистанции 3 километра"
+          />
+          <TableRow time="12:20" description="Разминка" />
           <TableRow
             time="12:30"
-            description="Награждение победителей и призеров дистанции 3000 м."
+            description="Старт на дистанцию 5 километров"
           />
           <TableRow
-            time="12:45"
-            description="Награждение победителей и призеров дистанции 1000 м."
+            time="13:10"
+            description="Церемония награждения участников дистанции 5 километров"
           />
-          <TableRow time="13:00" description="Церемония закрытия мероприятия" />
-          <TableRow time="13:30 – 14:00" description="Окончание мероприятия" />
+          <TableRow time="13:30" description="Закрытие мероприятия" />
         </Stack>
 
         {/* <Stack
           pb={medium ? "0px" : "80px"}
-          justifyContent={matches ? "flex-end" : "center"}
+          justifyContent={matches ? "flex-end" : "centesdr"}
           px={matches ? "210px" : "0px"}
           alignItems="center"
           direction={matches ? "row" : "column-reverse"}

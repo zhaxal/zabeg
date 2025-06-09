@@ -119,34 +119,34 @@ const Schedule: FC = () => {
             description="Начало выдачи стартовых номеров (до 12:00)"
           />
           <TableRow time="08:50" description="Разминка" />
-          <TableRow time="09:00" description="Старт на дистанцию 10км" />
+          <TableRow time="09:00" description="Старт на дистанцию 10 км" />
           <TableRow
             time="10:00"
             description="Торжественное открытие соревнований"
           />
           <TableRow
             time="10:10"
-            description="Церемония награждения участников дистанции 10 километров"
+            description="Церемония награждения участников дистанции 10 км"
           />
           <TableRow time="10:20" description="Разминка" />
           <TableRow time="10:30" description="Старт на дистанцию 500 метров" />
           <TableRow time="10:50" description="Разминка" />
-          <TableRow time="11:00" description="Старт на дистанцию 1 километр" />
+          <TableRow time="11:00" description="Старт на дистанцию 1 км" />
           <TableRow
             time="11:20"
-            description="Церемония награждения участников дистанции 1 километр"
+            description="Церемония награждения участников дистанции 1 км"
           />
           <TableRow time="11:30" description="Разминка" />
-          <TableRow time="11:40" description="Старт на дистанцию 3 километра" />
+          <TableRow time="11:40" description="Старт на дистанцию 3 км" />
           <TableRow
             time="12:10"
-            description="Церемония награждения участников дистанции 3 километра"
+            description="Церемония награждения участников дистанции 3 км"
           />
           <TableRow time="12:20" description="Разминка" />
-          <TableRow time="12:30" description="Старт на дистанцию 5 километра" />
+          <TableRow time="12:30" description="Старт на дистанцию 5 км" />
           <TableRow
             time="13:10"
-            description="Церемония награждения участников дистанции 5 километров"
+            description="Церемония награждения участников дистанции 5 км"
           />
           <TableRow time="13:30" description="Закрытие мероприятия" />
         </Stack>
@@ -180,25 +180,25 @@ const Schedule: FC = () => {
           <TableRow time="10:20" description="Разминка" />
           <TableRow time="10:30" description="Старт на дистанцию 500 метров" />
           <TableRow time="10:50" description="Разминка" />
-          <TableRow time="11:00" description="Старт на дистанцию 1 километр" />
+          <TableRow time="11:00" description="Старт на дистанцию 1 км" />
           <TableRow
             time="11:20"
-            description="Церемония награждения участников дистанции 1 километр"
+            description="Церемония награждения участников дистанции 1 км"
           />
           <TableRow time="11:30" description="Разминка" />
-          <TableRow time="11:40" description="Старт на дистанцию 3 километра" />
+          <TableRow time="11:40" description="Старт на дистанцию 3 км" />
           <TableRow
             time="12:10"
-            description="Церемония награждения участников дистанции 3 километра"
+            description="Церемония награждения участников дистанции 3 км"
           />
           <TableRow time="12:20" description="Разминка" />
           <TableRow
             time="12:30"
-            description="Старт на дистанцию 5 километров"
+            description="Старт на дистанцию 5 км"
           />
           <TableRow
             time="13:10"
-            description="Церемония награждения участников дистанции 5 километров"
+            description="Церемония награждения участников дистанции 5 км"
           />
           <TableRow time="13:30" description="Закрытие мероприятия" />
         </Stack>

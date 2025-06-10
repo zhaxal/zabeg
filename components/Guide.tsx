@@ -144,6 +144,7 @@ const Guide: FC = () => {
       <Box
         id="guide"
         sx={{
+          paddingTop: "64px",
           backgroundImage: "url(/images/guide.svg)",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",

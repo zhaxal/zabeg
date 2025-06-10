@@ -99,6 +99,23 @@ const DesktopNavbar: FC = () => {
                 mx={matches ? "60px" : "30px"}
               >
                 <Typography
+                  onClick={() => {
+                    const url = "https://disk.yandex.ru/d/rfFIi_cmXKRnrw";
+
+                    window.open(url, "_blank");
+                  }}
+                  sx={{
+                    fontFamily: "Mossport",
+                    fontSize: "32px",
+                    color: "#FFFFFF",
+                    lineHeight: "32px",
+                    cursor: "pointer",
+                  }}
+                >
+                  ПОЛОЖЕНИЕ
+                </Typography>
+
+                <Typography
                   onClick={handleScrollToElement("distance")}
                   sx={{
                     fontFamily: "Mossport",
@@ -181,6 +198,14 @@ const DesktopNavbar: FC = () => {
               </IconButton>
             </Stack>
             <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+              <CustomMenuItem
+                onClick={() => {
+                  const url = "https://disk.yandex.ru/d/rfFIi_cmXKRnrw";
+                  window.open(url, "_blank");
+                }}
+              >
+                ПОЛОЖЕНИЕ
+              </CustomMenuItem>
               <CustomMenuItem onClick={handleClose("distance")}>
                 ДИСТАНЦИИ
               </CustomMenuItem>

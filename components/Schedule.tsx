@@ -203,7 +203,7 @@ const Schedule: FC = () => {
           <TableRow time="13:30" description="Закрытие мероприятия" />
         </Stack>
 
-        {/* <Stack
+        <Stack
           pb={medium ? "0px" : "80px"}
           justifyContent={matches ? "flex-end" : "centesdr"}
           px={matches ? "210px" : "0px"}
@@ -213,7 +213,7 @@ const Schedule: FC = () => {
         >
           <Link
             target="_blank"
-            href="https://disk.yandex.ru/i/X0RDbPKanlb3pA"
+            href="https://disk.yandex.ru/d/rfFIi_cmXKRnrw"
             sx={{
               fontFamily: "Gotham Pro Bold",
               fontSize: "18px",
@@ -224,7 +224,7 @@ const Schedule: FC = () => {
           >
             Положение о мероприятии
           </Link>
-          <Button
+          {/* <Button
             sx={{
               mx: matches ? "56px" : "0px",
               background:
@@ -248,8 +248,8 @@ const Schedule: FC = () => {
             >
               ЗАРЕГИСТРИРОВАТЬСЯ
             </Typography>
-          </Button>
-        </Stack> */}
+          </Button> */}
+        </Stack>
       </Box>
     </Box>
   );

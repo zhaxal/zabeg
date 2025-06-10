@@ -2,6 +2,7 @@ import { handleScrollToElement } from "@/utils/scroll";
 import {
   Box,
   Button,
+  Link,
   Stack,
   Typography,
   useMediaQuery,
@@ -102,6 +103,21 @@ const DescriptionDesktop: FC = () => {
             Все участники получат дипломы и медаль финишера, а победители и
             призеры - медали и памятные призы
           </Typography>
+
+          <Link
+            target="_blank"
+            href="https://disk.yandex.ru/d/rfFIi_cmXKRnrw"
+            sx={{
+              fontFamily: "Gotham Pro Bold",
+              fontSize: "18px",
+              lineHeight: "152%",
+              color: "#0461B5",
+              textDecoration: "underline",
+            }}
+          >
+            <br />
+            Положение о мероприятии
+          </Link>
         </Box>
       </Box>
     </Box>
@@ -198,6 +214,21 @@ const DescriptionMobile: FC = () => {
             Все участники получат дипломы и медаль финишера, а победители и
             призеры - медали и памятные призы
           </Typography>
+
+          <Link
+            target="_blank"
+            href="https://disk.yandex.ru/d/rfFIi_cmXKRnrw"
+            sx={{
+              fontFamily: "Gotham Pro Bold",
+              fontSize: "18px",
+              lineHeight: "152%",
+              color: "#0461B5",
+              textDecoration: "underline",
+            }}
+          >
+            <br />
+            Положение о мероприятии
+          </Link>
         </Stack>
         <Stack px="64px" pt="42px" alignItems="center">
           <Box

@@ -202,6 +202,7 @@ const DesktopNavbar: FC = () => {
                 onClick={() => {
                   const url = "https://disk.yandex.ru/d/rfFIi_cmXKRnrw";
                   window.open(url, "_blank");
+                  setAnchorEl(null);
                 }}
               >
                 ПОЛОЖЕНИЕ

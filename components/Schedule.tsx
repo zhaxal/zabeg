@@ -224,7 +224,7 @@ const Schedule: FC = () => {
           >
             Положение о мероприятии
           </Link>
-          {/* <Button
+          <Button
             sx={{
               mx: matches ? "56px" : "0px",
               background:
@@ -248,7 +248,7 @@ const Schedule: FC = () => {
             >
               ЗАРЕГИСТРИРОВАТЬСЯ
             </Typography>
-          </Button> */}
+          </Button>
         </Stack>
       </Box>
     </Box>

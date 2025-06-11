@@ -39,7 +39,73 @@ export default function Home() {
     setCookieAccepted(true);
   };
 
-  return <Alert severity="warning">Сайт в разработке</Alert>;
+  return (
+    <>
+      <CssBaseline />
+      <Navbar />
+      {matches && (
+        <Container maxWidth="lg">
+          <Cover />
+          <Description />
+          <Distance />
+          <Schedule />
+          <Guide />
+          <Park />
+          <Photo />
+          <Box
+            sx={{
+              backgroundImage: "url(/images/block.svg)",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              minHeight: 297,
+            }}
+          />
+          <Footer />
+        </Container>
+      )}
+      {!matches && (
+        <Box
+          sx={{
+            borderCollapse: "collapse",
+          }}
+        >
+          <Cover />
+          <Description />
+          <Distance />
+          <Schedule />
+          <Guide />
+          <Park />
+          <Photo />
+          <Box
+            sx={{
+              backgroundImage: "url(/images/block.svg)",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              minHeight: 297,
+            }}
+          />
+          <Footer />
+          {/* 
+         
+       
+   
+      
+         <Box
+           sx={{
+             backgroundImage: "url(/images/block.svg)",
+             backgroundRepeat: "no-repeat",
+             backgroundPosition: "center",
+             backgroundSize: "cover",
+             minHeight: 297,
+           }}
+         />
+         <Footer /> */}
+        </Box>
+      )}
+    </>
+  );
 
   // return (
   //   <>

@@ -91,7 +91,7 @@ const RegistrationAccordion: FC<RegistrationAccordionProps> = ({
                 },
               }}
             >
-              ЗАРЕГИСТРИРОВАТЬСЯ
+              РЕЗУЛЬТАТЫ
             </Button>
           )}
         </Stack>

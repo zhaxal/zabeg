@@ -83,7 +83,7 @@ const Park: FC = () => {
                   lineHeight: "31px",
                 }}
               >
-                Регистрация
+                Результаты
               </Typography>
               <Typography
                 sx={{

@@ -78,7 +78,7 @@ const DescriptionDesktop: FC = () => {
                   },
                 }}
               >
-                ЗАРЕГИСТРИРОВАТЬСЯ
+                РЕЗУЛЬТАТЫ
                 <Box
                   sx={{ position: "absolute", top: "100%" }}
                   width="100%"
@@ -197,7 +197,7 @@ const DescriptionMobile: FC = () => {
               },
             }}
           >
-            ЗАРЕГИСТРИРОВАТЬСЯ
+            РЕЗУЛЬТАТЫ
           </Button>
         </Stack>
         <Stack alignItems="center" pt="42px" px="60px">

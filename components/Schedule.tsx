@@ -246,7 +246,7 @@ const Schedule: FC = () => {
                 color: "#FFFFFF",
               }}
             >
-              ЗАРЕГИСТРИРОВАТЬСЯ
+              РЕЗУЛЬТАТЫ
             </Typography>
           </Button>
         </Stack>

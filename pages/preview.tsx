@@ -1,13 +1,20 @@
-import Cover from "@/components/Cover";
-import Description from "@/components/Description";
-import Distance from "@/components/Distance";
-import Footer from "@/components/Footer";
-import Guide from "@/components/Guide";
-import Navbar from "@/components/Navbar";
-import Park from "@/components/Park";
-import Photo from "@/components/Photo";
-import Schedule from "@/components/Schedule";
-import { Box, Container, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
+import Cover from "@/components/new/Cover";
+import Description from "@/components/new/Description";
+import DistanceCarousel from "@/components/new/DistanceCarousel";
+import Route from "@/components/new/Route";
+import Footer from "@/components/new/Footer";
+import Documents from "@/components/new/Documents";
+import Guide from "@/components/new/Guide";
+import Navbar from "@/components/new/Navbar";
+import Photo from "@/components/new/Photo";
+import Schedule from "@/components/new/Schedule";
+import {
+  Box,
+  Container,
+  CssBaseline,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 export default function Preview() {
   const theme = useTheme();
@@ -17,63 +24,29 @@ export default function Preview() {
     <>
       <CssBaseline />
       <Navbar />
-      {matches && (
+      {matches ? (
         <Container maxWidth="lg">
           <Cover />
           <Description />
-          <Distance />
+          <DistanceCarousel />
+          <Route />
           <Schedule />
           <Guide />
-          <Park />
+          <Documents />
           <Photo />
-          <Box
-            sx={{
-              backgroundImage: "url(/images/block.svg)",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              minHeight: 297,
-            }}
-          />
           <Footer />
         </Container>
-      )}
-      {!matches && (
-        <Box sx={{
-          borderCollapse: "collapse",
-        }}>
+      ) : (
+        <Box>
           <Cover />
           <Description />
-          <Distance />
+          <DistanceCarousel />
+          <Route />
           <Schedule />
           <Guide />
-          <Park />
+          <Documents />
           <Photo />
-          <Box
-            sx={{
-              backgroundImage: "url(/images/block.svg)",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              minHeight: 297,
-            }}
-          />
           <Footer />
-          {/* 
-        
-      
-  
-     
-        <Box
-          sx={{
-            backgroundImage: "url(/images/block.svg)",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            minHeight: 297,
-          }}
-        />
-        <Footer /> */}
         </Box>
       )}
     </>

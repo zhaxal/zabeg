@@ -6,6 +6,7 @@ import Footer from "@/components/new/Footer";
 import Documents from "@/components/new/Documents";
 import Guide from "@/components/new/Guide";
 import Navbar from "@/components/new/Navbar";
+import Partners from "@/components/new/Partners";
 import Photo from "@/components/new/Photo";
 import Schedule from "@/components/new/Schedule";
 import {
@@ -33,6 +34,7 @@ export default function Preview() {
           <Schedule />
           <Guide />
           <Documents />
+          <Partners />
           <Photo />
           <Footer />
         </Container>
@@ -45,6 +47,7 @@ export default function Preview() {
           <Schedule />
           <Guide />
           <Documents />
+          <Partners />
           <Photo />
           <Footer />
         </Box>

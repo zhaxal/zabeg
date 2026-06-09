@@ -170,7 +170,7 @@ const DesktopNavbar: FC = () => {
           <IconButton
             onClick={handleClick}
             size="large"
-            sx={{ color: "#0F2572" }}
+            sx={{ color: BLUE }}
           >
             <MenuIcon />
           </IconButton>

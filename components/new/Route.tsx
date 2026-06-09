@@ -2,15 +2,18 @@ import {
   Box,
   Button,
   Grid,
+  IconButton,
   Modal,
   Stack,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { FC, useState, useEffect } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import React, { FC, useState, useEffect } from "react";
 
 const BLUE = "#0F2572";
 const SKY = "#60D0FF";
+const CORAL = "#E85555";
 
 interface ParkOption {
   id: string;
@@ -24,35 +27,35 @@ const PARKS: ParkOption[] = [
   {
     id: "ЮЗАО",
     district: "ЮЗАО",
-    accentColor: "#1AAD02",
+    accentColor: CORAL,
     name: "Центр проката «Поляны Бутово»",
     image: "/images/routes/uzao.jpg",
   },
   {
     id: "ЮВАО",
     district: "ЮВАО",
-    accentColor: "#ED4543",
+    accentColor: SKY,
     name: "Парк 850-летия Москвы",
     image: "/images/routes/uvao.jpg",
   },
   {
     id: "СЗАО",
     district: "СЗАО",
-    accentColor: "#B51FFF",
+    accentColor: CORAL,
     name: "Парк «Северное Тушино»",
     image: "/images/routes/szao.jpg",
   },
   {
     id: "ЗАО",
     district: "ЗАО",
-    accentColor: "#FFD321",
+    accentColor: SKY,
     name: "Парк Олимпийской деревни",
     image: "/images/routes/zao.jpg",
   },
   {
     id: "ВАО",
     district: "ВАО",
-    accentColor: "#1E98FF",
+    accentColor: CORAL,
     name: "Стадион «Авангард»",
     image: "/images/routes/vao.jpg",
   },
@@ -135,28 +138,50 @@ const Route: FC = () => {
 
   return (
     <Box>
-      <Modal
-        open={lightboxOpen}
-        onClose={() => setLightboxOpen(false)}
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-      >
+      <Modal open={lightboxOpen} onClose={() => setLightboxOpen(false)}>
         <Box
-          component="img"
-          src={activePark.image}
-          alt={`Маршрут — ${activePark.name}`}
-          onClick={() => setLightboxOpen(false)}
           sx={{
-            maxWidth: "95vw",
-            maxHeight: "95vh",
-            objectFit: "contain",
-            borderRadius: "8px",
+            position: "fixed",
+            inset: 0,
+            bgcolor: "rgba(0,0,0,0.92)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             cursor: "zoom-out",
-            outline: "none",
           }}
-        />
+          onClick={() => setLightboxOpen(false)}
+        >
+          <Box
+            component="img"
+            src={activePark.image}
+            alt={`Маршрут — ${activePark.name}`}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
+            sx={{
+              maxWidth: "95vw",
+              maxHeight: "95vh",
+              objectFit: "contain",
+              borderRadius: "8px",
+              outline: "none",
+              cursor: "default",
+            }}
+          />
+          <IconButton
+            onClick={() => setLightboxOpen(false)}
+            sx={{
+              position: "fixed",
+              top: "16px",
+              right: "16px",
+              color: "#fff",
+              bgcolor: "rgba(0,0,0,0.5)",
+              "&:hover": { bgcolor: "rgba(0,0,0,0.8)" },
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </Box>
       </Modal>
 
-      <Box bgcolor={SKY} py={10} id="routes">
+      <Box bgcolor="#FFFFFF" py={10} id="routes">
         <Typography
           sx={{
             mb: md ? "40px" : "32px",

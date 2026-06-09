@@ -3,7 +3,7 @@
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Box, IconButton, Typography } from "@mui/material";
-import { FC, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 
 const BLUE = "#0F2572";
 
@@ -79,6 +79,16 @@ const LogoCarousel: FC<{ partners: Partner[] }> = ({ partners }) => {
   const totalPages = Math.ceil(partners.length / PER_PAGE);
   const showArrows = totalPages > 1;
   const visible = partners.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
+  const touchStartX = useRef<number>(0);
+
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) {
+      if (delta > 0) setPage((p) => Math.min(totalPages - 1, p + 1));
+      else setPage((p) => Math.max(0, p - 1));
+    }
+  };
 
   const arrowSx = {
     flexShrink: 0,
@@ -88,7 +98,7 @@ const LogoCarousel: FC<{ partners: Partner[] }> = ({ partners }) => {
   };
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", gap: { xs: "8px", md: "12px" } }}>
+    <Box onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} sx={{ display: "flex", alignItems: "center", gap: { xs: "8px", md: "12px" } }}>
       {showArrows && (
         <IconButton onClick={() => setPage((p) => p - 1)} disabled={page === 0} sx={arrowSx}>
           <ArrowBackIosNewIcon sx={{ color: BLUE, fontSize: { xs: "16px", md: "20px" } }} />

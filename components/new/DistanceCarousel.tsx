@@ -31,7 +31,7 @@ interface ParkCardData {
 const PARKS: ParkCardData[] = [
   {
     district: "ВАО",
-    accentColor: "#1E98FF",
+    accentColor: SKY,
     name: "Стадион «Авангард»",
     metro: "м. Шоссе Энтузиастов",
     distances: [
@@ -45,7 +45,7 @@ const PARKS: ParkCardData[] = [
   },
   {
     district: "ЮЗАО",
-    accentColor: "#1AAD02",
+    accentColor: CORAL,
     name: "Центр проката «Поляны Бутово»",
     metro: "м. Улица Старокачаловская",
     distances: [
@@ -58,7 +58,7 @@ const PARKS: ParkCardData[] = [
   },
   {
     district: "ЮВАО",
-    accentColor: "#ED4543",
+    accentColor: SKY,
     name: "Парк 850-летия Москвы",
     metro: "м. Марьино",
     distances: [
@@ -71,7 +71,7 @@ const PARKS: ParkCardData[] = [
   },
   {
     district: "СЗАО",
-    accentColor: "#B51FFF",
+    accentColor: CORAL,
     name: "Парк «Северное Тушино»",
     metro: "м. Планерная",
     distances: [
@@ -84,7 +84,7 @@ const PARKS: ParkCardData[] = [
   },
   {
     district: "ЗАО",
-    accentColor: "#FFD321",
+    accentColor: SKY,
     name: "Парк Олимпийской деревни",
     metro: "м. Мичуринский проспект",
     distances: [
@@ -105,16 +105,16 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
     sx={{
       flexShrink: 0,
       width: CARD_WIDTH,
-      border: `2px solid rgba(96, 208, 255, 0.2)`,
+      border: `2px solid rgba(15, 37, 114, 0.2)`,
       borderRadius: "20px",
       p: "24px",
       display: "flex",
       flexDirection: "column",
       gap: "20px",
-      bgcolor: "rgba(15, 37, 114, 0.5)",
+      bgcolor: BLUE,
       transition: "border-color 0.25s",
       "&:hover": {
-        borderColor: SKY,
+        borderColor: BLUE,
       },
     }}
   >
@@ -134,7 +134,7 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
           sx={{
             fontFamily: "Gotham Pro Bold",
             fontSize: "12px",
-            color: "#FFFFFF",
+            color: park.accentColor === SKY ? BLUE : "#FFFFFF",
             letterSpacing: "0.1em",
           }}
         >
@@ -158,8 +158,7 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
         sx={{
           fontFamily: "Gotham Pro Regular",
           fontSize: "13px",
-          color: SKY,
-          opacity: 0.8,
+          color: "rgba(255,255,255,0.7)",
           mb: "20px",
         }}
       >
@@ -174,7 +173,7 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
             alignItems="center"
             justifyContent="space-between"
             sx={{
-              borderBottom: `1px solid rgba(96, 208, 255, 0.12)`,
+              borderBottom: `1px solid rgba(255,255,255,0.15)`,
               pb: "6px",
             }}
           >
@@ -190,7 +189,7 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
             </Typography>
             <Box
               sx={{
-                border: `1px solid rgba(96, 208, 255, 0.45)`,
+                border: `1px solid rgba(255,255,255,0.4)`,
                 borderRadius: "6px",
                 px: "8px",
                 py: "2px",
@@ -200,7 +199,7 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
                 sx={{
                   fontFamily: "Gotham Pro Regular",
                   fontSize: "12px",
-                  color: SKY,
+                  color: "rgba(255,255,255,0.8)",
                 }}
               >
                 {d.age}
@@ -239,6 +238,7 @@ const DistanceCarousel: FC = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up("md"));
   const scrollRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number>(0);
 
   const scroll = (dir: "left" | "right") => {
     scrollRef.current?.scrollBy({
@@ -247,11 +247,20 @@ const DistanceCarousel: FC = () => {
     });
   };
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) scroll(delta > 0 ? "right" : "left");
+  };
+
   return (
     <Box
       id="distances"
       sx={{
-        bgcolor: BLUE,
+        bgcolor: SKY,
         px: isMd ? "80px" : "20px",
         py: isMd ? "64px" : "40px",
       }}
@@ -261,7 +270,7 @@ const DistanceCarousel: FC = () => {
           fontFamily: "Mossport",
           fontSize: isMd ? "96px" : "60px",
           lineHeight: isMd ? "88px" : "56px",
-          color: "#FFFFFF",
+          color: BLUE,
           mb: isMd ? "48px" : "32px",
         }}
       >
@@ -277,9 +286,9 @@ const DistanceCarousel: FC = () => {
               left: "-52px",
               top: "50%",
               transform: "translateY(-50%)",
-              color: "#FFFFFF",
-              bgcolor: "rgba(255,255,255,0.1)",
-              "&:hover": { bgcolor: "rgba(255,255,255,0.2)" },
+              color: BLUE,
+              bgcolor: "rgba(15,37,114,0.12)",
+              "&:hover": { bgcolor: "rgba(15,37,114,0.22)" },
               zIndex: 1,
             }}
           >
@@ -289,6 +298,8 @@ const DistanceCarousel: FC = () => {
 
         <Box
           ref={scrollRef}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
           sx={{
             display: "flex",
             flexDirection: "row",
@@ -314,9 +325,9 @@ const DistanceCarousel: FC = () => {
               right: "-52px",
               top: "50%",
               transform: "translateY(-50%)",
-              color: "#FFFFFF",
-              bgcolor: "rgba(255,255,255,0.1)",
-              "&:hover": { bgcolor: "rgba(255,255,255,0.2)" },
+              color: BLUE,
+              bgcolor: "rgba(15,37,114,0.12)",
+              "&:hover": { bgcolor: "rgba(15,37,114,0.22)" },
               zIndex: 1,
             }}
           >

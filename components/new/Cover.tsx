@@ -35,7 +35,7 @@ const Unit: FC<{ value: number; label: string }> = ({ value, label }) => (
       sx={{
         fontFamily: "Mossport",
         fontSize: { xs: "14px", sm: "16px", md: "20px", lg: "24px" },
-        color: BLUE,
+        color: "#FFFFFF",
         letterSpacing: "0.05em",
       }}
     >
@@ -93,19 +93,19 @@ const Cover: FC = () => {
             bottom: { xs: "4%", sm: "6%", md: "8%", lg: "10%" },
             left: 0,
             right: 0,
-            
           }}
         >
           <Typography
             sx={{
               fontFamily: "Mossport",
-              color: SKY,
+              color: "#FFFFFF",
               fontSize: { xs: "40px", sm: "56px", md: "80px", lg: "112px" },
               lineHeight: 1,
               textAlign: "center",
-              backgroundColor: "rgba(255, 255, 255, 0.95)",
+              backgroundColor: "rgba(15, 37, 114, 0.88)",
               px: { xs: "16px", md: "32px" },
-              py: { xs: "4px", md: "8px" },
+              pt: { xs: "8px", md: "16px" },
+              // pb: { xs: "10px", md: "16px" },
               borderRadius: "12px",
             }}
           >
@@ -137,13 +137,13 @@ const Cover: FC = () => {
       </Box>
 
       {/* Countdown timer — separate row below the banner */}
-      <Box sx={{ backgroundColor: "white", py: { xs: 4, md: 6 } }}>
+      <Box sx={{ backgroundColor: BLUE, py: { xs: 4, md: 6 } }}>
         <Stack alignItems="center" spacing={{ xs: 2, md: 3 }}>
           <Typography
             sx={{
               fontFamily: "Mossport",
               fontSize: { xs: "20px", sm: "24px", md: "32px", lg: "40px" },
-              color: BLUE,
+              color: "#FFFFFF",
               letterSpacing: "0.05em",
             }}
           >

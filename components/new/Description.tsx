@@ -11,7 +11,7 @@ import {
 import { FC } from "react";
 
 const BLUE = "#0F2572";
-const SKY = "#60D0FF";
+const CORAL = "#E85555";
 
 // const DescriptionDesktop: FC = () => {
 //   const theme = useTheme();
@@ -249,7 +249,11 @@ const SKY = "#60D0FF";
 const Description: FC = () => {
   return (
     <>
-      <Box py={{ xs: 4, md: 8 }} px={{ xs: 2, md: 12 }} sx={{ bgcolor: `${SKY}44`, position: "relative" }}>
+      <Box
+        py={{ xs: 4, md: 8 }}
+        px={{ xs: 2, md: 12 }}
+        sx={{ bgcolor: "#FFFFFF", position: "relative" }}
+      >
         {/* <Box
           component="img"
           src="/images/zabeg_2026/free.svg"
@@ -278,52 +282,93 @@ const Description: FC = () => {
             <Box width={{ xs: "100%", md: "50%" }}>
               <Typography
                 sx={{
-                  mb: { xs: "24px", md: "64px" },
-                  textIndent: "32px",
+                  mb: { xs: "16px", md: "24px" },
                   fontFamily: "Gotham Pro Medium",
-                  fontSize: {
-                    xs: "18px",
-                    lg: "24px",
-                  },
+                  fontSize: { xs: "16px", lg: "18px" },
                   color: BLUE,
-                  lineHeight: "120%",
+                  lineHeight: "150%",
                   fontWeight: 400,
                 }}
               >
-                20 июня в пяти парках Москвы пройдет масштабный забег для
-                взрослых и детей. Забег подойдет как новичкам, которые хотят
-                поучаствовать в частью спортивного праздника, так и продвинутым
-                атлетам, которые хотят испытать свои силы и побороться за
-                победу. Для любителей дистанций подлиннее будет доступен забег
-                на 10 км на флагманской площадке на стадионе «Авангард».
-                <br />
-                <br />
-                Каждый участник получает стартовый мешок с полезными вложениями,
-                стартовый номер и медаль финишера!
+                20 июня в пяти парках Москвы пройдет ежегодный бесплатный
+                массовый забег «На старт!». Принять участие приглашаются
+                взрослые и дети — как новички, так и опытные бегуны. Для
+                участников подготовлены дистанции разного уровня сложности — в
+                зависимости от возраста и спортивной подготовки.
               </Typography>
               <Typography
                 sx={{
-                  fontFamily: "Gotham Pro Bold",
-                  fontSize: { xs: "28px", lg: "36px" },
+                  mb: { xs: "16px", md: "24px" },
+                  fontFamily: "Gotham Pro Medium",
+                  fontSize: { xs: "16px", lg: "18px" },
                   color: BLUE,
-                  textAlign: "center",
-                  lineHeight: "120%",
-                  mt: "16px",
+                  lineHeight: "150%",
+                  fontWeight: 400,
                 }}
               >
-                Все на старт!
+                Основное событие состоится на стадионе «Авангард», где пройдет
+                забег на 10 километров. Эта дистанция предназначена для тех, кто
+                хочет испытать свои силы в более серьезном соревновании и
+                сделать первый шаг к профессиональному бегу. Каждому участнику
+                будет предоставлен стартовый мешок с вложениями и стартовый
+                номер. Победители в каждой из дистанций — первые три финишера —
+                получат медали.
               </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "Gotham Pro Medium",
+                  fontSize: { xs: "16px", lg: "18px" },
+                  color: BLUE,
+                  lineHeight: "150%",
+                  fontWeight: 400,
+                }}
+              >
+                Также во всех парках будет организован семейный забег для детей
+                от 4 до 7 лет и их родителей. Все юные участники получат
+                памятные медали и сувениры. Кроме того, на стадионе «Авангард»
+                детей будет ждать разминка и фотозона от мультипликационного
+                персонажа детектива Финника.
+              </Typography>
+
+              <Box
+                sx={{
+                  display: "inline-block",
+                  mt: { xs: "24px", md: "36px" },
+                  bgcolor: CORAL,
+                  px: { xs: "20px", md: "28px" },
+                  py: { xs: "8px", md: "12px" },
+                  borderRadius: "8px",
+                }}
+              >
+                <Typography
+                  sx={{
+                    textTransform: "uppercase",
+                    fontFamily: "Mossport",
+                    pt: { xs: "4px", md: "8px" },
+                    fontSize: {
+                      xs: "32px",
+                      sm: "40px",
+                      md: "48px",
+                      lg: "56px",
+                    },
+                    color: "#FFFFFF",
+                    lineHeight: 1,
+                  }}
+                >
+                  Все на старт!
+                </Typography>
+              </Box>
             </Box>
           </Stack>
         </Box>
       </Box>
+
       <Box
         sx={{
-          bgcolor: "#F89C43",
+          bgcolor: CORAL,
           py: { xs: "14px", lg: "20px" },
           overflow: "hidden",
           width: "100%",
-  
         }}
       >
         <Box
@@ -339,8 +384,7 @@ const Description: FC = () => {
               sx={{
                 fontFamily: "Gotham Pro Bold",
                 fontSize: { xs: "22px", lg: "32px" },
-                color: "#31313E",
-
+                color: "#FFFFFF",
                 textTransform: "uppercase",
                 letterSpacing: "0.05em",
                 whiteSpace: "nowrap",

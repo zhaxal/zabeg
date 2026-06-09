@@ -5,7 +5,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, IconButton, Modal, Typography } from "@mui/material";
 import Image from "next/image";
-import { FC, useCallback, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 
 const BLUE = "#0F2572";
 const SKY = "#60D0FF";
@@ -59,8 +59,8 @@ const NavArrow: FC<{
     onClick={onClick}
     disabled={disabled}
     sx={{
-      bgcolor: "white",
-      color: BLUE,
+      bgcolor: BLUE,
+      color: "#FFFFFF",
       boxShadow: "0 4px 16px rgba(0,0,0,0.30)",
       width: { xs: 40, sm: 52 },
       height: { xs: 40, sm: 52 },
@@ -72,8 +72,8 @@ const NavArrow: FC<{
         [direction === "left" ? "left" : "right"]: { xs: "8px", sm: "16px" },
         zIndex: 2,
       }),
-      "&:hover": { bgcolor: "rgba(255,255,255,0.9)" },
-      "&.Mui-disabled": { opacity: 0.35, bgcolor: "white" },
+      "&:hover": { bgcolor: "rgba(15,37,114,0.8)" },
+      "&.Mui-disabled": { opacity: 0.35, bgcolor: BLUE },
     }}
   >
     {direction === "left"
@@ -85,9 +85,16 @@ const NavArrow: FC<{
 const Photo: FC = () => {
   const [page, setPage] = useState(0);
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const touchStartX = useRef<number>(0);
 
   const prevPage = () => setPage((p) => Math.max(0, p - 1));
   const nextPage = () => setPage((p) => Math.min(TOTAL_PAGES - 1, p + 1));
+
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) delta > 0 ? nextPage() : prevPage();
+  };
 
   const prevLight = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -130,6 +137,8 @@ const Photo: FC = () => {
         </Typography>
 
         <Box
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
           sx={{
             px: { xs: "16px", sm: "32px", md: "100px" },
             display: "flex",

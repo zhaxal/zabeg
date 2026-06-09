@@ -12,10 +12,11 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { FC, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 
 const BLUE = "#0F2572";
 const SKY = "#60D0FF";
+const CORAL = "#E85555";
 
 interface ScheduleRow {
   time: string;
@@ -134,14 +135,21 @@ const Schedule: FC = () => {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const medium = useMediaQuery("(min-width:1100px)");
   const [active, setActive] = useState(0);
+  const touchStartX = useRef<number>(0);
 
   const prev = () => setActive((i) => (i - 1 + SCHEDULES.length) % SCHEDULES.length);
   const next = () => setActive((i) => (i + 1) % SCHEDULES.length);
 
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) delta > 0 ? next() : prev();
+  };
+
   return (
     <Box
       sx={{
-        backgroundImage: "linear-gradient(to bottom, #F89C43, #F89C43)",
+        bgcolor: CORAL,
         py: "80px",
       }}
     >
@@ -151,7 +159,7 @@ const Schedule: FC = () => {
             mb: "40px",
             textAlign: "center",
             fontFamily: "Mossport",
-            color: "#2E2E2E",
+            color: "#FFFFFF",
             fontSize: medium ? "128px" : "72px",
             lineHeight: medium ? "120px" : "68px",
           }}
@@ -160,7 +168,7 @@ const Schedule: FC = () => {
         </Typography>
 
         {/* Carousel */}
-        <Box sx={{ position: "relative", overflow: "hidden" }}>
+        <Box sx={{ position: "relative", overflow: "hidden" }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           <Box
             sx={{
               display: "flex",
@@ -169,14 +177,15 @@ const Schedule: FC = () => {
             }}
           >
             {SCHEDULES.map((card, index) => (
-              <Box key={index} sx={{ minWidth: "100%", px: medium ? "80px" : "20px" }}>
+              <Box key={index} sx={{ minWidth: "100%", px: { xs: "16px", sm: "32px" } }}>
+                <Box sx={{ maxWidth: "680px", mx: "auto" }}>
                 <Typography
                   sx={{
                     mb: "24px",
                     textAlign: "center",
                     fontFamily: "Gotham Pro Bold",
                     fontSize: matches ? "28px" : "22px",
-                    color: "#1F1F1F",
+                    color: "#FFFFFF",
                     lineHeight: "130%",
                   }}
                 >
@@ -188,6 +197,7 @@ const Schedule: FC = () => {
                     <TableRow key={i} time={row.time} description={row.description} />
                   ))}
                 </Stack>
+                </Box>
               </Box>
             ))}
           </Box>

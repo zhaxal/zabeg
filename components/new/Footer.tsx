@@ -9,6 +9,7 @@ import {
 import { FC } from "react";
 
 const BLUE = "#0F2572";
+const SKY = "#60D0FF";
 
 const NAV_LINKS = [
   { label: "О забеге", id: "description" },
@@ -57,7 +58,7 @@ const Footer: FC = () => {
   const px = { xs: "16px", sm: "24px", md: "40px" };
 
   return (
-    <Box id="footer" bgcolor="#FFFFFF">
+    <Box id="footer" bgcolor={SKY}>
       {/* Main content: logos left, nav+contacts right */}
       <Box
         px={px}
@@ -141,7 +142,7 @@ const Footer: FC = () => {
                 fontSize: "11px",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "rgba(0,0,0,0.4)",
+                color: "rgba(15,37,114,0.5)",
                 mb: "12px",
               }}
             >
@@ -164,7 +165,7 @@ const Footer: FC = () => {
                   sx={{
                     fontFamily: "Gotham Pro Regular",
                     fontSize: md ? "15px" : "14px",
-                    color: "rgba(0,0,0,0.7)",
+                    color: "rgba(15,37,114,0.8)",
                     lineHeight: "1.9",
                     background: "none",
                     border: "none",
@@ -192,7 +193,7 @@ const Footer: FC = () => {
                   fontSize: "11px",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
-                  color: "rgba(0,0,0,0.4)",
+                  color: "rgba(15,37,114,0.5)",
                 }}
               >
                 Контакты
@@ -201,7 +202,7 @@ const Footer: FC = () => {
                 sx={{
                   fontFamily: "Gotham Pro Regular",
                   fontSize: md ? "15px" : "14px",
-                  color: "rgba(0,0,0,0.6)",
+                  color: "rgba(15,37,114,0.7)",
                   lineHeight: "1.5",
                   maxWidth: "260px",
                 }}
@@ -225,7 +226,7 @@ const Footer: FC = () => {
                   fontSize: "11px",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
-                  color: "rgba(0,0,0,0.4)",
+                  color: "rgba(15,37,114,0.5)",
                 }}
               >
                 Соцсети
@@ -246,7 +247,7 @@ const Footer: FC = () => {
                       height: "40px",
                       borderRadius: "8px",
                       bgcolor: BLUE,
-                      "&:hover": { bgcolor: "#0a1a55" },
+                      "&:hover": { bgcolor: "rgba(15,37,114,0.8)" },
                       textDecoration: "none",
                       flexShrink: 0,
                     }}
@@ -282,7 +283,7 @@ const Footer: FC = () => {
         </Box>
       </Box>
 
-      <Divider sx={{ borderColor: "rgba(0,0,0,0.1)", mx: px }} />
+      <Divider sx={{ borderColor: "rgba(15,37,114,0.15)", mx: px }} />
 
       {/* Legal */}
       <Box px={px} py="20px">
@@ -290,7 +291,7 @@ const Footer: FC = () => {
           sx={{
             fontFamily: "Gotham Pro Light",
             fontSize: sm ? "13px" : "12px",
-            color: "rgba(0,0,0,0.4)",
+            color: "rgba(15,37,114,0.5)",
             lineHeight: "1.6",
           }}
         >

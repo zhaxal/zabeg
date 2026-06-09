@@ -34,8 +34,9 @@ export default function Preview() {
           <Schedule />
           <Guide />
           <Documents />
-          <Partners />
           <Photo />
+          <Partners />
+
           <Footer />
         </Container>
       ) : (

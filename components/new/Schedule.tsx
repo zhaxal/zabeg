@@ -14,6 +14,9 @@ import {
 } from "@mui/material";
 import { FC, useState } from "react";
 
+const BLUE = "#0F2572";
+const SKY = "#60D0FF";
+
 interface ScheduleRow {
   time: string;
   description: string;
@@ -68,49 +71,63 @@ const SCHEDULES: ScheduleCard[] = [
   },
 ];
 
-const TableRow: FC<ScheduleRow> = ({ time, description }) => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
-
-  return (
+const TableRow: FC<ScheduleRow> = ({ time, description }) => (
+  <Box
+    sx={{
+      display: "flex",
+      background: `linear-gradient(301.38deg, ${BLUE} -7.89%, ${SKY} 151.15%)`,
+      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+      borderRadius: "8px",
+      overflow: "hidden",
+    }}
+  >
     <Box
       sx={{
-        background: "linear-gradient(301.38deg, #0461B5 -7.89%, #0098D7 151.15%)",
-        boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-        p: "8px 0px",
+        flexShrink: 0,
+        width: { xs: "76px", md: "112px" },
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "rgba(0,0,0,0.15)",
+        borderRight: "2px solid rgba(255,255,255,0.2)",
+        py: { xs: "10px", md: "14px" },
+        px: { xs: "8px", md: "12px" },
       }}
     >
-      <Grid container>
-        <Grid item md={3} xs={12}>
-          <Typography
-            sx={{
-              fontFamily: matches ? "Gotham Pro Regular" : "Gotham Pro Bold",
-              fontSize: { xs: "15px", md: "20px" },
-              lineHeight: "120%",
-              textAlign: "center",
-              color: "#FFFFFF",
-            }}
-          >
-            {time}
-          </Typography>
-        </Grid>
-        <Grid item md={9} xs={12}>
-          <Typography
-            sx={{
-              fontFamily: "Gotham Pro Regular",
-              fontSize: "20px",
-              lineHeight: "120%",
-              textAlign: matches ? "left" : "center",
-              color: "#FFFFFF",
-            }}
-          >
-            {description}
-          </Typography>
-        </Grid>
-      </Grid>
+      <Typography
+        sx={{
+          fontFamily: "Gotham Pro Bold",
+          fontSize: { xs: "14px", md: "18px" },
+          lineHeight: 1.2,
+          color: "#FFFFFF",
+          textAlign: "center",
+        }}
+      >
+        {time}
+      </Typography>
     </Box>
-  );
-};
+    <Box
+      sx={{
+        flex: 1,
+        display: "flex",
+        alignItems: "center",
+        py: { xs: "10px", md: "14px" },
+        px: { xs: "12px", md: "24px" },
+      }}
+    >
+      <Typography
+        sx={{
+          fontFamily: "Gotham Pro Regular",
+          fontSize: { xs: "14px", md: "18px" },
+          lineHeight: "130%",
+          color: "#FFFFFF",
+        }}
+      >
+        {description}
+      </Typography>
+    </Box>
+  </Box>
+);
 
 const Schedule: FC = () => {
   const theme = useTheme();
@@ -125,7 +142,7 @@ const Schedule: FC = () => {
     <Box
       sx={{
         backgroundImage: "linear-gradient(to bottom, #F89C43, #F89C43)",
-        pb: "80px",
+        py: "80px",
       }}
     >
       <Box id="schedule">
@@ -187,7 +204,7 @@ const Schedule: FC = () => {
               "&:hover": { bgcolor: "rgba(255,255,255,0.95)" },
             }}
           >
-            <ArrowBackIosNewIcon sx={{ color: "#0461B5" }} />
+            <ArrowBackIosNewIcon sx={{ color: BLUE }} />
           </IconButton>
           <IconButton
             onClick={next}
@@ -200,7 +217,7 @@ const Schedule: FC = () => {
               "&:hover": { bgcolor: "rgba(255,255,255,0.95)" },
             }}
           >
-            <ArrowForwardIosIcon sx={{ color: "#0461B5" }} />
+            <ArrowForwardIosIcon sx={{ color: BLUE }} />
           </IconButton>
         </Box>
 
@@ -214,7 +231,7 @@ const Schedule: FC = () => {
                 width: 12,
                 height: 12,
                 borderRadius: "50%",
-                bgcolor: i === active ? "#0461B5" : "rgba(4,97,181,0.3)",
+                bgcolor: i === active ? BLUE : `rgba(15, 37, 114, 0.3)`,
                 cursor: "pointer",
                 transition: "background 0.2s",
               }}

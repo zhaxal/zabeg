@@ -1,6 +1,8 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { FC } from "react";
 
+const BLUE = "#0F2572";
+
 interface DocCardProps {
   label: string;
   href: string;
@@ -58,14 +60,17 @@ const MED_URL = "https://mosgorsport.ru/docs/spravka_1144.pdf";
 
 const Documents: FC = () => {
   const theme = useTheme();
-  const lg = useMediaQuery(theme.breakpoints.up("lg"));
+
   const md = useMediaQuery("(min-width:1100px)");
   const sm = useMediaQuery("(min-width:480px)");
 
-  const px = md ? (lg ? "205px" : "100px") : "20px";
-
   return (
-    <Box id="documents" bgcolor="#0461B5" px={px} py={sm ? "48px" : "36px"}>
+    <Box
+      id="documents"
+      bgcolor={BLUE}
+      px={{ xs: "20px", md: "60px", lg: "120px" }}
+      py={sm ? "48px" : "36px"}
+    >
       <Typography
         sx={{
           fontFamily: "Gotham Pro Bold",

@@ -30,6 +30,20 @@ interface ParkCardData {
 
 const PARKS: ParkCardData[] = [
   {
+    district: "ВАО",
+    accentColor: "#1E98FF",
+    name: "Стадион «Авангард»",
+    metro: "м. Шоссе Энтузиастов",
+    distances: [
+      { distance: "500 м", age: "4–7 лет" },
+      { distance: "1 км", age: "8–12 лет" },
+      { distance: "3 км", age: "13–17 лет" },
+      { distance: "3 км", age: "18+" },
+      { distance: "5 км", age: "18+" },
+      { distance: "10 км", age: "18+" },
+    ],
+  },
+  {
     district: "ЮЗАО",
     accentColor: "#1AAD02",
     name: "Центр проката «Поляны Бутово»",
@@ -79,20 +93,6 @@ const PARKS: ParkCardData[] = [
       { distance: "3 км", age: "13–17 лет" },
       { distance: "3 км", age: "18+" },
       { distance: "5 км", age: "18+" },
-    ],
-  },
-  {
-    district: "ВАО",
-    accentColor: "#1E98FF",
-    name: "Стадион «Авангард»",
-    metro: "м. Шоссе Энтузиастов",
-    distances: [
-      { distance: "500 м", age: "4–7 лет" },
-      { distance: "1 км", age: "8–12 лет" },
-      { distance: "3 км", age: "13–17 лет" },
-      { distance: "3 км", age: "18+" },
-      { distance: "5 км", age: "18+" },
-      { distance: "10 км", age: "18+" },
     ],
   },
 ];
@@ -216,17 +216,17 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
       target="_blank"
       rel="noopener noreferrer"
       sx={{
-        background: "linear-gradient(90deg, #FFD324 0%, #FF8900 100%)",
+        backgroundColor: CORAL,
         borderRadius: "10px",
         fontFamily: "Gotham Pro Bold",
         fontSize: "15px",
-        color: "#31313E",
+        color: "#FFFFFF",
         py: "12px",
         textTransform: "uppercase",
         letterSpacing: "0.05em",
         boxShadow: "0px 4px 0px rgba(0,0,0,0.25)",
         "&:hover": {
-          background: "linear-gradient(90deg, #FFE066 0%, #FFA733 100%)",
+          backgroundColor: "#cc3333",
         },
       }}
     >

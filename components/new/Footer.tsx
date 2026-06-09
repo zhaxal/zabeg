@@ -8,6 +8,8 @@ import {
 } from "@mui/material";
 import { FC } from "react";
 
+const BLUE = "#0F2572";
+
 const NAV_LINKS = [
   { label: "О забеге", id: "description" },
   { label: "Дистанции", id: "distances" },
@@ -21,8 +23,16 @@ const NAV_LINKS = [
 ];
 
 const SOCIAL = [
-  { label: "ВК", href: "https://vk.ru/mosgorsportvk", icon: "/images/icons/vk.svg" },
-  { label: "ТГ", href: "https://t.me/mosgorsportmoscow", icon: "/images/icons/telegram.svg" },
+  {
+    label: "ВК",
+    href: "https://vk.ru/mosgorsportvk",
+    icon: "/images/icons/vk.svg",
+  },
+  {
+    label: "ТГ",
+    href: "https://t.me/mosgorsportmoscow",
+    icon: "/images/icons/telegram.svg",
+  },
   {
     label: "MAX",
     href: "https://vk.com/away.php?to=https%3A%2F%2Fmax.ru%2Fjoin%2FndyBrzFs_zH8dKS0vT80OPL7UJQIuuGaR71XtK32To8&utf=1",
@@ -73,19 +83,6 @@ const Footer: FC = () => {
             <Box
               component="a"
               target="_blank"
-              href="https://www.mos.ru/moskomsport/"
-              sx={{ display: "flex", alignItems: "center" }}
-            >
-              <Box
-                component="img"
-                src="/images/zabeg_2026/dep.svg"
-                sx={{ height: { xs: "28px", sm: "32px", md: "36px" } }}
-                alt="Департамент спорта"
-              />
-            </Box>
-            <Box
-              component="a"
-              target="_blank"
               href="https://sport.moscow/"
               sx={{ display: "flex", alignItems: "center" }}
             >
@@ -96,6 +93,20 @@ const Footer: FC = () => {
                 alt="Московский Спорт"
               />
             </Box>
+            <Box
+              component="a"
+              target="_blank"
+              href="https://www.mos.ru/moskomsport/"
+              sx={{ display: "flex", alignItems: "center" }}
+            >
+              <Box
+                component="img"
+                src="/images/zabeg_2026/dep.svg"
+                sx={{ height: { xs: "28px", sm: "32px", md: "36px" } }}
+                alt="Департамент спорта"
+              />
+            </Box>
+
             <Box
               component="a"
               target="_blank"
@@ -160,7 +171,10 @@ const Footer: FC = () => {
                     cursor: "pointer",
                     textAlign: "left",
                     p: 0,
-                    "&:hover": { color: "#0461B5", textDecoration: "underline" },
+                    "&:hover": {
+                      color: BLUE,
+                      textDecoration: "underline",
+                    },
                   }}
                 >
                   {label}
@@ -196,7 +210,7 @@ const Footer: FC = () => {
                 <Box
                   component="a"
                   href="mailto:pr@mosgorsport.ru"
-                  sx={{ color: "#0461B5", textDecoration: "underline" }}
+                  sx={{ color: BLUE, textDecoration: "underline" }}
                 >
                   pr@mosgorsport.ru
                 </Box>
@@ -231,8 +245,8 @@ const Footer: FC = () => {
                       width: "40px",
                       height: "40px",
                       borderRadius: "8px",
-                      bgcolor: "#0461B5",
-                      "&:hover": { bgcolor: "#0350a0" },
+                      bgcolor: BLUE,
+                      "&:hover": { bgcolor: "#0a1a55" },
                       textDecoration: "none",
                       flexShrink: 0,
                     }}
@@ -241,7 +255,11 @@ const Footer: FC = () => {
                       <Box
                         component="img"
                         src={icon}
-                        sx={{ width: "22px", height: "22px", filter: "brightness(0) invert(1)" }}
+                        sx={{
+                          width: "22px",
+                          height: "22px",
+                          filter: "brightness(0) invert(1)",
+                        }}
                         alt={label}
                       />
                     ) : (
@@ -276,7 +294,9 @@ const Footer: FC = () => {
             lineHeight: "1.6",
           }}
         >
-          Государственное бюджетное учреждение города Москвы «Московская дирекция по развитию массового спорта» Департамента спорта города Москвы (ГБУ «МОСГОРСПОРТ» Москомспорта)
+          Государственное бюджетное учреждение города Москвы «Московская
+          дирекция по развитию массового спорта» Департамента спорта города
+          Москвы (ГБУ «МОСГОРСПОРТ» Москомспорта)
         </Typography>
       </Box>
     </Box>

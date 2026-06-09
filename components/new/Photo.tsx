@@ -1,12 +1,14 @@
-import {
-  Box,
-  IconButton,
-  Modal,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+"use client";
+
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CloseIcon from "@mui/icons-material/Close";
+import { Box, IconButton, Modal, Typography } from "@mui/material";
+import Image from "next/image";
 import { FC, useCallback, useEffect, useState } from "react";
+
+const BLUE = "#0F2572";
+const SKY = "#60D0FF";
 
 const IMAGES = [
   "/images/zabeg_2026/gallery/2025.06.15-На_Старт-Парк-850-0037.jpg",
@@ -44,123 +46,159 @@ const IMAGES = [
   "/images/zabeg_2026/gallery/UVA_8030.jpg",
 ];
 
-const ArrowButton: FC<{
+const PER_PAGE = 2;
+const TOTAL_PAGES = Math.ceil(IMAGES.length / PER_PAGE);
+
+const NavArrow: FC<{
   direction: "left" | "right";
-  onClick: (e: React.MouseEvent) => void;
-}> = ({ direction, onClick }) => (
+  onClick: (e?: React.MouseEvent) => void;
+  disabled?: boolean;
+  overlay?: boolean;
+}> = ({ direction, onClick, disabled, overlay }) => (
   <IconButton
     onClick={onClick}
+    disabled={disabled}
     sx={{
-      position: "absolute",
-      top: "50%",
-      transform: "translateY(-50%)",
-      [direction === "left" ? "left" : "right"]: { xs: "8px", sm: "16px" },
-      bgcolor: "rgba(0,0,0,0.45)",
-      color: "#fff",
-      width: { xs: 36, sm: 48 },
-      height: { xs: 36, sm: 48 },
-      fontSize: { xs: "18px", sm: "24px" },
-      "&:hover": { bgcolor: "rgba(0,0,0,0.7)" },
-      zIndex: 1,
+      bgcolor: "white",
+      color: BLUE,
+      boxShadow: "0 4px 16px rgba(0,0,0,0.30)",
+      width: { xs: 40, sm: 52 },
+      height: { xs: 40, sm: 52 },
+      flexShrink: 0,
+      ...(overlay && {
+        position: "absolute",
+        top: "50%",
+        transform: "translateY(-50%)",
+        [direction === "left" ? "left" : "right"]: { xs: "8px", sm: "16px" },
+        zIndex: 2,
+      }),
+      "&:hover": { bgcolor: "rgba(255,255,255,0.9)" },
+      "&.Mui-disabled": { opacity: 0.35, bgcolor: "white" },
     }}
   >
-    {direction === "left" ? "‹" : "›"}
+    {direction === "left"
+      ? <ArrowBackIosNewIcon sx={{ fontSize: { xs: "16px", sm: "20px" } }} />
+      : <ArrowForwardIosIcon sx={{ fontSize: { xs: "16px", sm: "20px" } }} />}
   </IconButton>
 );
 
 const Photo: FC = () => {
-  const theme = useTheme();
-  const md = useMediaQuery("(min-width:1100px)");
-  const sm = useMediaQuery("(min-width:480px)");
+  const [page, setPage] = useState(0);
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
-  const [index, setIndex] = useState(0);
-  const [lightbox, setLightbox] = useState(false);
+  const prevPage = () => setPage((p) => Math.max(0, p - 1));
+  const nextPage = () => setPage((p) => Math.min(TOTAL_PAGES - 1, p + 1));
 
-  const prev = useCallback((e?: React.MouseEvent) => {
+  const prevLight = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
-    setIndex((i) => (i - 1 + IMAGES.length) % IMAGES.length);
+    setLightboxIdx((i) => (i !== null ? (i - 1 + IMAGES.length) % IMAGES.length : null));
   }, []);
 
-  const next = useCallback((e?: React.MouseEvent) => {
+  const nextLight = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
-    setIndex((i) => (i + 1) % IMAGES.length);
+    setLightboxIdx((i) => (i !== null ? (i + 1) % IMAGES.length : null));
   }, []);
 
   useEffect(() => {
-    if (!lightbox) return;
+    if (lightboxIdx === null) return;
     const handler = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-      if (e.key === "Escape") setLightbox(false);
+      if (e.key === "ArrowLeft") prevLight();
+      if (e.key === "ArrowRight") nextLight();
+      if (e.key === "Escape") setLightboxIdx(null);
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [lightbox, prev, next]);
+  }, [lightboxIdx, prevLight, nextLight]);
+
+  const visible = IMAGES.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
+  const nextVisible = IMAGES.slice((page + 1) * PER_PAGE, (page + 2) * PER_PAGE);
 
   return (
     <Box>
-      <Box bgcolor="#88D8FC" py={12} id="photo">
+      <Box bgcolor={SKY} py={12} id="photo">
         <Typography
           sx={{
             mb: "40px",
             textAlign: "center",
             fontFamily: "Mossport",
-            color: "#0461B5",
-            fontSize: md ? "128px" : "96px",
-            lineHeight: md ? "128px" : "96px",
+            color: BLUE,
+            fontSize: { xs: "96px", md: "128px" },
+            lineHeight: { xs: "96px", md: "128px" },
           }}
         >
           ФОТО
         </Typography>
 
-        {/* Carousel */}
-        <Box px={md ? "100px" : sm ? "32px" : "16px"}>
-          <Box sx={{ position: "relative" }}>
-            <Box
-              component="img"
-              src={IMAGES[index]}
-              alt=""
-              onClick={() => setLightbox(true)}
-              sx={{
-                display: "block",
-                width: "100%",
-                height: { xs: "240px", sm: "380px", md: "520px" },
-                objectFit: "cover",
-                borderRadius: "12px",
-                cursor: "zoom-in",
-              }}
-            />
-            <ArrowButton direction="left" onClick={prev} />
-            <ArrowButton direction="right" onClick={next} />
-          </Box>
+        <Box
+          sx={{
+            px: { xs: "16px", sm: "32px", md: "100px" },
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: "8px", sm: "16px" },
+          }}
+        >
+          <NavArrow direction="left" onClick={prevPage} disabled={page === 0} />
 
-          {/* Counter + dots */}
           <Box
             sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "12px",
-              mt: "16px",
+              flex: 1,
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+              gap: { xs: "8px", sm: "12px", md: "16px" },
             }}
           >
-            <Typography
-              sx={{
-                fontFamily: "Gotham Pro Regular",
-                fontSize: "14px",
-                color: "#0461B5",
-                minWidth: "52px",
-                textAlign: "center",
-              }}
-            >
-              {index + 1} / {IMAGES.length}
-            </Typography>
+            {visible.map((src, i) => (
+              <Box
+                key={src}
+                onClick={() => setLightboxIdx(page * PER_PAGE + i)}
+                sx={{
+                  position: "relative",
+                  height: { xs: "220px", sm: "280px", md: "360px" },
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  cursor: "zoom-in",
+                  bgcolor: "rgba(4,97,181,0.15)",
+                  "&:hover img": { transform: "scale(1.04)" },
+                }}
+              >
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  priority
+                  sizes="(min-width: 480px) 45vw, 80vw"
+                  style={{ objectFit: "cover", transition: "transform 0.3s ease" }}
+                />
+              </Box>
+            ))}
           </Box>
+
+          <NavArrow direction="right" onClick={nextPage} disabled={page === TOTAL_PAGES - 1} />
+        </Box>
+
+        <Typography
+          sx={{
+            mt: "16px",
+            textAlign: "center",
+            fontFamily: "Gotham Pro Regular",
+            fontSize: "14px",
+            color: BLUE,
+          }}
+        >
+          {page + 1} / {TOTAL_PAGES}
+        </Typography>
+
+        {/* Preload next page images in background */}
+        <Box sx={{ position: "absolute", width: 0, height: 0, overflow: "hidden", opacity: 0, pointerEvents: "none" }}>
+          {nextVisible.map((src) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img key={src} src={src} alt="" loading="eager" />
+          ))}
         </Box>
       </Box>
 
       {/* Lightbox */}
-      <Modal open={lightbox} onClose={() => setLightbox(false)}>
+      <Modal open={lightboxIdx !== null} onClose={() => setLightboxIdx(null)}>
         <Box
           sx={{
             position: "fixed",
@@ -170,57 +208,60 @@ const Photo: FC = () => {
             alignItems: "center",
             justifyContent: "center",
           }}
-          onClick={() => setLightbox(false)}
+          onClick={() => setLightboxIdx(null)}
         >
           <Box
-            sx={{ position: "relative", maxWidth: "95vw", maxHeight: "95vh" }}
+            sx={{ position: "relative", display: "flex", alignItems: "center" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <Box
-              component="img"
-              src={IMAGES[index]}
-              alt=""
-              sx={{
-                display: "block",
-                maxWidth: "95vw",
-                maxHeight: "90vh",
-                objectFit: "contain",
-                borderRadius: "8px",
-              }}
-            />
-            <ArrowButton direction="left" onClick={prev} />
-            <ArrowButton direction="right" onClick={next} />
+            <NavArrow direction="left" onClick={prevLight} />
+            {lightboxIdx !== null && (
+              <Box
+                component="img"
+                src={IMAGES[lightboxIdx]}
+                alt=""
+                sx={{
+                  maxWidth: { xs: "80vw", md: "85vw" },
+                  maxHeight: "85vh",
+                  objectFit: "contain",
+                  borderRadius: "8px",
+                  display: "block",
+                  mx: { xs: "8px", md: "16px" },
+                }}
+              />
+            )}
+            <NavArrow direction="right" onClick={nextLight} />
           </Box>
 
-          {/* Close button */}
           <IconButton
-            onClick={() => setLightbox(false)}
+            onClick={() => setLightboxIdx(null)}
             sx={{
               position: "fixed",
               top: "16px",
               right: "16px",
               color: "#fff",
               bgcolor: "rgba(0,0,0,0.5)",
-              fontSize: "20px",
               "&:hover": { bgcolor: "rgba(0,0,0,0.8)" },
             }}
           >
-            ✕
+            <CloseIcon />
           </IconButton>
 
-          <Typography
-            sx={{
-              position: "fixed",
-              bottom: "20px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              color: "rgba(255,255,255,0.7)",
-              fontFamily: "Gotham Pro Regular",
-              fontSize: "14px",
-            }}
-          >
-            {index + 1} / {IMAGES.length}
-          </Typography>
+          {lightboxIdx !== null && (
+            <Typography
+              sx={{
+                position: "fixed",
+                bottom: "20px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                color: "rgba(255,255,255,0.7)",
+                fontFamily: "Gotham Pro Regular",
+                fontSize: "14px",
+              }}
+            >
+              {lightboxIdx + 1} / {IMAGES.length}
+            </Typography>
+          )}
         </Box>
       </Modal>
     </Box>

@@ -9,6 +9,9 @@ import {
 } from "@mui/material";
 import { FC, useState, useEffect } from "react";
 
+const BLUE = "#0F2572";
+const SKY = "#60D0FF";
+
 interface ParkOption {
   id: string;
   district: string;
@@ -61,7 +64,7 @@ const RoutePlaceholder: FC<{ park: ParkOption }> = ({ park }) => (
       width: "100%",
       aspectRatio: "4/3",
       bgcolor: "rgba(15, 37, 114, 0.15)",
-      border: "2px dashed rgba(4, 97, 181, 0.4)",
+      border: "2px dashed rgba(15, 37, 114, 0.4)",
       borderRadius: "12px",
       display: "flex",
       flexDirection: "column",
@@ -74,7 +77,7 @@ const RoutePlaceholder: FC<{ park: ParkOption }> = ({ park }) => (
       sx={{
         fontFamily: "Gotham Pro Bold",
         fontSize: "16px",
-        color: "#0461B5",
+        color: BLUE,
         textAlign: "center",
         px: "16px",
       }}
@@ -85,7 +88,7 @@ const RoutePlaceholder: FC<{ park: ParkOption }> = ({ park }) => (
       sx={{
         fontFamily: "Gotham Pro Regular",
         fontSize: "13px",
-        color: "rgba(4, 97, 181, 0.6)",
+        color: "rgba(15, 37, 114, 0.6)",
       }}
     >
       Карта маршрута
@@ -153,13 +156,13 @@ const Route: FC = () => {
         />
       </Modal>
 
-      <Box bgcolor="#60D0FF" pt={10} id="routes">
+      <Box bgcolor={SKY} py={10} id="routes">
         <Typography
           sx={{
             mb: md ? "40px" : "32px",
             textAlign: "center",
             fontFamily: "Mossport",
-            color: "#0461B5",
+            color: BLUE,
             fontSize: md ? "128px" : "72px",
             lineHeight: md ? "120px" : "68px",
           }}
@@ -186,7 +189,7 @@ const Route: FC = () => {
                 sx={{
                   textAlign: "center",
                   fontFamily: "Gotham Pro Bold",
-                  color: "#0F2572",
+                  color: BLUE,
                   fontSize: { xs: "22px", md: "32px" },
                   lineHeight: { xs: "26px", md: "31px" },
                 }}
@@ -197,7 +200,7 @@ const Route: FC = () => {
                 sx={{
                   textAlign: "center",
                   fontFamily: "Gotham Pro Regular",
-                  color: "#0461B5",
+                  color: BLUE,
                   fontSize: { xs: "18px", md: "24px" },
                   lineHeight: { xs: "22px", md: "23px" },
                 }}
@@ -218,9 +221,7 @@ const Route: FC = () => {
                         px: "20px",
                         py: "14px",
                         borderRadius: "4px",
-                        background: isActive
-                          ? "linear-gradient(301.38deg, #0461B5 -7.89%, #0098D7 151.15%)"
-                          : "linear-gradient(301.38deg, #0461B5 -7.89%, #0098D7 151.15%)",
+                        background: `linear-gradient(301.38deg, ${BLUE} -7.89%, ${SKY} 151.15%)`,
                         borderBottom: isActive
                           ? `6px solid ${park.accentColor}`
                           : "6px solid rgba(255,255,255,0.15)",
@@ -266,12 +267,6 @@ const Route: FC = () => {
           </Grid>
         </Grid>
       </Box>
-      <Box
-        component="img"
-        src="/images/zabeg_2026/route_footer.svg"
-        alt="Декор"
-        sx={{ bgcolor: "#60D0FF", width: "100%", display: "block" }}
-      />
     </Box>
   );
 };

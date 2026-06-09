@@ -10,6 +10,9 @@ import {
 } from "@mui/material";
 import { FC } from "react";
 
+const BLUE = "#0F2572";
+const SKY = "#60D0FF";
+
 // const DescriptionDesktop: FC = () => {
 //   const theme = useTheme();
 //   const large = useMediaQuery(theme.breakpoints.up("lg"));
@@ -44,7 +47,7 @@ import { FC } from "react";
 //                 maxWidth: "400px",
 //                 fontFamily: "Gotham Pro Medium",
 //                 fontSize: large ? "24px" : "18px",
-//                 color: "#0F2572",
+//                 color: BLUE,
 //                 lineHeight: "120%",
 //                 fontWeight: 400,
 //               }}
@@ -96,7 +99,7 @@ import { FC } from "react";
 //               maxWidth: large ? "473px" : "350px",
 //               fontFamily: "Gotham Pro Bold",
 //               fontSize: large ? "32px" : "24px",
-//               color: "#0F2572",
+//               color: BLUE,
 //               lineHeight: large ? "32px" : "28px",
 //             }}
 //           >
@@ -163,7 +166,7 @@ import { FC } from "react";
 //                 maxWidth: "234px",
 //                 fontFamily: "Gotham Pro Regular",
 //                 fontSize: "16px",
-//                 color: "#0F2572",
+//                 color: BLUE,
 //                 lineHeight: "120%",
 //               }}
 //             >
@@ -206,7 +209,7 @@ import { FC } from "react";
 //               maxWidth: "350px",
 //               fontFamily: "Gotham Pro Bold",
 //               fontSize: "24px",
-//               color: "#0F2572",
+//               color: BLUE,
 //               lineHeight: "23px",
 //               textAlign: "center",
 //             }}
@@ -246,7 +249,7 @@ import { FC } from "react";
 const Description: FC = () => {
   return (
     <>
-      <Box py={{ xs: 4, md: 8 }} px={{ xs: 2, md: 12 }} sx={{ bgcolor: "#CAEFFC", position: "relative" }}>
+      <Box py={{ xs: 4, md: 8 }} px={{ xs: 2, md: 12 }} sx={{ bgcolor: `${SKY}44`, position: "relative" }}>
         {/* <Box
           component="img"
           src="/images/zabeg_2026/free.svg"
@@ -282,7 +285,7 @@ const Description: FC = () => {
                     xs: "18px",
                     lg: "24px",
                   },
-                  color: "#0F2572",
+                  color: BLUE,
                   lineHeight: "120%",
                   fontWeight: 400,
                 }}
@@ -302,7 +305,7 @@ const Description: FC = () => {
                 sx={{
                   fontFamily: "Gotham Pro Bold",
                   fontSize: { xs: "28px", lg: "36px" },
-                  color: "#0F2572",
+                  color: BLUE,
                   textAlign: "center",
                   lineHeight: "120%",
                   mt: "16px",
@@ -320,10 +323,7 @@ const Description: FC = () => {
           py: { xs: "14px", lg: "20px" },
           overflow: "hidden",
           width: "100%",
-          "@keyframes marquee": {
-            "0%": { transform: "translateX(0)" },
-            "100%": { transform: "translateX(-50%)" },
-          },
+  
         }}
       >
         <Box

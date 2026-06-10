@@ -25,6 +25,13 @@ interface ParkOption {
 
 const PARKS: ParkOption[] = [
   {
+    id: "ВАО",
+    district: "ВАО",
+    accentColor: CORAL,
+    name: "Стадион «Авангард»",
+    image: "/images/routes/vao.jpg",
+  },
+  {
     id: "ЮЗАО",
     district: "ЮЗАО",
     accentColor: CORAL,
@@ -51,13 +58,6 @@ const PARKS: ParkOption[] = [
     accentColor: SKY,
     name: "Парк Олимпийской деревни",
     image: "/images/routes/zao.jpg",
-  },
-  {
-    id: "ВАО",
-    district: "ВАО",
-    accentColor: CORAL,
-    name: "Стадион «Авангард»",
-    image: "/images/routes/vao.jpg",
   },
 ];
 
@@ -130,7 +130,7 @@ const RouteImage: FC<{ park: ParkOption; onClick: () => void }> = ({
 };
 
 const Route: FC = () => {
-  const [selected, setSelected] = useState<string>("ЮЗАО");
+  const [selected, setSelected] = useState<string>("ВАО");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const md = useMediaQuery("(min-width:1100px)");
 

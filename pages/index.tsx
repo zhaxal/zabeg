@@ -1,56 +1,58 @@
-import Cover from "@/components/Cover";
-import Description from "@/components/Description";
-import Distance from "@/components/Distance";
-import Footer from "@/components/Footer";
-import Guide from "@/components/Guide";
-import Navbar from "@/components/Navbar";
-import Park from "@/components/Park";
-import Photo from "@/components/Photo";
-import Schedule from "@/components/Schedule";
-import { Box, Container, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
-import React from "react";
-
-const backgroundBlock = {
-  backgroundImage: "url(/images/block.svg)",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  minHeight: 297,
-};
+import Cover from "@/components/new/Cover";
+import Description from "@/components/new/Description";
+import DistanceCarousel from "@/components/new/DistanceCarousel";
+import Route from "@/components/new/Route";
+import Footer from "@/components/new/Footer";
+import Documents from "@/components/new/Documents";
+import Guide from "@/components/new/Guide";
+import Navbar from "@/components/new/Navbar";
+import Partners from "@/components/new/Partners";
+import Photo from "@/components/new/Photo";
+import Schedule from "@/components/new/Schedule";
+import {
+  Box,
+  Container,
+  CssBaseline,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 export default function Home() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <Box bgcolor="#d5ebff">
+    <>
       <CssBaseline />
       <Navbar />
       {matches ? (
         <Container maxWidth="lg">
           <Cover />
           <Description />
-          <Distance />
+          <DistanceCarousel />
+          <Route />
           <Schedule />
           <Guide />
-          <Park />
+          <Documents />
           <Photo />
-          <Box sx={backgroundBlock} />
+          <Partners />
+
           <Footer />
         </Container>
       ) : (
         <Box>
           <Cover />
           <Description />
-          <Distance />
+          <DistanceCarousel />
+          <Route />
           <Schedule />
           <Guide />
-          <Park />
+          <Documents />
+          <Partners />
           <Photo />
-          <Box sx={backgroundBlock} />
           <Footer />
         </Box>
       )}
-    </Box>
+    </>
   );
 }

@@ -330,34 +330,26 @@ const Description: FC = () => {
                 персонажа детектива Финника.
               </Typography>
 
-              <Box
+              <Button
+                onClick={handleScrollToElement("distances")}
                 sx={{
-                  display: "inline-block",
+                  display: "inline-flex",
                   mt: { xs: "24px", md: "36px" },
                   bgcolor: CORAL,
                   px: { xs: "20px", md: "28px" },
                   py: { xs: "8px", md: "12px" },
                   borderRadius: "8px",
+                  boxShadow: "0px 6px 0px rgba(0, 0, 0, 0.20)",
+                  textTransform: "uppercase",
+                  fontFamily: "Mossport",
+                  fontSize: { xs: "32px", sm: "40px", md: "48px", lg: "56px" },
+                  color: "#FFFFFF",
+                  lineHeight: 1,
+                  "&:hover": { bgcolor: "#cc3333" },
                 }}
               >
-                <Typography
-                  sx={{
-                    textTransform: "uppercase",
-                    fontFamily: "Mossport",
-                    pt: { xs: "4px", md: "8px" },
-                    fontSize: {
-                      xs: "32px",
-                      sm: "40px",
-                      md: "48px",
-                      lg: "56px",
-                    },
-                    color: "#FFFFFF",
-                    lineHeight: 1,
-                  }}
-                >
-                  Все на старт!
-                </Typography>
-              </Box>
+                Все на старт!
+              </Button>
             </Box>
           </Stack>
         </Box>
@@ -367,34 +359,22 @@ const Description: FC = () => {
         sx={{
           bgcolor: CORAL,
           py: { xs: "14px", lg: "20px" },
-          overflow: "hidden",
           width: "100%",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
-        <Box
+        <Typography
           sx={{
-            display: "flex",
-            width: "max-content",
-            animation: "marquee 12s linear infinite",
+            fontFamily: "Gotham Pro Bold",
+            fontSize: { xs: "22px", lg: "32px" },
+            color: "#FFFFFF",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
           }}
         >
-          {Array.from({ length: 8 }).map((_, i) => (
-            <Typography
-              key={i}
-              sx={{
-                fontFamily: "Gotham Pro Bold",
-                fontSize: { xs: "22px", lg: "32px" },
-                color: "#FFFFFF",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                whiteSpace: "nowrap",
-                px: "40px",
-              }}
-            >
-              Участие бесплатно
-            </Typography>
-          ))}
-        </Box>
+          Участие бесплатно
+        </Typography>
       </Box>
     </>
   );

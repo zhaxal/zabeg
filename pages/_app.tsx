@@ -9,18 +9,18 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta
           name="description"
-          content="10 июня. Забег в пяти парках столицы"
+          content="20 июня 2026 года. Бесплатный массовый забег в пяти парках Москвы для детей и взрослых на дистанциях 500 м, 1 км, 3 км, 5 км и 10 км."
         />
-        <meta property="og:title" content={`Забег "На старт!"`} />
+        <meta property="og:title" content={`Забег «На старт!» 2026`} />
         <meta
           property="og:description"
-          content="Забег в пяти парках столицы для детей и взрослых на дистанциях 500 м, 1 км, 3 км и 5 км"
+          content="20 июня 2026 — бесплатный массовый забег в пяти парках Москвы. Дистанции для детей и взрослых: 500 м, 1 км, 3 км, 5 км, 10 км. Участие бесплатно!"
         />
         <meta property="og:url" content="running.mosgorsport.ru" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://running.mosgorsport.ru/preview.jpg" />
 
-        <title>Забег На старт!</title>
+        <title>Забег «На старт!» 2026 — 20 июня, Москва</title>
       </Head>
       <Box
         component="div"

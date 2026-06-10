@@ -30,43 +30,70 @@ interface ScheduleCard {
 
 const SCHEDULES: ScheduleCard[] = [
   {
-    title: "Все площадки (кроме стадиона «Авангард»)",
+    title: "Флагманская площадка стадион «Авангард»",
     rows: [
-      { time: "09:00", description: "Начало выдачи стартовых номеров (до 11:45)" },
+      {
+        time: "08:00",
+        description: "Начало выдачи стартовых номеров (до 12:00)",
+      },
+      { time: "08:50", description: "Разминка" },
+      { time: "09:00", description: "Старт на дистанцию 10 км" },
       { time: "10:00", description: "Торжественное открытие соревнований" },
+      {
+        time: "10:10",
+        description: "Церемония награждения участников дистанции 10 км",
+      },
       { time: "10:20", description: "Разминка" },
       { time: "10:30", description: "Старт на дистанцию 500 метров" },
       { time: "10:50", description: "Разминка" },
       { time: "11:00", description: "Старт на дистанцию 1 км" },
-      { time: "11:20", description: "Церемония награждения участников дистанции 1 км" },
+      {
+        time: "11:20",
+        description: "Церемония награждения участников дистанции 1 км",
+      },
       { time: "11:30", description: "Разминка" },
       { time: "11:40", description: "Старт на дистанцию 3 км" },
-      { time: "12:10", description: "Церемония награждения участников дистанции 3 км" },
+      {
+        time: "12:10",
+        description: "Церемония награждения участников дистанции 3 км",
+      },
       { time: "12:20", description: "Разминка" },
       { time: "12:30", description: "Старт на дистанцию 5 км" },
-      { time: "13:10", description: "Церемония награждения участников дистанции 5 км" },
+      {
+        time: "13:10",
+        description: "Церемония награждения участников дистанции 5 км",
+      },
       { time: "13:30", description: "Закрытие мероприятия" },
     ],
   },
   {
-    title: "Флагманская площадка стадион «Авангард»",
+    title: "Все площадки (кроме стадиона «Авангард»)",
     rows: [
-      { time: "08:00", description: "Начало выдачи стартовых номеров (до 12:00)" },
-      { time: "08:50", description: "Разминка" },
-      { time: "09:00", description: "Старт на дистанцию 10 км" },
+      {
+        time: "09:00",
+        description: "Начало выдачи стартовых номеров (до 11:45)",
+      },
       { time: "10:00", description: "Торжественное открытие соревнований" },
-      { time: "10:10", description: "Церемония награждения участников дистанции 10 км" },
       { time: "10:20", description: "Разминка" },
       { time: "10:30", description: "Старт на дистанцию 500 метров" },
       { time: "10:50", description: "Разминка" },
       { time: "11:00", description: "Старт на дистанцию 1 км" },
-      { time: "11:20", description: "Церемония награждения участников дистанции 1 км" },
+      {
+        time: "11:20",
+        description: "Церемония награждения участников дистанции 1 км",
+      },
       { time: "11:30", description: "Разминка" },
       { time: "11:40", description: "Старт на дистанцию 3 км" },
-      { time: "12:10", description: "Церемония награждения участников дистанции 3 км" },
+      {
+        time: "12:10",
+        description: "Церемония награждения участников дистанции 3 км",
+      },
       { time: "12:20", description: "Разминка" },
       { time: "12:30", description: "Старт на дистанцию 5 км" },
-      { time: "13:10", description: "Церемония награждения участников дистанции 5 км" },
+      {
+        time: "13:10",
+        description: "Церемония награждения участников дистанции 5 км",
+      },
       { time: "13:30", description: "Закрытие мероприятия" },
     ],
   },
@@ -137,10 +164,13 @@ const Schedule: FC = () => {
   const [active, setActive] = useState(0);
   const touchStartX = useRef<number>(0);
 
-  const prev = () => setActive((i) => (i - 1 + SCHEDULES.length) % SCHEDULES.length);
+  const prev = () =>
+    setActive((i) => (i - 1 + SCHEDULES.length) % SCHEDULES.length);
   const next = () => setActive((i) => (i + 1) % SCHEDULES.length);
 
-  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
   const onTouchEnd = (e: React.TouchEvent) => {
     const delta = touchStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(delta) > 40) delta > 0 ? next() : prev();
@@ -168,7 +198,11 @@ const Schedule: FC = () => {
         </Typography>
 
         {/* Carousel */}
-        <Box sx={{ position: "relative", overflow: "hidden" }} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+        <Box
+          sx={{ position: "relative", overflow: "hidden" }}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
           <Box
             sx={{
               display: "flex",
@@ -177,26 +211,33 @@ const Schedule: FC = () => {
             }}
           >
             {SCHEDULES.map((card, index) => (
-              <Box key={index} sx={{ minWidth: "100%", px: { xs: "16px", sm: "32px" } }}>
+              <Box
+                key={index}
+                sx={{ minWidth: "100%", px: { xs: "16px", sm: "32px" } }}
+              >
                 <Box sx={{ maxWidth: "680px", mx: "auto" }}>
-                <Typography
-                  sx={{
-                    mb: "24px",
-                    textAlign: "center",
-                    fontFamily: "Gotham Pro Bold",
-                    fontSize: matches ? "28px" : "22px",
-                    color: "#FFFFFF",
-                    lineHeight: "130%",
-                  }}
-                >
-                  {card.title}
-                </Typography>
+                  <Typography
+                    sx={{
+                      mb: "24px",
+                      textAlign: "center",
+                      fontFamily: "Gotham Pro Bold",
+                      fontSize: matches ? "28px" : "22px",
+                      color: "#FFFFFF",
+                      lineHeight: "130%",
+                    }}
+                  >
+                    {card.title}
+                  </Typography>
 
-                <Stack spacing="8px" mb="32px">
-                  {card.rows.map((row, i) => (
-                    <TableRow key={i} time={row.time} description={row.description} />
-                  ))}
-                </Stack>
+                  <Stack spacing="8px" mb="32px">
+                    {card.rows.map((row, i) => (
+                      <TableRow
+                        key={i}
+                        time={row.time}
+                        description={row.description}
+                      />
+                    ))}
+                  </Stack>
                 </Box>
               </Box>
             ))}

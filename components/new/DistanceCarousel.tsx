@@ -21,6 +21,7 @@ interface DistanceItem {
 }
 
 interface ParkCardData {
+  link: string;
   district: string;
   accentColor: string;
   name: string;
@@ -28,9 +29,16 @@ interface ParkCardData {
   distances: DistanceItem[];
 }
 
+//   https://reg.place/events/nwad (СЗАО)
+//  https://reg.place/events/wad (ЗАО)
+//  https://reg.place/events/swad (ЮЗАО)
+//  https://reg.place/events/seao (ЮВАО)
+//  https://reg.place/events/eao (ВАО)
+
 const PARKS: ParkCardData[] = [
   {
     district: "ВАО",
+    link: "https://reg.place/events/eao",
     accentColor: SKY,
     name: "Стадион «Авангард»",
     metro: "м. Шоссе Энтузиастов",
@@ -45,6 +53,7 @@ const PARKS: ParkCardData[] = [
   },
   {
     district: "ЮЗАО",
+    link: "https://reg.place/events/swad",
     accentColor: CORAL,
     name: "Центр проката «Поляны Бутово»",
     metro: "м. Улица Старокачаловская",
@@ -58,6 +67,7 @@ const PARKS: ParkCardData[] = [
   },
   {
     district: "ЮВАО",
+    link: "https://reg.place/events/seao",
     accentColor: SKY,
     name: "Парк 850-летия Москвы",
     metro: "м. Марьино",
@@ -71,6 +81,7 @@ const PARKS: ParkCardData[] = [
   },
   {
     district: "СЗАО",
+    link: "https://reg.place/events/nwad",
     accentColor: CORAL,
     name: "Парк «Северное Тушино»",
     metro: "м. Планерная",
@@ -84,6 +95,7 @@ const PARKS: ParkCardData[] = [
   },
   {
     district: "ЗАО",
+    link: "https://reg.place/events/wad",
     accentColor: SKY,
     name: "Парк Олимпийской деревни",
     metro: "м. Мичуринский проспект",
@@ -211,7 +223,7 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
     </Box>
 
     <Button
-      href="https://moscow.run"
+      href={park.link}
       target="_blank"
       rel="noopener noreferrer"
       sx={{

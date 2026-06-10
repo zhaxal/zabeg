@@ -98,11 +98,13 @@ const DesktopNavbar: FC = () => {
         },
       }}
     >
+      <Box sx={{ width: { xs: "40px", lg: "48px" }, flexShrink: 0 }} />
+
       <Stack
-        width="100%"
+        flex={1}
         alignItems="center"
         direction="row"
-        justifyContent="flex-end"
+        justifyContent="center"
         spacing={{ xs: "16px", sm: "20px", md: "24px", lg: "48px" }}
       >
         <Box
@@ -160,40 +162,33 @@ const DesktopNavbar: FC = () => {
             sx={{ height: { md: "36px", lg: "48px" } }}
           />
         </Box>
-
-        <Stack
-          width="100%"
-          alignItems="center"
-          direction="row"
-          justifyContent="flex-end"
-        >
-          <IconButton
-            onClick={handleClick}
-            size="large"
-            sx={{ color: BLUE }}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Stack>
-        <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
-          <CustomMenuItem onClick={handleClose("schedule")}>
-            РАСПИСАНИЕ
-          </CustomMenuItem>
-          <CustomMenuItem onClick={handleClose("distances")}>
-            ДИСТАНЦИИ
-          </CustomMenuItem>
-          <CustomMenuItem onClick={handleClose("routes")}>
-            МАРШРУТЫ
-          </CustomMenuItem>
-          <CustomMenuItem onClick={handleClose("guide")}>
-            УСЛОВИЯ
-          </CustomMenuItem>
-          <CustomMenuItem onClick={handleClose("photo")}>ФОТО</CustomMenuItem>
-          <CustomMenuItem onClick={handleClose("footer")}>
-            КОНТАКТЫ
-          </CustomMenuItem>
-        </Menu>
       </Stack>
+
+      <IconButton
+        onClick={handleClick}
+        size="large"
+        sx={{ color: BLUE, flexShrink: 0 }}
+      >
+        <MenuIcon />
+      </IconButton>
+      <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
+        <CustomMenuItem onClick={handleClose("schedule")}>
+          РАСПИСАНИЕ
+        </CustomMenuItem>
+        <CustomMenuItem onClick={handleClose("distances")}>
+          ДИСТАНЦИИ
+        </CustomMenuItem>
+        <CustomMenuItem onClick={handleClose("routes")}>
+          МАРШРУТЫ
+        </CustomMenuItem>
+        <CustomMenuItem onClick={handleClose("guide")}>
+          УСЛОВИЯ
+        </CustomMenuItem>
+        <CustomMenuItem onClick={handleClose("photo")}>ФОТО</CustomMenuItem>
+        <CustomMenuItem onClick={handleClose("footer")}>
+          КОНТАКТЫ
+        </CustomMenuItem>
+      </Menu>
     </Toolbar>
   );
 

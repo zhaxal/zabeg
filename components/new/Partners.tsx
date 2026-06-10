@@ -37,40 +37,47 @@ const INFO_PARTNERS: Partner[] = [
   { name: "Емаил спорт", logo: "/images/zabeg_2026/partners/info_partners/email_sport.png", href: "https://sportmail.ru" },
   { name: "Максим", logo: "/images/zabeg_2026/partners/info_partners/maxim.png", href: "https://www.maximonline.ru" },
   { name: "PARENTS.RU", logo: "/images/zabeg_2026/partners/info_partners/parents.png", href: "https://www.parents.ru/" },
+  { name: "Спортс", logo: "/images/zabeg_2026/partners/info_partners/sports.png", href: "https://www.sports.ru/" }
 ];
 
-const LogoCell: FC<{ partner: Partner }> = ({ partner: { name, logo, href, invert, scale } }) => {
-  const imgSx = {
-    width: "100%",
-    height: "100%",
-    objectFit: "contain" as const,
-    filter: invert ? "invert(1)" : "none",
-    transform: scale ? `scale(${scale})` : undefined,
-  };
-  const cellSx = {
-    height: { xs: "48px", sm: "60px", md: "72px" },
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    minWidth: 0,
-  };
-
-  return href ? (
+const LogoCell: FC<{ partner: Partner }> = ({ partner: { name, logo, href, invert, scale } }) => (
+  <Box
+    sx={{
+      position: "relative",
+      height: { xs: "48px", sm: "60px", md: "72px" },
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      minWidth: 0,
+      opacity: href ? 0.85 : 0.65,
+      transition: "opacity 0.15s",
+      "&:hover": href ? { opacity: 1 } : {},
+    }}
+  >
     <Box
-      component="a"
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{ ...cellSx, opacity: 0.85, transition: "opacity 0.15s", "&:hover": { opacity: 1 } }}
-    >
-      <Box component="img" src={logo} alt={name} sx={imgSx} />
-    </Box>
-  ) : (
-    <Box sx={{ ...cellSx, opacity: 0.65 }}>
-      <Box component="img" src={logo} alt={name} sx={imgSx} />
-    </Box>
-  );
-};
+      component="img"
+      src={logo}
+      alt={name}
+      sx={{
+        width: "100%",
+        height: "100%",
+        objectFit: "contain",
+        filter: invert ? "invert(1)" : "none",
+        transform: scale ? `scale(${scale})` : undefined,
+        pointerEvents: "none",
+      }}
+    />
+    {href && (
+      <Box
+        component="a"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{ position: "absolute", inset: 0 }}
+      />
+    )}
+  </Box>
+);
 
 const LogoCarousel: FC<{ partners: Partner[] }> = ({ partners }) => {
   const theme = useTheme();

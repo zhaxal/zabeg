@@ -3,7 +3,7 @@
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CloseIcon from "@mui/icons-material/Close";
-import { Box, IconButton, Modal, Typography } from "@mui/material";
+import { Box, CircularProgress, IconButton, Modal, Skeleton, Typography } from "@mui/material";
 import Image from "next/image";
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
 
@@ -82,9 +82,56 @@ const NavArrow: FC<{
   </IconButton>
 );
 
+const GalleryImage: FC<{ src: string; onClick: () => void; priority: boolean }> = ({ src, onClick, priority }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <Box
+      onClick={onClick}
+      sx={{
+        position: "relative",
+        height: { xs: "220px", sm: "280px", md: "360px" },
+        borderRadius: "10px",
+        overflow: "hidden",
+        cursor: "zoom-in",
+        bgcolor: "rgba(4,97,181,0.15)",
+        "&:hover img": { transform: "scale(1.04)" },
+      }}
+    >
+      {!loaded && (
+        <Skeleton
+          variant="rectangular"
+          animation="wave"
+          sx={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            transform: "none",
+            bgcolor: "rgba(15,37,114,0.18)",
+          }}
+        />
+      )}
+      <Image
+        src={src}
+        alt=""
+        fill
+        priority={priority}
+        sizes="(min-width: 480px) 45vw, 80vw"
+        onLoad={() => setLoaded(true)}
+        style={{
+          objectFit: "cover",
+          transition: "transform 0.3s ease, opacity 0.3s ease",
+          opacity: loaded ? 1 : 0,
+        }}
+      />
+    </Box>
+  );
+};
+
 const Photo: FC = () => {
   const [page, setPage] = useState(0);
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+  const [lightboxLoading, setLightboxLoading] = useState(false);
   const touchStartX = useRef<number>(0);
 
   const prevPage = () => setPage((p) => Math.max(0, p - 1));
@@ -107,6 +154,10 @@ const Photo: FC = () => {
   }, []);
 
   useEffect(() => {
+    if (lightboxIdx !== null) setLightboxLoading(true);
+  }, [lightboxIdx]);
+
+  useEffect(() => {
     if (lightboxIdx === null) return;
     const handler = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") prevLight();
@@ -118,7 +169,6 @@ const Photo: FC = () => {
   }, [lightboxIdx, prevLight, nextLight]);
 
   const visible = IMAGES.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
-  const nextVisible = IMAGES.slice((page + 1) * PER_PAGE, (page + 2) * PER_PAGE);
 
   return (
     <Box>
@@ -157,28 +207,12 @@ const Photo: FC = () => {
             }}
           >
             {visible.map((src, i) => (
-              <Box
+              <GalleryImage
                 key={src}
+                src={src}
+                priority={page === 0}
                 onClick={() => setLightboxIdx(page * PER_PAGE + i)}
-                sx={{
-                  position: "relative",
-                  height: { xs: "220px", sm: "280px", md: "360px" },
-                  borderRadius: "10px",
-                  overflow: "hidden",
-                  cursor: "zoom-in",
-                  bgcolor: "rgba(4,97,181,0.15)",
-                  "&:hover img": { transform: "scale(1.04)" },
-                }}
-              >
-                <Image
-                  src={src}
-                  alt=""
-                  fill
-                  priority
-                  sizes="(min-width: 480px) 45vw, 80vw"
-                  style={{ objectFit: "cover", transition: "transform 0.3s ease" }}
-                />
-              </Box>
+              />
             ))}
           </Box>
 
@@ -197,13 +231,6 @@ const Photo: FC = () => {
           {page + 1} / {TOTAL_PAGES}
         </Typography>
 
-        {/* Preload next page images in background */}
-        <Box sx={{ position: "absolute", width: 0, height: 0, overflow: "hidden", opacity: 0, pointerEvents: "none" }}>
-          {nextVisible.map((src) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img key={src} src={src} alt="" loading="eager" />
-          ))}
-        </Box>
       </Box>
 
       {/* Lightbox */}
@@ -225,19 +252,33 @@ const Photo: FC = () => {
           >
             <NavArrow direction="left" onClick={prevLight} />
             {lightboxIdx !== null && (
-              <Box
-                component="img"
-                src={IMAGES[lightboxIdx]}
-                alt=""
-                sx={{
-                  maxWidth: { xs: "80vw", md: "85vw" },
-                  maxHeight: "85vh",
-                  objectFit: "contain",
-                  borderRadius: "8px",
-                  display: "block",
-                  mx: { xs: "8px", md: "16px" },
-                }}
-              />
+              <Box sx={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {lightboxLoading && (
+                  <CircularProgress
+                    sx={{
+                      color: "#fff",
+                      position: "absolute",
+                      zIndex: 1,
+                    }}
+                  />
+                )}
+                <Box
+                  component="img"
+                  src={IMAGES[lightboxIdx]}
+                  alt=""
+                  onLoad={() => setLightboxLoading(false)}
+                  sx={{
+                    maxWidth: { xs: "80vw", md: "85vw" },
+                    maxHeight: "85vh",
+                    objectFit: "contain",
+                    borderRadius: "8px",
+                    display: "block",
+                    mx: { xs: "8px", md: "16px" },
+                    opacity: lightboxLoading ? 0 : 1,
+                    transition: "opacity 0.3s ease",
+                  }}
+                />
+              </Box>
             )}
             <NavArrow direction="right" onClick={nextLight} />
           </Box>

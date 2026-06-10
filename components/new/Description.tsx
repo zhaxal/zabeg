@@ -8,6 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import Image from "next/image";
 import { FC } from "react";
 
 const BLUE = "#0F2572";
@@ -272,11 +273,12 @@ const Description: FC = () => {
             justifyContent="center"
           >
             <Box width={{ xs: "80%", md: "50%" }}>
-              <Box
-                width="100%"
-                height="auto"
-                component="img"
+              <Image
                 src="/images/zabeg_2026/cheloveki.png"
+                alt=""
+                width={1200}
+                height={1563}
+                style={{ width: "100%", height: "auto" }}
               />
             </Box>
             <Box width={{ xs: "100%", md: "50%" }}>

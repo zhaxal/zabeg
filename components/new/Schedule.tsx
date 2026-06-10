@@ -23,6 +23,9 @@ interface ScheduleRow {
   description: string;
 }
 
+const isStartRow = (description: string) =>
+  description.startsWith("Старт на дистанцию");
+
 interface ScheduleCard {
   title: string;
   rows: ScheduleRow[];
@@ -99,63 +102,68 @@ const SCHEDULES: ScheduleCard[] = [
   },
 ];
 
-const TableRow: FC<ScheduleRow> = ({ time, description }) => (
-  <Box
-    sx={{
-      display: "flex",
-      background: `linear-gradient(301.38deg, ${BLUE} -7.89%, ${SKY} 151.15%)`,
-      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-      borderRadius: "8px",
-      overflow: "hidden",
-    }}
-  >
+const TableRow: FC<ScheduleRow> = ({ time, description }) => {
+  const start = isStartRow(description);
+  return (
     <Box
       sx={{
-        flexShrink: 0,
-        width: { xs: "76px", md: "112px" },
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "rgba(0,0,0,0.15)",
-        borderRight: "2px solid rgba(255,255,255,0.2)",
-        py: { xs: "10px", md: "14px" },
-        px: { xs: "8px", md: "12px" },
+        background: start
+          ? `linear-gradient(301.38deg, #1535A0 -7.89%, #78D8FF 151.15%)`
+          : `linear-gradient(301.38deg, ${BLUE} -7.89%, ${SKY} 151.15%)`,
+        boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+        borderRadius: "8px",
+        overflow: "hidden",
       }}
     >
-      <Typography
+      <Box
         sx={{
-          fontFamily: "Gotham Pro Bold",
-          fontSize: { xs: "14px", md: "18px" },
-          lineHeight: 1.2,
-          color: "#FFFFFF",
-          textAlign: "center",
+          flexShrink: 0,
+          width: { xs: "76px", md: "112px" },
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "rgba(0,0,0,0.15)",
+          borderRight: "2px solid rgba(255,255,255,0.2)",
+          py: { xs: "10px", md: "14px" },
+          px: { xs: "8px", md: "12px" },
         }}
       >
-        {time}
-      </Typography>
-    </Box>
-    <Box
-      sx={{
-        flex: 1,
-        display: "flex",
-        alignItems: "center",
-        py: { xs: "10px", md: "14px" },
-        px: { xs: "12px", md: "24px" },
-      }}
-    >
-      <Typography
+        <Typography
+          sx={{
+            fontFamily: "Gotham Pro Bold",
+            fontSize: { xs: "14px", md: "18px" },
+            lineHeight: 1.2,
+            color: "#FFFFFF",
+            textAlign: "center",
+          }}
+        >
+          {time}
+        </Typography>
+      </Box>
+      <Box
         sx={{
-          fontFamily: "Gotham Pro Regular",
-          fontSize: { xs: "14px", md: "18px" },
-          lineHeight: "130%",
-          color: "#FFFFFF",
+          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          py: { xs: "10px", md: "14px" },
+          px: { xs: "12px", md: "24px" },
         }}
       >
-        {description}
-      </Typography>
+        <Typography
+          sx={{
+            fontFamily: "Gotham Pro Regular",
+            fontSize: { xs: "14px", md: "18px" },
+            lineHeight: "130%",
+            color: "#FFFFFF",
+          }}
+        >
+          {description}
+        </Typography>
+      </Box>
     </Box>
-  </Box>
-);
+  );
+};
 
 const Schedule: FC = () => {
   const theme = useTheme();

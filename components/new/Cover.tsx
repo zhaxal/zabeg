@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Button, Stack, Typography } from "@mui/material";
+import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import { handleScrollToElement } from "@/utils/scroll";
 
@@ -80,10 +81,13 @@ const Cover: FC = () => {
 
       {/* Main banner with date + button overlaid */}
       <Box sx={{ position: "relative", backgroundColor: "white" }}>
-        <Box
-          component="img"
+        <Image
           src="/images/zabeg_2026/beguny.png"
-          sx={{ width: "100%", height: "auto", display: "block" }}
+          alt=""
+          width={1920}
+          height={1092}
+          priority
+          style={{ width: "100%", height: "auto", display: "block" }}
         />
         <Stack
           alignItems="center"

@@ -4,11 +4,13 @@ import {
   Grid,
   IconButton,
   Modal,
+  Skeleton,
   Stack,
   Typography,
   useMediaQuery,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import Image from "next/image";
 import React, { FC, useState, useEffect } from "react";
 
 const BLUE = "#0F2572";
@@ -104,28 +106,51 @@ const RouteImage: FC<{ park: ParkOption; onClick: () => void }> = ({
   onClick,
 }) => {
   const [error, setError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setError(false);
+    setLoaded(false);
   }, [park.id]);
 
   if (error) return <RoutePlaceholder park={park} />;
 
   return (
-    <Box
-      component="img"
-      src={park.image}
-      alt={`Маршрут — ${park.name}`}
-      onError={() => setError(true)}
-      onClick={onClick}
-      sx={{
-        width: "100%",
-        height: "auto",
-        borderRadius: "12px",
-        display: "block",
-        cursor: "zoom-in",
-      }}
-    />
+    <Box sx={{ position: "relative", width: "100%", borderRadius: "12px", overflow: "hidden" }}>
+      {!loaded && (
+        <Skeleton
+          variant="rectangular"
+          animation="wave"
+          sx={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            transform: "none",
+            bgcolor: "rgba(15,37,114,0.12)",
+            aspectRatio: "1/1",
+          }}
+        />
+      )}
+      <Image
+        src={park.image}
+        alt={`Маршрут — ${park.name}`}
+        width={2400}
+        height={2400}
+        onError={() => setError(true)}
+        onLoad={() => setLoaded(true)}
+        onClick={onClick}
+        style={{
+          width: "100%",
+          height: "auto",
+          borderRadius: "12px",
+          display: "block",
+          cursor: "zoom-in",
+          opacity: loaded ? 1 : 0,
+          transition: "opacity 0.3s ease",
+        }}
+      />
+    </Box>
   );
 };
 

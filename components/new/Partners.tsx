@@ -2,7 +2,7 @@
 
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { FC, useRef, useState } from "react";
 
 const BLUE = "#0F2572";
@@ -39,8 +39,6 @@ const INFO_PARTNERS: Partner[] = [
   { name: "PARENTS.RU", logo: "/images/zabeg_2026/partners/info_partners/parents.png", href: "https://www.parents.ru/" },
 ];
 
-const PER_PAGE = 5;
-
 const LogoCell: FC<{ partner: Partner }> = ({ partner: { name, logo, href, invert, scale } }) => {
   const imgSx = {
     width: "100%",
@@ -75,18 +73,22 @@ const LogoCell: FC<{ partner: Partner }> = ({ partner: { name, logo, href, inver
 };
 
 const LogoCarousel: FC<{ partners: Partner[] }> = ({ partners }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const perPage = isMobile ? 3 : 5;
   const [page, setPage] = useState(0);
-  const totalPages = Math.ceil(partners.length / PER_PAGE);
+  const totalPages = Math.ceil(partners.length / perPage);
+  const safePage = Math.min(page, totalPages - 1);
   const showArrows = totalPages > 1;
-  const visible = partners.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
+  const visible = partners.slice(safePage * perPage, (safePage + 1) * perPage);
   const touchStartX = useRef<number>(0);
 
   const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
   const onTouchEnd = (e: React.TouchEvent) => {
     const delta = touchStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(delta) > 40) {
-      if (delta > 0) setPage((p) => Math.min(totalPages - 1, p + 1));
-      else setPage((p) => Math.max(0, p - 1));
+      if (delta > 0) setPage((p) => Math.min(totalPages - 1, Math.min(p, totalPages - 1) + 1));
+      else setPage((p) => Math.max(0, Math.min(p, totalPages - 1) - 1));
     }
   };
 
@@ -100,7 +102,7 @@ const LogoCarousel: FC<{ partners: Partner[] }> = ({ partners }) => {
   return (
     <Box onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} sx={{ display: "flex", alignItems: "center", gap: { xs: "8px", md: "12px" } }}>
       {showArrows && (
-        <IconButton onClick={() => setPage((p) => p - 1)} disabled={page === 0} sx={arrowSx}>
+        <IconButton onClick={() => setPage(safePage - 1)} disabled={safePage === 0} sx={arrowSx}>
           <ArrowBackIosNewIcon sx={{ color: BLUE, fontSize: { xs: "16px", md: "20px" } }} />
         </IconButton>
       )}
@@ -123,8 +125,8 @@ const LogoCarousel: FC<{ partners: Partner[] }> = ({ partners }) => {
 
       {showArrows && (
         <IconButton
-          onClick={() => setPage((p) => p + 1)}
-          disabled={page === totalPages - 1}
+          onClick={() => setPage(safePage + 1)}
+          disabled={safePage === totalPages - 1}
           sx={arrowSx}
         >
           <ArrowForwardIosIcon sx={{ color: BLUE, fontSize: { xs: "16px", md: "20px" } }} />

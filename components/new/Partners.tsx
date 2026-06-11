@@ -16,7 +16,7 @@ interface Partner {
 }
 
 const GENERAL_PARTNERS: Partner[] = [
-  { name: "Калинов родник", logo: "/images/zabeg_2026/partners/general_partners/kalinov_rodnik.png", href: "https://kalinovrodnik.ru", scale: 2.7 },
+  { name: "Калинов родник", logo: "/images/zabeg_2026/partners/general_partners/kalinov_rodnik.png", href: "https://kalinovrodnik.ru", scale: 1 },
   { name: "Калинов родничок", logo: "/images/zabeg_2026/partners/general_partners/kalinov_rodnichek.png", href: "https://kalinovrodnik.ru/produkcziya/kalinov-rodnichok-dlya-samykh-malenkikh", scale: 1.8 },
   { name: "GLS", logo: "/images/zabeg_2026/partners/general_partners/gls.png", href: "https://gls.store" },
   { name: "EMI", logo: "/images/zabeg_2026/partners/general_partners/emi.png", href: "https://emi-shop.ru", scale: 1.4 },
@@ -37,7 +37,7 @@ const INFO_PARTNERS: Partner[] = [
   { name: "Емаил спорт", logo: "/images/zabeg_2026/partners/info_partners/email_sport.png", href: "https://sportmail.ru" },
   { name: "Максим", logo: "/images/zabeg_2026/partners/info_partners/maxim.png", href: "https://www.maximonline.ru" },
   { name: "PARENTS.RU", logo: "/images/zabeg_2026/partners/info_partners/parents.png", href: "https://www.parents.ru/" },
-  { name: "Спортс", logo: "/images/zabeg_2026/partners/info_partners/sports.png", href: "https://www.sports.ru/" }
+  // { name: "Спортс", logo: "/images/zabeg_2026/partners/info_partners/sports.png", href: "https://www.sports.ru/" }
 ];
 
 const LogoCell: FC<{ partner: Partner }> = ({ partner: { name, logo, href, invert, scale } }) => (

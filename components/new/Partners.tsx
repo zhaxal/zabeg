@@ -17,7 +17,7 @@ interface Partner {
 
 const GENERAL_PARTNERS: Partner[] = [
   { name: "Калинов родник", logo: "/images/zabeg_2026/partners/general_partners/kalinov_rodnik.png", href: "https://kalinovrodnik.ru", scale: 1 },
-  { name: "Калинов родничок", logo: "/images/zabeg_2026/partners/general_partners/kalinov_rodnichek.png", href: "https://kalinovrodnik.ru/produkcziya/kalinov-rodnichok-dlya-samykh-malenkikh", scale: 1.8 },
+  { name: "Калинов родничок", logo: "/images/zabeg_2026/partners/general_partners/kalinov_rodnichek.png", href: "https://kalinovrodnik.ru/produkcziya/kalinov-rodnichok-dlya-samykh-malenkikh", scale: 1 },
   { name: "GLS", logo: "/images/zabeg_2026/partners/general_partners/gls.png", href: "https://gls.store" },
   { name: "EMI", logo: "/images/zabeg_2026/partners/general_partners/emi.png", href: "https://emi-shop.ru", scale: 1.4 },
   { name: "SYNERGETIC", logo: "/images/zabeg_2026/partners/general_partners/synergetic.png", href: "https://synergetic.ru/" },

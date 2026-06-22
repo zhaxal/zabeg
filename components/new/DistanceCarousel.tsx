@@ -11,6 +11,8 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { FC, useRef } from "react";
 
+const ASK_FORM_URL = "https://forms.yandex.ru/u/6a3835981f1eb55c3e4c9c5b";
+
 const BLUE = "#0F2572";
 const SKY = "#60D0FF";
 const CORAL = "#E85555";
@@ -22,6 +24,7 @@ interface DistanceItem {
 
 interface ParkCardData {
   link: string;
+  resultsLink: string;
   district: string;
   accentColor: string;
   name: string;
@@ -29,16 +32,11 @@ interface ParkCardData {
   distances: DistanceItem[];
 }
 
-//   https://reg.place/events/nwad (СЗАО)
-//  https://reg.place/events/wad (ЗАО)
-//  https://reg.place/events/swad (ЮЗАО)
-//  https://reg.place/events/seao (ЮВАО)
-//  https://reg.place/events/eao (ВАО)
-
 const PARKS: ParkCardData[] = [
   {
     district: "ВАО",
     link: "https://reg.place/events/eao",
+    resultsLink: "https://protokol.openband.ru/2026/RESULT_NASTART_VAO_2026.pdf",
     accentColor: SKY,
     name: "Стадион «Авангард»",
     metro: "м. Шоссе Энтузиастов",
@@ -54,6 +52,7 @@ const PARKS: ParkCardData[] = [
   {
     district: "ЮЗАО",
     link: "https://reg.place/events/swad",
+    resultsLink: "https://protokol.openband.ru/2026/RESULT_NASTART_VZAO_2026.pdf",
     accentColor: CORAL,
     name: "Центр проката «Поляны Бутово»",
     metro: "м. Улица Старокачаловская",
@@ -68,6 +67,7 @@ const PARKS: ParkCardData[] = [
   {
     district: "ЮВАО",
     link: "https://reg.place/events/seao",
+    resultsLink: "https://protokol.openband.ru/2026/RESULT_NASTART_UVAO_2026.pdf",
     accentColor: SKY,
     name: "Парк 850-летия Москвы",
     metro: "м. Марьино",
@@ -82,6 +82,7 @@ const PARKS: ParkCardData[] = [
   {
     district: "СЗАО",
     link: "https://reg.place/events/nwad",
+    resultsLink: "https://protokol.openband.ru/2026/RESULT_NASTART_SZAO_2026.pdf",
     accentColor: CORAL,
     name: "Парк «Северное Тушино»",
     metro: "м. Планерная",
@@ -96,6 +97,7 @@ const PARKS: ParkCardData[] = [
   {
     district: "ЗАО",
     link: "https://reg.place/events/wad",
+    resultsLink: "https://protokol.openband.ru/2026/RESULT_NASTART_ZAO_2026.pdf",
     accentColor: SKY,
     name: "Парк Олимпийской деревни",
     metro: "м. Мичуринский проспект",
@@ -222,27 +224,52 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
       </Stack>
     </Box>
 
-    <Button
-      href={park.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        backgroundColor: CORAL,
-        borderRadius: "10px",
-        fontFamily: "Gotham Pro Bold",
-        fontSize: "15px",
-        color: "#FFFFFF",
-        py: "12px",
-        textTransform: "uppercase",
-        letterSpacing: "0.05em",
-        boxShadow: "0px 4px 0px rgba(0,0,0,0.25)",
-        "&:hover": {
-          backgroundColor: "#cc3333",
-        },
-      }}
-    >
-      Участвовать
-    </Button>
+    <Stack spacing="8px">
+      <Button
+        href={park.resultsLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        fullWidth
+        sx={{
+          background: "linear-gradient(90deg, #FFD324 0%, #FF8900 100%)",
+          borderRadius: "10px",
+          fontFamily: "Gotham Pro Bold",
+          fontSize: "15px",
+          color: "#31313E",
+          py: "12px",
+          textTransform: "uppercase",
+          letterSpacing: "0.05em",
+          boxShadow: "0px 4px 0px rgba(0,0,0,0.25)",
+          "&:hover": {
+            background: "linear-gradient(90deg, #FFE066 0%, #FFA733 100%)",
+          },
+        }}
+      >
+        Результаты
+      </Button>
+      <Button
+        href={ASK_FORM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        fullWidth
+        sx={{
+          background: "linear-gradient(301.38deg, #0461B5 -7.89%, #0098D7 151.15%)",
+          borderRadius: "10px",
+          fontFamily: "Gotham Pro Bold",
+          fontSize: "15px",
+          color: "#FFFFFF",
+          py: "12px",
+          textTransform: "uppercase",
+          letterSpacing: "0.05em",
+          boxShadow: "0px 4px 0px rgba(0,0,0,0.25)",
+          "&:hover": {
+            background: "linear-gradient(301.38deg, #034d8a -7.89%, #007ab5 151.15%)",
+          },
+        }}
+      >
+        Задать вопрос
+      </Button>
+    </Stack>
   </Box>
 );
 

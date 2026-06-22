@@ -11,6 +11,8 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { FC, useRef } from "react";
 
+const ASK_FORM_URL = "https://forms.yandex.ru/u/6a3835981f1eb55c3e4c9c5b";
+
 const BLUE = "#0F2572";
 const SKY = "#60D0FF";
 const CORAL = "#E85555";
@@ -246,12 +248,12 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
         Результаты
       </Button>
       <Button
-        href={park.link}
+        href={ASK_FORM_URL}
         target="_blank"
         rel="noopener noreferrer"
         fullWidth
         sx={{
-          backgroundColor: CORAL,
+          background: "linear-gradient(301.38deg, #0461B5 -7.89%, #0098D7 151.15%)",
           borderRadius: "10px",
           fontFamily: "Gotham Pro Bold",
           fontSize: "15px",
@@ -261,11 +263,11 @@ const ParkCard: FC<{ park: ParkCardData }> = ({ park }) => (
           letterSpacing: "0.05em",
           boxShadow: "0px 4px 0px rgba(0,0,0,0.25)",
           "&:hover": {
-            backgroundColor: "#cc3333",
+            background: "linear-gradient(301.38deg, #034d8a -7.89%, #007ab5 151.15%)",
           },
         }}
       >
-        Участвовать
+        Задать вопрос
       </Button>
     </Stack>
   </Box>

@@ -13,6 +13,16 @@ import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 import React, { FC, useState, useEffect } from "react";
 
+const RESULTS_LINKS: Record<string, string> = {
+  "ВАО": "https://protokol.openband.ru/2026/RESULT_NASTART_VAO_2026.pdf",
+  "ЮЗАО": "https://protokol.openband.ru/2026/RESULT_NASTART_VZAO_2026.pdf",
+  "ЮВАО": "https://protokol.openband.ru/2026/RESULT_NASTART_UVAO_2026.pdf",
+  "ЗАО": "https://protokol.openband.ru/2026/RESULT_NASTART_ZAO_2026.pdf",
+  "СЗАО": "https://protokol.openband.ru/2026/RESULT_NASTART_SZAO_2026.pdf",
+};
+
+const ASK_FORM_URL = "https://forms.yandex.ru/u/6a3835981f1eb55c3e4c9c5b";
+
 const BLUE = "#0F2572";
 const SKY = "#60D0FF";
 const CORAL = "#E85555";
@@ -231,6 +241,46 @@ const Route: FC = () => {
               park={activePark}
               onClick={() => setLightboxOpen(true)}
             />
+            <Stack direction={{ xs: "column", sm: "row" }} spacing="12px" mt="16px">
+              <Button
+                component="a"
+                href={RESULTS_LINKS[activePark.id]}
+                target="_blank"
+                rel="noopener noreferrer"
+                fullWidth
+                sx={{
+                  background: "linear-gradient(90deg, #FFD324 0%, #FF8900 100%)",
+                  boxShadow: "0px 4px 0px rgba(0, 0, 0, 0.16)",
+                  borderRadius: "8px",
+                  fontFamily: "Gotham Pro Bold",
+                  fontSize: { xs: "16px", md: "18px" },
+                  color: "#31313E",
+                  py: "14px",
+                  textTransform: "uppercase",
+                }}
+              >
+                Результаты
+              </Button>
+              <Button
+                component="a"
+                href={ASK_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                fullWidth
+                sx={{
+                  background: "linear-gradient(301.38deg, #0461B5 -7.89%, #0098D7 151.15%)",
+                  boxShadow: "0px 4px 0px rgba(0, 0, 0, 0.16)",
+                  borderRadius: "8px",
+                  fontFamily: "Gotham Pro Bold",
+                  fontSize: { xs: "16px", md: "18px" },
+                  color: "#FFFFFF",
+                  py: "14px",
+                  textTransform: "uppercase",
+                }}
+              >
+                Задать вопрос
+              </Button>
+            </Stack>
           </Grid>
 
           <Grid item xs={md ? 6 : 12}>

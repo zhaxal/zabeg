@@ -114,7 +114,7 @@ const Cover: FC = () => {
             20 ИЮНЯ 2026
           </Typography>
           <Button
-            onClick={handleScrollToElement("distances")}
+            onClick={handleScrollToElement("routes")}
             sx={{
               backgroundColor: CORAL,
               boxShadow: "0px 4px 0px rgba(0, 0, 0, 0.20)",
@@ -129,7 +129,7 @@ const Cover: FC = () => {
               "&:hover": { backgroundColor: "#cc3333" },
             }}
           >
-            Принять участие
+            Результаты
           </Button>
         </Stack>
       </Box>

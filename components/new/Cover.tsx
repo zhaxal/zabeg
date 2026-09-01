@@ -2,74 +2,12 @@
 
 import { Box, Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { handleScrollToElement } from "@/utils/scroll";
 
-const BLUE = "#0F2572";
-const SKY = "#60D0FF";
 const CORAL = "#E85555";
 
-const TARGET = new Date("2026-06-20T09:00:00+03:00").getTime();
-
-function getTimeLeft() {
-  const diff = Math.max(0, TARGET - Date.now());
-  return {
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((diff / (1000 * 60)) % 60),
-    seconds: Math.floor((diff / 1000) % 60),
-  };
-}
-
-const Unit: FC<{ value: number; label: string }> = ({ value, label }) => (
-  <Stack alignItems="center">
-    <Typography
-      sx={{
-        fontFamily: "Mossport",
-        fontSize: { xs: "36px", sm: "48px", md: "60px", lg: "72px" },
-        lineHeight: 1,
-        color: SKY,
-      }}
-    >
-      {String(value).padStart(2, "0")}
-    </Typography>
-    <Typography
-      sx={{
-        fontFamily: "Mossport",
-        fontSize: { xs: "10px", sm: "12px", md: "14px", lg: "16px" },
-        color: "#FFFFFF",
-        letterSpacing: "0.05em",
-      }}
-    >
-      {label}
-    </Typography>
-  </Stack>
-);
-
-const Separator: FC = () => (
-  <Typography
-    sx={{
-      fontFamily: "Mossport",
-      fontSize: { xs: "28px", sm: "36px", md: "48px", lg: "56px" },
-      lineHeight: 1,
-      color: SKY,
-      alignSelf: "flex-start",
-      mt: { xs: "4px", md: "8px" },
-    }}
-  >
-    :
-  </Typography>
-);
-
 const Cover: FC = () => {
-  const [time, setTime] = useState<ReturnType<typeof getTimeLeft> | null>(null);
-
-  useEffect(() => {
-    setTime(getTimeLeft());
-    const id = setInterval(() => setTime(getTimeLeft()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <>
       <Box
@@ -131,35 +69,6 @@ const Cover: FC = () => {
           >
             Результаты
           </Button>
-        </Stack>
-      </Box>
-
-      {/* Countdown timer — separate row below the banner */}
-      <Box sx={{ backgroundColor: BLUE, py: { xs: 2, md: 3 } }}>
-        <Stack alignItems="center" spacing={{ xs: 1, md: 1.5 }}>
-          <Typography
-            sx={{
-              fontFamily: "Mossport",
-              fontSize: { xs: "14px", sm: "16px", md: "20px", lg: "24px" },
-              color: "#FFFFFF",
-              letterSpacing: "0.05em",
-            }}
-          >
-            ДО СТАРТА ОСТАЛОСЬ
-          </Typography>
-          <Stack
-            direction="row"
-            alignItems="flex-start"
-            spacing={{ xs: "8px", sm: "12px", md: "16px", lg: "20px" }}
-          >
-            <Unit value={time?.days ?? 0} label="ДНЕЙ" />
-            <Separator />
-            <Unit value={time?.hours ?? 0} label="ЧАСОВ" />
-            <Separator />
-            <Unit value={time?.minutes ?? 0} label="МИНУТ" />
-            <Separator />
-            <Unit value={time?.seconds ?? 0} label="СЕКУНД" />
-          </Stack>
         </Stack>
       </Box>
     </>

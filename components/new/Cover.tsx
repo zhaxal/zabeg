@@ -5,6 +5,8 @@ import Image from "next/image";
 import { FC } from "react";
 import { handleScrollToElement } from "@/utils/scroll";
 
+const BLUE = "#0F2572";
+const SKY = "#60D0FF";
 const CORAL = "#E85555";
 
 const Cover: FC = () => {
@@ -70,6 +72,27 @@ const Cover: FC = () => {
             Результаты
           </Button>
         </Stack>
+      </Box>
+
+      {/* Post-race notice — separate row below the banner */}
+      <Box
+        sx={{
+          backgroundColor: BLUE,
+          py: { xs: 3, md: 4 },
+          textAlign: "center",
+        }}
+      >
+        <Typography
+          sx={{
+            fontFamily: "Mossport",
+            fontSize: { xs: "36px", sm: "48px", md: "72px", lg: "88px" },
+            lineHeight: 1,
+            color: SKY,
+            letterSpacing: "0.05em",
+          }}
+        >
+          ПРОШЕЛ
+        </Typography>
       </Box>
     </>
   );

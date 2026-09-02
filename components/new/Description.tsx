@@ -342,13 +342,14 @@ const Description: FC = () => {
                   boxShadow: "0px 6px 0px rgba(0, 0, 0, 0.20)",
                   textTransform: "uppercase",
                   fontFamily: "Mossport",
-                  fontSize: { xs: "32px", sm: "40px", md: "48px", lg: "56px" },
+                  fontSize: { xs: "22px", sm: "26px", lg: "34px" },
                   color: "#FFFFFF",
-                  lineHeight: 1,
+                  lineHeight: 1.1,
+                  textAlign: "center",
                   "&:hover": { bgcolor: "#cc3333" },
                 }}
               >
-                Все на старт!
+                До встречи в следующем году!
               </Button>
             </Box>
           </Stack>
